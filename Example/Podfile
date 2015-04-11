@@ -2,6 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'AUMediaPlayer', :exclusive => true do
   pod "AUMediaPlayer", :path => "../"
+  pod "AFNetworking"
 end
 
 target 'Tests', :exclusive => true do

@@ -1,0 +1,1243 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0416E9248C1140602B7D2D32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
+		04A1951DA243B984AB360811 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F4CD014CF5B82BE3428A98 /* AFNetworkReachabilityManager.m */; };
+		06E6CDCEEB04EC921710E212 /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */; };
+		09C3153A322FC6FFE17DB83B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79896EFF51B9F135506E923B /* Security.framework */; };
+		0B56C2CC95D44FB3C4DB720C /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6477ED47C4E378759F080D52 /* UIRefreshControl+AFNetworking.m */; };
+		0C1FA100B0219AD3B5CEF49F /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */; };
+		0E713D6E5DE045844CDC1A6B /* NSString+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003AED091F64BF105D4609A /* NSString+AUMedia.m */; };
+		12261475EC5248BF79752FF8 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CD83CED1B55187AF024D4 /* UIActivityIndicatorView+AFNetworking.m */; };
+		134F27FE8C19EBDD5807F124 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4510C573E4600DC7505C26 /* AFURLResponseSerialization.m */; };
+		1406C4600591491ED7B697A1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 337A6341739AF55985DDFFA0 /* AFURLSessionManager.m */; };
+		1F46BD1DE0C4C38070274AB4 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 032098B80518F0CABE4292FE /* AFSecurityPolicy.h */; };
+		2172308C4FC6808C53449BC5 /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D89D56551C6D4803D756B6 /* AUMediaConstants.h */; };
+		26A7B6A519B3D657ABBDB9B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2910DA95DDEF8DAC755F9BD5 /* SystemConfiguration.framework */; };
+		2B8CB197BAA1F031B81CD9DE /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DA6830E182F42B3E062B89 /* Pods-Tests-dummy.m */; };
+		2D44152610A530D45F94104B /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */; };
+		3093DA29E999A0B32E182DAA /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6004CC9544BFE1942EDCC9 /* AFURLConnectionOperation.h */; };
+		32178D60B29BAD24E65A2CF2 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CBF41FF2F77CF5C3B01F0774 /* UIWebView+AFNetworking.h */; };
+		35E4737E5DB0743294E3B26A /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6015568FC9DAD0ABF41F503 /* AFNetworkReachabilityManager.h */; };
+		39D854C2B5959C7C15C7122F /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */; };
+		3A9CD40200DBDEA688CDBC4E /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B0435BCEA68BB8DC4336AD0B /* AFHTTPSessionManager.h */; };
+		3ABD867DCFF60FE6A57B6F23 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F862158A71EA0DDDFAADDA /* AFHTTPRequestOperation.m */; };
+		3E3ED2FAF54B2FB674B9E95F /* AUMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */; };
+		479FCDF7D5DD35956E92153F /* AUMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */; };
+		48EB672259B285EFC764974B /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = BBA16DBD589B36908E2329F5 /* AFHTTPRequestOperation.h */; };
+		4996DB4C780F495B30C00951 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3AF41F1806FFF85B72199 /* AFURLRequestSerialization.m */; };
+		4BCF1AF17C1627CAC1D4DFBE /* NSString+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003AED091F64BF105D4609A /* NSString+AUMedia.m */; };
+		4D7C2604DE1CF61E26D3BA24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F482B3552306C4E7974251 /* CoreGraphics.framework */; };
+		4E7FB0FD0146201DDC41DBB1 /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D89D56551C6D4803D756B6 /* AUMediaConstants.h */; };
+		50DD997F7F33C41A8D08EA00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
+		51D19090EBD0A13FC958BE2C /* Pods-AUMediaPlayer-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 164662A6172D992D5C9512F8 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */; };
+		5320AF38DF652DF50E8CBEB9 /* AUMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF477038DEDA1966E66877 /* AUMediaPlayer.m */; };
+		5A73EAB4D480D918DEA6A884 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
+		5A93F135F1535D68E7BD6D5C /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0929942B263E03E21723BB47 /* AUMediaLibrary.m */; };
+		5B2D847A4C09FA13463C39B8 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CD823B5BD92496568D96EE25 /* AFNetworking.h */; };
+		6005F9F3278C9144A4EF0F33 /* NSError+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = CED6D159770200F1D58A4312 /* NSError+AUMedia.h */; };
+		62EA9E3118A6BAD575FA4A97 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0117EF4DD00AA0C156F67528 /* UIRefreshControl+AFNetworking.h */; };
+		64EEDEBE3867D3703F0A20C1 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 316450FEAB91E193F43AB45C /* AFHTTPRequestOperationManager.h */; };
+		673C37E7C32C9EE594A57EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
+		68272A9348A27124D1F87B80 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EA2AA3BF2952987DFE0FDC /* UIProgressView+AFNetworking.m */; };
+		6A306CA3B43E0754FD919F1E /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4838C1C1876A3F718D5CF0E9 /* UIButton+AFNetworking.m */; };
+		6EE21EC05094CCB8B1022D02 /* NSURL+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */; };
+		6F585FC23127FCA6937DDE1A /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */; };
+		7CF4186074DB2E0B8564F722 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A451E51C066EB9DDC5326FEC /* UIImageView+AFNetworking.m */; };
+		7DAFF0371691ABA0DBFB1AEE /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */; };
+		83B628AB22ADCB48C52C22A3 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */; };
+		866C61C600B26AE13A44E0C5 /* AUMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF477038DEDA1966E66877 /* AUMediaPlayer.m */; };
+		8D03E670D267D70B7E2B88F0 /* Pods-Tests-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7165550E52468FDD2CC4763 /* Pods-Tests-AUMediaPlayer-dummy.m */; };
+		931606A7B12035541C36F3A8 /* NSError+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = CED6D159770200F1D58A4312 /* NSError+AUMedia.h */; };
+		94B785EEBF1AF32E1C6320E1 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E3A434DAA774294873D90C30 /* UIKit+AFNetworking.h */; };
+		980BE3D0287BB405015A4160 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A90372180BC36A24803E93BC /* UIAlertView+AFNetworking.m */; };
+		A1AF368B3E8F5F7E831470F1 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858864CE4AB19EDFB4E6C0B /* UIWebView+AFNetworking.m */; };
+		A1C6CA57EFE29E8E4D1CBB81 /* AUMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */; };
+		A28279CFBD8E823F9CDCEEAD /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = EA7831DF1A9CCC6A5DF90138 /* AFURLRequestSerialization.h */; };
+		A968C5066CA02A9680A0444A /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953DAE6C4973C104CB2304D6 /* AFHTTPRequestOperationManager.m */; };
+		B0961852A2F62CB6FD65E3FB /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9BEB4DE7DBA9B980E6FBA2 /* AFHTTPSessionManager.m */; };
+		B56A0AD76C6AD441310317D2 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B692C8E43E1FE8867D93406 /* UIImageView+AFNetworking.h */; };
+		B79CA266C355B3A6C4F487F4 /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */; };
+		BFE36E076FA3037244FB208C /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA90753CF8B9302D162CED40 /* AFURLSessionManager.h */; };
+		C46EF53C8DD40E6187B26DD5 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3368757EE15AB613728BFE /* AFURLConnectionOperation.m */; };
+		C770E513ECF23B437989EE6E /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */; };
+		C8DD26ED99BC6ED60B9F3C5C /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */; };
+		C9DED43AC007F014A0FD5664 /* Pods-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DE64C3DAFF6B80123A4C57 /* Pods-AUMediaPlayer-dummy.m */; };
+		CA606F9983BA99D491CF5098 /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */; };
+		CEEBF37B4E146AA3B51EDEEA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */; };
+		D65F95CBA8C7675DCFE9B7F5 /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0929942B263E03E21723BB47 /* AUMediaLibrary.m */; };
+		D8BE7CE95D744E42F0161E68 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */; };
+		DA56552A26E7AF37E7AE7921 /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */; };
+		DD2DE43CF91888BC68299C67 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */; };
+		DF6DCCEDC3359D424CEC376D /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 596AB10DB3AC46BDE100D65D /* AFNetworkActivityIndicatorManager.m */; };
+		EA2EFCC5BA95BB88846A99DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
+		EC0C1940B264C800BE84EA02 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CC1E5E0FE277C5C1D3267 /* AFURLResponseSerialization.h */; };
+		EC8458FD1A7AC3671D696199 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5097EF2303C93A0F08573238 /* UIAlertView+AFNetworking.h */; };
+		ED5437A51D96EF31098CDBDF /* NSURL+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */; };
+		EE3AAF0173132FEDE9E70293 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9C894A0C7D0D260AEED342 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */; };
+		FC086475370EF9F0F6436361 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */; };
+		FF5086ECC47BC35691183FB7 /* AUMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17DB7D4FC7B3843819FF721E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B80559F3FCB3749C6B81735C;
+			remoteInfo = "Pods-AUMediaPlayer-AFNetworking";
+		};
+		485E65897A63EAD17651A399 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E675DC85D7AB02D0A2AA6D5;
+			remoteInfo = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
+		};
+		D38454D864FF7D917F084930 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC01AD1F381D3A9DA1EA39F3;
+			remoteInfo = "Pods-AUMediaPlayer-AUMediaPlayer";
+		};
+		F414E0E12735230F601FCBA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91122FA05D1E446414D9CFC4;
+			remoteInfo = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+		};
+		FA5D486F9C7EA1AA0C4BFED8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD71FEB880519C3D5E1FCECA;
+			remoteInfo = "Pods-Tests-AUMediaPlayer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0117EF4DD00AA0C156F67528 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		032098B80518F0CABE4292FE /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		03668A62786DE7C1A4D39778 /* libPods-Tests-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0596FB896FF865140F9716BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		05BCB4A6CD4F6BA6B32FC393 /* Pods-AUMediaPlayer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AUMediaPlayer-resources.sh"; sourceTree = "<group>"; };
+		0929942B263E03E21723BB47 /* AUMediaLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaLibrary.m; sourceTree = "<group>"; };
+		0F3368757EE15AB613728BFE /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		11EEBBE23048E44D441C862C /* Pods-AUMediaPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		12C23F4FE23AB88730792A5B /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		158FEFA70051FEB86ADFD259 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		164662A6172D992D5C9512F8 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		1B692C8E43E1FE8867D93406 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		284DC1F32A6E8E18D2B26243 /* Pods-AUMediaPlayer-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
+		29101D4B260B89C5B7847A4F /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2910DA95DDEF8DAC755F9BD5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		30CDD810EE2B91CEF34E37D2 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
+		316450FEAB91E193F43AB45C /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		337A6341739AF55985DDFFA0 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		341A1D18D30D40D563ECD3BF /* AUMediaPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUMediaPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AA3AF41F1806FFF85B72199 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURL+AUMedia.h"; sourceTree = "<group>"; };
+		3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSError+AUMedia.m"; sourceTree = "<group>"; };
+		3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaItem.h; sourceTree = "<group>"; };
+		41DE64C3DAFF6B80123A4C57 /* Pods-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
+		42B9D603B8A29AC16EC6FE98 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4838C1C1876A3F718D5CF0E9 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		5097EF2303C93A0F08573238 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		50B3346E17EB976CC11CBA3C /* libPods-AUMediaPlayer-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		537E53AFB651C4336E0AD572 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		56CC6087DA7BE854F211C348 /* libPods-AUMediaPlayer-AFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-AFNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		596AB10DB3AC46BDE100D65D /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
+		5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
+		6003AED091F64BF105D4609A /* NSString+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+AUMedia.m"; sourceTree = "<group>"; };
+		6039658405C89ACB4B4ED670 /* Pods-AUMediaPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaLibrary.h; sourceTree = "<group>"; };
+		6477ED47C4E378759F080D52 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		69DA6830E182F42B3E062B89 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		71F482B3552306C4E7974251 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		74EA2AA3BF2952987DFE0FDC /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		75F862158A71EA0DDDFAADDA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		79896EFF51B9F135506E923B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		7B5CD83CED1B55187AF024D4 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		8858864CE4AB19EDFB4E6C0B /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		8A57831B47A77075C64D05D8 /* libPods-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+AUMedia.h"; sourceTree = "<group>"; };
+		953DAE6C4973C104CB2304D6 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		96D89D56551C6D4803D756B6 /* AUMediaConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaConstants.h; sourceTree = "<group>"; };
+		9B3CC1E5E0FE277C5C1D3267 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		9BC0CCEE942CD2804E30B519 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		9C08E2D6DE99D42C5C40FCB3 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C6004CC9544BFE1942EDCC9 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		A0F4CD014CF5B82BE3428A98 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		A451E51C066EB9DDC5326FEC /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		A7165550E52468FDD2CC4763 /* Pods-Tests-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-AUMediaPlayer-dummy.m"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
+		A90372180BC36A24803E93BC /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer-Private.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
+		AAE5B52B9C91F9183D892B44 /* Pods-AUMediaPlayer-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaConstants.m; sourceTree = "<group>"; };
+		B0435BCEA68BB8DC4336AD0B /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		BB9BEB4DE7DBA9B980E6FBA2 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		BBA16DBD589B36908E2329F5 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		BE8556A2B07CF6491DDD1BCA /* Pods-AUMediaPlayer-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AFNetworking.xcconfig"; sourceTree = "<group>"; };
+		CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaPlayer.h; sourceTree = "<group>"; };
+		CBF41FF2F77CF5C3B01F0774 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		CD823B5BD92496568D96EE25 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		CEC928587E1D0F6FC3F165C8 /* Pods-Tests-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
+		CED6D159770200F1D58A4312 /* NSError+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSError+AUMedia.h"; sourceTree = "<group>"; };
+		D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AUMedia.m"; sourceTree = "<group>"; };
+		D8451326BFFB97C7B7EB49DE /* Pods-AUMediaPlayer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AUMediaPlayer-acknowledgements.plist"; sourceTree = "<group>"; };
+		DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		E3A434DAA774294873D90C30 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		E8349178229D8E26415C370B /* Pods-AUMediaPlayer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AUMediaPlayer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
+		EA7831DF1A9CCC6A5DF90138 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		ED9DD573F1D2F452166861EF /* Pods-AUMediaPlayer-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-environment.h"; sourceTree = "<group>"; };
+		EEEAB18AEAE24EA1A9422169 /* AUMediaPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUMediaPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4510C573E4600DC7505C26 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		F0A529F13E1167A28FFE9891 /* Pods-Tests-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-AUMediaPlayer-prefix.pch"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
+		F6015568FC9DAD0ABF41F503 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		FA90753CF8B9302D162CED40 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		FC2F4C4FB82470C811C627DC /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FD9C894A0C7D0D260AEED342 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
+		FECF477038DEDA1966E66877 /* AUMediaPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaPlayer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01C1D4173427032B00C86006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06C90AE5A8E904D6CFB9E0DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0416E9248C1140602B7D2D32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ED78DB2780689D6AC9BD732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA2EFCC5BA95BB88846A99DD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66682F27CE4EB25366349786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A73EAB4D480D918DEA6A884 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D9401637E2C804F2F49312F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				673C37E7C32C9EE594A57EAA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4ED62EC19BCB2492789325A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7C2604DE1CF61E26D3BA24 /* CoreGraphics.framework in Frameworks */,
+				50DD997F7F33C41A8D08EA00 /* Foundation.framework in Frameworks */,
+				FC086475370EF9F0F6436361 /* MobileCoreServices.framework in Frameworks */,
+				09C3153A322FC6FFE17DB83B /* Security.framework in Frameworks */,
+				26A7B6A519B3D657ABBDB9B5 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA77FACBE500E1EE049DB450 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06CFFB84B46AF228A682138D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D86AF3B877D29F2F70DE3 /* AFNetworking */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		11744870C8E930C56DABEAF8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CA3410C76046F0F22986FD7 /* Pods-AUMediaPlayer */,
+				E591D3535931C1A5512E6CC5 /* Pods-Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		11E27117E972A8024F3FCD2E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				2B16393DA4FAED1361AF34A4 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		1309AF6532F04FA626F6DD21 = {
+			isa = PBXGroup;
+			children = (
+				158FEFA70051FEB86ADFD259 /* Podfile */,
+				7E7B6BD5BA38E495BB609B72 /* Development Pods */,
+				B7C61B3445C81D5E9CA2244D /* Frameworks */,
+				06CFFB84B46AF228A682138D /* Pods */,
+				58194E46D264CFE2B3384EA0 /* Products */,
+				11744870C8E930C56DABEAF8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		238FEB26C090D803782A1BED /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				284DC1F32A6E8E18D2B26243 /* Pods-AUMediaPlayer-AUMediaPlayer.xcconfig */,
+				EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */,
+				FD9C894A0C7D0D260AEED342 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */,
+				30CDD810EE2B91CEF34E37D2 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */,
+				CEC928587E1D0F6FC3F165C8 /* Pods-Tests-AUMediaPlayer.xcconfig */,
+				A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */,
+				A7165550E52468FDD2CC4763 /* Pods-Tests-AUMediaPlayer-dummy.m */,
+				F0A529F13E1167A28FFE9891 /* Pods-Tests-AUMediaPlayer-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer";
+			sourceTree = "<group>";
+		};
+		2B16393DA4FAED1361AF34A4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				96D89D56551C6D4803D756B6 /* AUMediaConstants.h */,
+				AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */,
+				3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */,
+				62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */,
+				0929942B263E03E21723BB47 /* AUMediaLibrary.m */,
+				CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */,
+				FECF477038DEDA1966E66877 /* AUMediaPlayer.m */,
+				CED6D159770200F1D58A4312 /* NSError+AUMedia.h */,
+				3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */,
+				8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */,
+				6003AED091F64BF105D4609A /* NSString+AUMedia.m */,
+				3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */,
+				D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2F43C73AA03F2910F4E68C9B /* AUMediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				11E27117E972A8024F3FCD2E /* Pod */,
+				238FEB26C090D803782A1BED /* Support Files */,
+			);
+			name = AUMediaPlayer;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		58194E46D264CFE2B3384EA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				341A1D18D30D40D563ECD3BF /* AUMediaPlayer.bundle */,
+				EEEAB18AEAE24EA1A9422169 /* AUMediaPlayer.bundle */,
+				8A57831B47A77075C64D05D8 /* libPods-AUMediaPlayer.a */,
+				56CC6087DA7BE854F211C348 /* libPods-AUMediaPlayer-AFNetworking.a */,
+				50B3346E17EB976CC11CBA3C /* libPods-AUMediaPlayer-AUMediaPlayer.a */,
+				9C08E2D6DE99D42C5C40FCB3 /* libPods-Tests.a */,
+				03668A62786DE7C1A4D39778 /* libPods-Tests-AUMediaPlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E7B6BD5BA38E495BB609B72 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F43C73AA03F2910F4E68C9B /* AUMediaPlayer */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		9044CE504F35CBB0DE9A6B23 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				EA7831DF1A9CCC6A5DF90138 /* AFURLRequestSerialization.h */,
+				3AA3AF41F1806FFF85B72199 /* AFURLRequestSerialization.m */,
+				9B3CC1E5E0FE277C5C1D3267 /* AFURLResponseSerialization.h */,
+				EF4510C573E4600DC7505C26 /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		92A128DB39A1FD2BEEADB2FE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE8556A2B07CF6491DDD1BCA /* Pods-AUMediaPlayer-AFNetworking.xcconfig */,
+				5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */,
+				164662A6172D992D5C9512F8 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */,
+				AAE5B52B9C91F9183D892B44 /* Pods-AUMediaPlayer-AFNetworking-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-AUMediaPlayer-AFNetworking";
+			sourceTree = "<group>";
+		};
+		9CA3410C76046F0F22986FD7 /* Pods-AUMediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E8349178229D8E26415C370B /* Pods-AUMediaPlayer-acknowledgements.markdown */,
+				D8451326BFFB97C7B7EB49DE /* Pods-AUMediaPlayer-acknowledgements.plist */,
+				41DE64C3DAFF6B80123A4C57 /* Pods-AUMediaPlayer-dummy.m */,
+				ED9DD573F1D2F452166861EF /* Pods-AUMediaPlayer-environment.h */,
+				05BCB4A6CD4F6BA6B32FC393 /* Pods-AUMediaPlayer-resources.sh */,
+				6039658405C89ACB4B4ED670 /* Pods-AUMediaPlayer.debug.xcconfig */,
+				11EEBBE23048E44D441C862C /* Pods-AUMediaPlayer.release.xcconfig */,
+			);
+			name = "Pods-AUMediaPlayer";
+			path = "Target Support Files/Pods-AUMediaPlayer";
+			sourceTree = "<group>";
+		};
+		B08A3125FE4C2A978EC96A8E /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				F6015568FC9DAD0ABF41F503 /* AFNetworkReachabilityManager.h */,
+				A0F4CD014CF5B82BE3428A98 /* AFNetworkReachabilityManager.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		B7C61B3445C81D5E9CA2244D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD9A96BA9862A5C9266098E8 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC73E456353044947F1ECB62 /* NSURLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				BBA16DBD589B36908E2329F5 /* AFHTTPRequestOperation.h */,
+				75F862158A71EA0DDDFAADDA /* AFHTTPRequestOperation.m */,
+				316450FEAB91E193F43AB45C /* AFHTTPRequestOperationManager.h */,
+				953DAE6C4973C104CB2304D6 /* AFHTTPRequestOperationManager.m */,
+				9C6004CC9544BFE1942EDCC9 /* AFURLConnectionOperation.h */,
+				0F3368757EE15AB613728BFE /* AFURLConnectionOperation.m */,
+			);
+			name = NSURLConnection;
+			sourceTree = "<group>";
+		};
+		DA2C90EC108CD94CAE8E793C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */,
+				596AB10DB3AC46BDE100D65D /* AFNetworkActivityIndicatorManager.m */,
+				E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */,
+				7B5CD83CED1B55187AF024D4 /* UIActivityIndicatorView+AFNetworking.m */,
+				5097EF2303C93A0F08573238 /* UIAlertView+AFNetworking.h */,
+				A90372180BC36A24803E93BC /* UIAlertView+AFNetworking.m */,
+				A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */,
+				4838C1C1876A3F718D5CF0E9 /* UIButton+AFNetworking.m */,
+				1B692C8E43E1FE8867D93406 /* UIImageView+AFNetworking.h */,
+				A451E51C066EB9DDC5326FEC /* UIImageView+AFNetworking.m */,
+				E3A434DAA774294873D90C30 /* UIKit+AFNetworking.h */,
+				50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */,
+				74EA2AA3BF2952987DFE0FDC /* UIProgressView+AFNetworking.m */,
+				0117EF4DD00AA0C156F67528 /* UIRefreshControl+AFNetworking.h */,
+				6477ED47C4E378759F080D52 /* UIRefreshControl+AFNetworking.m */,
+				CBF41FF2F77CF5C3B01F0774 /* UIWebView+AFNetworking.h */,
+				8858864CE4AB19EDFB4E6C0B /* UIWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		DD9A96BA9862A5C9266098E8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				71F482B3552306C4E7974251 /* CoreGraphics.framework */,
+				0596FB896FF865140F9716BA /* Foundation.framework */,
+				D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */,
+				79896EFF51B9F135506E923B /* Security.framework */,
+				2910DA95DDEF8DAC755F9BD5 /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E158078FF9CDFE84495A76F9 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				032098B80518F0CABE4292FE /* AFSecurityPolicy.h */,
+				79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		E591D3535931C1A5512E6CC5 /* Pods-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				29101D4B260B89C5B7847A4F /* Pods-Tests-acknowledgements.markdown */,
+				12C23F4FE23AB88730792A5B /* Pods-Tests-acknowledgements.plist */,
+				69DA6830E182F42B3E062B89 /* Pods-Tests-dummy.m */,
+				9BC0CCEE942CD2804E30B519 /* Pods-Tests-environment.h */,
+				537E53AFB651C4336E0AD572 /* Pods-Tests-resources.sh */,
+				42B9D603B8A29AC16EC6FE98 /* Pods-Tests.debug.xcconfig */,
+				FC2F4C4FB82470C811C627DC /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		EE5D86AF3B877D29F2F70DE3 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				CD823B5BD92496568D96EE25 /* AFNetworking.h */,
+				BC73E456353044947F1ECB62 /* NSURLConnection */,
+				EFDF5295A063570B3C8B0931 /* NSURLSession */,
+				B08A3125FE4C2A978EC96A8E /* Reachability */,
+				E158078FF9CDFE84495A76F9 /* Security */,
+				9044CE504F35CBB0DE9A6B23 /* Serialization */,
+				92A128DB39A1FD2BEEADB2FE /* Support Files */,
+				DA2C90EC108CD94CAE8E793C /* UIKit */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		EFDF5295A063570B3C8B0931 /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				B0435BCEA68BB8DC4336AD0B /* AFHTTPSessionManager.h */,
+				BB9BEB4DE7DBA9B980E6FBA2 /* AFHTTPSessionManager.m */,
+				FA90753CF8B9302D162CED40 /* AFURLSessionManager.h */,
+				337A6341739AF55985DDFFA0 /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		25FABF0E45EA21766A86A35F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48EB672259B285EFC764974B /* AFHTTPRequestOperation.h in Headers */,
+				64EEDEBE3867D3703F0A20C1 /* AFHTTPRequestOperationManager.h in Headers */,
+				3A9CD40200DBDEA688CDBC4E /* AFHTTPSessionManager.h in Headers */,
+				6F585FC23127FCA6937DDE1A /* AFNetworkActivityIndicatorManager.h in Headers */,
+				35E4737E5DB0743294E3B26A /* AFNetworkReachabilityManager.h in Headers */,
+				5B2D847A4C09FA13463C39B8 /* AFNetworking.h in Headers */,
+				1F46BD1DE0C4C38070274AB4 /* AFSecurityPolicy.h in Headers */,
+				3093DA29E999A0B32E182DAA /* AFURLConnectionOperation.h in Headers */,
+				A28279CFBD8E823F9CDCEEAD /* AFURLRequestSerialization.h in Headers */,
+				EC0C1940B264C800BE84EA02 /* AFURLResponseSerialization.h in Headers */,
+				BFE36E076FA3037244FB208C /* AFURLSessionManager.h in Headers */,
+				83B628AB22ADCB48C52C22A3 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				EC8458FD1A7AC3671D696199 /* UIAlertView+AFNetworking.h in Headers */,
+				DD2DE43CF91888BC68299C67 /* UIButton+AFNetworking.h in Headers */,
+				B56A0AD76C6AD441310317D2 /* UIImageView+AFNetworking.h in Headers */,
+				94B785EEBF1AF32E1C6320E1 /* UIKit+AFNetworking.h in Headers */,
+				D8BE7CE95D744E42F0161E68 /* UIProgressView+AFNetworking.h in Headers */,
+				62EA9E3118A6BAD575FA4A97 /* UIRefreshControl+AFNetworking.h in Headers */,
+				32178D60B29BAD24E65A2CF2 /* UIWebView+AFNetworking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95BE57D179E072E9F138E10A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2172308C4FC6808C53449BC5 /* AUMediaConstants.h in Headers */,
+				A1C6CA57EFE29E8E4D1CBB81 /* AUMediaItem.h in Headers */,
+				C770E513ECF23B437989EE6E /* AUMediaLibrary.h in Headers */,
+				3E3ED2FAF54B2FB674B9E95F /* AUMediaPlayer.h in Headers */,
+				931606A7B12035541C36F3A8 /* NSError+AUMedia.h in Headers */,
+				7DAFF0371691ABA0DBFB1AEE /* NSString+AUMedia.h in Headers */,
+				DA56552A26E7AF37E7AE7921 /* NSURL+AUMedia.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A70FC5E5D899FFF7E05304D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7FB0FD0146201DDC41DBB1 /* AUMediaConstants.h in Headers */,
+				FF5086ECC47BC35691183FB7 /* AUMediaItem.h in Headers */,
+				06E6CDCEEB04EC921710E212 /* AUMediaLibrary.h in Headers */,
+				479FCDF7D5DD35956E92153F /* AUMediaPlayer.h in Headers */,
+				6005F9F3278C9144A4EF0F33 /* NSError+AUMedia.h in Headers */,
+				39D854C2B5959C7C15C7122F /* NSString+AUMedia.h in Headers */,
+				0C1FA100B0219AD3B5CEF49F /* NSURL+AUMedia.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5E675DC85D7AB02D0A2AA6D5 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 278CC10AE0878AC6230728DB /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer" */;
+			buildPhases = (
+				18C7F81E55E25D7C8FCC71A0 /* Sources */,
+				01C1D4173427032B00C86006 /* Frameworks */,
+				83A502DC7C9BEDFE5900A74A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
+			productName = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
+			productReference = EEEAB18AEAE24EA1A9422169 /* AUMediaPlayer.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		6EACBCD2C41EB097A915D70D /* Pods-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A921FDB62DAE2B1E2B8B66D /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer" */;
+			buildPhases = (
+				896EE49C972E1077C9759D5E /* Sources */,
+				1ED78DB2780689D6AC9BD732 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				304A05780A879EC9995DA00A /* PBXTargetDependency */,
+				2D1B7E43517F1BD890994A9C /* PBXTargetDependency */,
+			);
+			name = "Pods-AUMediaPlayer";
+			productName = "Pods-AUMediaPlayer";
+			productReference = 8A57831B47A77075C64D05D8 /* libPods-AUMediaPlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		91122FA05D1E446414D9CFC4 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A5493D89A7F17AA16D1C6AD /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer-AUMediaPlayer" */;
+			buildPhases = (
+				7CDF32BA8F2B95182B388FF7 /* Sources */,
+				DA77FACBE500E1EE049DB450 /* Frameworks */,
+				6FA58FD82741942E072A524D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+			productName = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+			productReference = 341A1D18D30D40D563ECD3BF /* AUMediaPlayer.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		973D271A8738C96B6573BD3B /* Pods-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 005ADB3F73287FDB52977EC9 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildPhases = (
+				DBF79DD2A315D93E7B581638 /* Sources */,
+				6D9401637E2C804F2F49312F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				207FBBC6C1CF567B3DBF6815 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests";
+			productName = "Pods-Tests";
+			productReference = 9C08E2D6DE99D42C5C40FCB3 /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B80559F3FCB3749C6B81735C /* Pods-AUMediaPlayer-AFNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CA06E98B94BAF625ECD1762 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AFNetworking" */;
+			buildPhases = (
+				498B7FF0547B230D97D33D24 /* Sources */,
+				D4ED62EC19BCB2492789325A /* Frameworks */,
+				25FABF0E45EA21766A86A35F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AUMediaPlayer-AFNetworking";
+			productName = "Pods-AUMediaPlayer-AFNetworking";
+			productReference = 56CC6087DA7BE854F211C348 /* libPods-AUMediaPlayer-AFNetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EC01AD1F381D3A9DA1EA39F3 /* Pods-AUMediaPlayer-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B8C7063ED348FCA188FBE81 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer" */;
+			buildPhases = (
+				FDB55ADF9E615BDB21D191E3 /* Sources */,
+				06C90AE5A8E904D6CFB9E0DD /* Frameworks */,
+				95BE57D179E072E9F138E10A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFFBAA2BE02FBE5C2C986C81 /* PBXTargetDependency */,
+			);
+			name = "Pods-AUMediaPlayer-AUMediaPlayer";
+			productName = "Pods-AUMediaPlayer-AUMediaPlayer";
+			productReference = 50B3346E17EB976CC11CBA3C /* libPods-AUMediaPlayer-AUMediaPlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FD71FEB880519C3D5E1FCECA /* Pods-Tests-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0071B2FB495CB5458962C03C /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer" */;
+			buildPhases = (
+				A32A69C7391E457791B1CE01 /* Sources */,
+				66682F27CE4EB25366349786 /* Frameworks */,
+				A70FC5E5D899FFF7E05304D9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C410840F81EE9F0B7E4548F8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests-AUMediaPlayer";
+			productName = "Pods-Tests-AUMediaPlayer";
+			productReference = 03668A62786DE7C1A4D39778 /* libPods-Tests-AUMediaPlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2DA6E71949AF05AD1336DFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = A72E648134E98B3E36F43200 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1309AF6532F04FA626F6DD21;
+			productRefGroup = 58194E46D264CFE2B3384EA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EACBCD2C41EB097A915D70D /* Pods-AUMediaPlayer */,
+				B80559F3FCB3749C6B81735C /* Pods-AUMediaPlayer-AFNetworking */,
+				EC01AD1F381D3A9DA1EA39F3 /* Pods-AUMediaPlayer-AUMediaPlayer */,
+				5E675DC85D7AB02D0A2AA6D5 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */,
+				973D271A8738C96B6573BD3B /* Pods-Tests */,
+				FD71FEB880519C3D5E1FCECA /* Pods-Tests-AUMediaPlayer */,
+				91122FA05D1E446414D9CFC4 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FA58FD82741942E072A524D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83A502DC7C9BEDFE5900A74A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18C7F81E55E25D7C8FCC71A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		498B7FF0547B230D97D33D24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABD867DCFF60FE6A57B6F23 /* AFHTTPRequestOperation.m in Sources */,
+				A968C5066CA02A9680A0444A /* AFHTTPRequestOperationManager.m in Sources */,
+				B0961852A2F62CB6FD65E3FB /* AFHTTPSessionManager.m in Sources */,
+				DF6DCCEDC3359D424CEC376D /* AFNetworkActivityIndicatorManager.m in Sources */,
+				04A1951DA243B984AB360811 /* AFNetworkReachabilityManager.m in Sources */,
+				CEEBF37B4E146AA3B51EDEEA /* AFSecurityPolicy.m in Sources */,
+				C46EF53C8DD40E6187B26DD5 /* AFURLConnectionOperation.m in Sources */,
+				4996DB4C780F495B30C00951 /* AFURLRequestSerialization.m in Sources */,
+				134F27FE8C19EBDD5807F124 /* AFURLResponseSerialization.m in Sources */,
+				1406C4600591491ED7B697A1 /* AFURLSessionManager.m in Sources */,
+				51D19090EBD0A13FC958BE2C /* Pods-AUMediaPlayer-AFNetworking-dummy.m in Sources */,
+				12261475EC5248BF79752FF8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				980BE3D0287BB405015A4160 /* UIAlertView+AFNetworking.m in Sources */,
+				6A306CA3B43E0754FD919F1E /* UIButton+AFNetworking.m in Sources */,
+				7CF4186074DB2E0B8564F722 /* UIImageView+AFNetworking.m in Sources */,
+				68272A9348A27124D1F87B80 /* UIProgressView+AFNetworking.m in Sources */,
+				0B56C2CC95D44FB3C4DB720C /* UIRefreshControl+AFNetworking.m in Sources */,
+				A1AF368B3E8F5F7E831470F1 /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CDF32BA8F2B95182B388FF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		896EE49C972E1077C9759D5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9DED43AC007F014A0FD5664 /* Pods-AUMediaPlayer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32A69C7391E457791B1CE01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D44152610A530D45F94104B /* AUMediaConstants.m in Sources */,
+				5A93F135F1535D68E7BD6D5C /* AUMediaLibrary.m in Sources */,
+				5320AF38DF652DF50E8CBEB9 /* AUMediaPlayer.m in Sources */,
+				C8DD26ED99BC6ED60B9F3C5C /* NSError+AUMedia.m in Sources */,
+				4BCF1AF17C1627CAC1D4DFBE /* NSString+AUMedia.m in Sources */,
+				6EE21EC05094CCB8B1022D02 /* NSURL+AUMedia.m in Sources */,
+				8D03E670D267D70B7E2B88F0 /* Pods-Tests-AUMediaPlayer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF79DD2A315D93E7B581638 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B8CB197BAA1F031B81CD9DE /* Pods-Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB55ADF9E615BDB21D191E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA606F9983BA99D491CF5098 /* AUMediaConstants.m in Sources */,
+				D65F95CBA8C7675DCFE9B7F5 /* AUMediaLibrary.m in Sources */,
+				866C61C600B26AE13A44E0C5 /* AUMediaPlayer.m in Sources */,
+				B79CA266C355B3A6C4F487F4 /* NSError+AUMedia.m in Sources */,
+				0E713D6E5DE045844CDC1A6B /* NSString+AUMedia.m in Sources */,
+				ED5437A51D96EF31098CDBDF /* NSURL+AUMedia.m in Sources */,
+				EE3AAF0173132FEDE9E70293 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		207FBBC6C1CF567B3DBF6815 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-AUMediaPlayer";
+			target = FD71FEB880519C3D5E1FCECA /* Pods-Tests-AUMediaPlayer */;
+			targetProxy = FA5D486F9C7EA1AA0C4BFED8 /* PBXContainerItemProxy */;
+		};
+		2D1B7E43517F1BD890994A9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-AUMediaPlayer";
+			target = EC01AD1F381D3A9DA1EA39F3 /* Pods-AUMediaPlayer-AUMediaPlayer */;
+			targetProxy = D38454D864FF7D917F084930 /* PBXContainerItemProxy */;
+		};
+		304A05780A879EC9995DA00A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-AFNetworking";
+			target = B80559F3FCB3749C6B81735C /* Pods-AUMediaPlayer-AFNetworking */;
+			targetProxy = 17DB7D4FC7B3843819FF721E /* PBXContainerItemProxy */;
+		};
+		C410840F81EE9F0B7E4548F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+			target = 91122FA05D1E446414D9CFC4 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */;
+			targetProxy = F414E0E12735230F601FCBA6 /* PBXContainerItemProxy */;
+		};
+		DFFBAA2BE02FBE5C2C986C81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
+			target = 5E675DC85D7AB02D0A2AA6D5 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */;
+			targetProxy = 485E65897A63EAD17651A399 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B37E22E06E8BCDA2FD49066 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AUMediaPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		16C62EFFA8B2187E7CED797D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		202E5A65717DA63C04D794CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		43D05174521B09FBACD2AEF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AFNetworking/Pods-AUMediaPlayer-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4ADA3310A11DF1076D68A52B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11EEBBE23048E44D441C862C /* Pods-AUMediaPlayer.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4BF994112E8BCBA6C03C8E21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6039658405C89ACB4B4ED670 /* Pods-AUMediaPlayer.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		879F863EA6C11CEED8C76CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AE8C9CD3E4CDE574CE728DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC2F4C4FB82470C811C627DC /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B26A22DE9D13E5977A00B4A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AUMediaPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B6692D18852A26DBE8DA0BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AFNetworking/Pods-AUMediaPlayer-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C37C171784F6F170721ACF92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer/Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CC3175B35C20FE9A95051E6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer/Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CFC3832E1B77847BC22F459A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AUMediaPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D611917DEC7F96E535BB7FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D8FE93AEFB4B5C11287A436C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42B9D603B8A29AC16EC6FE98 /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F90C5A1A730395E7E312AA59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AUMediaPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		005ADB3F73287FDB52977EC9 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8FE93AEFB4B5C11287A436C /* Debug */,
+				AE8C9CD3E4CDE574CE728DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0071B2FB495CB5458962C03C /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				879F863EA6C11CEED8C76CAE /* Debug */,
+				D611917DEC7F96E535BB7FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		278CC10AE0878AC6230728DB /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90C5A1A730395E7E312AA59 /* Debug */,
+				CFC3832E1B77847BC22F459A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A5493D89A7F17AA16D1C6AD /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B37E22E06E8BCDA2FD49066 /* Debug */,
+				B26A22DE9D13E5977A00B4A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A921FDB62DAE2B1E2B8B66D /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BF994112E8BCBA6C03C8E21 /* Debug */,
+				4ADA3310A11DF1076D68A52B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B8C7063ED348FCA188FBE81 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C37C171784F6F170721ACF92 /* Debug */,
+				CC3175B35C20FE9A95051E6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CA06E98B94BAF625ECD1762 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AFNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6692D18852A26DBE8DA0BAA /* Debug */,
+				43D05174521B09FBACD2AEF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A72E648134E98B3E36F43200 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				202E5A65717DA63C04D794CB /* Debug */,
+				16C62EFFA8B2187E7CED797D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2DA6E71949AF05AD1336DFD /* Project object */;
+}
