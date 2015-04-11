@@ -36,6 +36,13 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NmE-bh-3jS" id="T1x-5k-cnk">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtt-tj-Mu5" userLabel="Progress View">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <color key="backgroundColor" red="0.01176470588" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="600" id="UMf-Mc-HgK"/>
+                                            </constraints>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfr-aV-ii8">
                                             <rect key="frame" x="523" y="8" width="69" height="30"/>
                                             <state key="normal" title="Download">
@@ -47,10 +54,17 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="jtt-tj-Mu5" firstAttribute="leading" secondItem="T1x-5k-cnk" secondAttribute="leading" id="59i-8P-Qlh"/>
                                         <constraint firstAttribute="centerY" secondItem="cfr-aV-ii8" secondAttribute="centerY" constant="-1.5" id="Kgw-hZ-q0e"/>
+                                        <constraint firstItem="jtt-tj-Mu5" firstAttribute="top" secondItem="T1x-5k-cnk" secondAttribute="top" id="g7x-9u-45x"/>
+                                        <constraint firstAttribute="bottom" secondItem="jtt-tj-Mu5" secondAttribute="bottom" id="nid-9l-3H6"/>
                                         <constraint firstItem="cfr-aV-ii8" firstAttribute="trailing" secondItem="T1x-5k-cnk" secondAttribute="trailingMargin" id="nrM-oF-k3p"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="progressView" destination="jtt-tj-Mu5" id="olv-Cm-ayE"/>
+                                    <outlet property="progressViewWidthConstraint" destination="UMf-Mc-HgK" id="5cw-g9-jWW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -12,9 +12,30 @@
 
 @interface ItemsTableViewController()<ExampleCellDelegate>
 
+@property (nonatomic, strong) NSTimer *progressTimer;
+
 @end
 
 @implementation ItemsTableViewController
+
+#pragma mark - View Controller lifycycle
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDownloadProgress) name:kAUMediaDownloadingItemsListDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDownloadedItems) name:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateTableViewForDownloadedItems];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - TableView DataSource & Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -58,6 +79,49 @@
         } else {
             id<AUMediaItem> item = [[self mockMedia] objectAtIndex:indexPath.row];
             [[AUMediaPlayer sharedInstance].library downloadItem:item];
+        }
+    }
+}
+
+#pragma mark - Download progress
+
+- (void)updateDownloadProgress {
+    AUMediaLibrary *library = [AUMediaPlayer sharedInstance].library;
+    if (!library.downloadingItems && library.downloadingItems.count == 0) {
+        [self.progressTimer invalidate];
+        self.progressTimer = nil;
+    }
+    if (self.progressTimer == nil) {
+        self.progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateDownloadProgress) userInfo:nil repeats:YES];
+    }
+    for (id<AUMediaItem> item in library.downloadingItems) {
+        
+        for (int index = 0; index < [self mockMedia].count; index++) {
+            id mockedItem = [[self mockMedia] objectAtIndex:index];
+            
+            if ([mockedItem conformsToProtocol:@protocol(AUMediaItem)]) {
+                id<AUMediaItem> it = (id<AUMediaItem>)mockedItem;
+                
+                if ([[item uid] isEqualToString:[it uid]]) {
+                    NSProgress *progress = [library progressObjectForItem:item];
+                    ExampleCell *cell = (ExampleCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+                    [cell showProgress:YES progress:progress.fractionCompleted];
+                }
+            }
+        }
+    }
+}
+
+- (void)updateTableViewForDownloadedItems {
+    AUMediaLibrary *library = [AUMediaPlayer sharedInstance].library;
+    
+    for (int index = 1; index < [self mockMedia].count; index++) {
+        id<AUMediaItem> item = [[self mockMedia] objectAtIndex:index];
+        NSString *uid = [item uid];
+        
+        if ([[library allExistingItems] objectForKey:uid]) {
+            ExampleCell *cell = (ExampleCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+            [cell showProgress:YES progress:1.0];
         }
     }
 }

@@ -20,4 +20,6 @@
 
 @property (nonatomic, weak) id<ExampleCellDelegate>delegate;
 
+- (void)showProgress:(BOOL)progressVisible progress:(CGFloat)progress;
+
 @end

@@ -11,6 +11,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+AUMediaPlayers requires ARC.
+Deployment target: iOS7.
+Requires AFNetworking dependency.
+
 ## Installation
 
 AUMediaPlayer is available through [CocoaPods](http://cocoapods.org). To install
