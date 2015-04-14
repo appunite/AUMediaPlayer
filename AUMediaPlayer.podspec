@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "AUMediaPlayer"
-  s.version          = "1.0"
+  s.version          = "1.0.0"
   s.summary          = "AUMediaPlayer is a nice high level API for audio and video playback, both from network stream and local files."
   s.description      = "AUMediaPlayer is a library allowing audio and video playback, both from network stream and local files. It features all the common stuff you may expect, like queues, shuffle, repeat. It has convenient progress observation mechanism based on KVO. It automatically sets media info for lock screen displaying and works with lock screen controls. It also manages interruptions. Library object is included as well. It allows to download and store media. Since then they are automatically played from local files."
   s.homepage         = "https://github.com/appunite/AUMediaPlayer"
