@@ -236,7 +236,7 @@
     
     [writeDictionary setObject:item forKey:[item uid]];
     
-    BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
+    __unused BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
     
     NSAssert(writeSuccess, @"There was an error while saving item");
 }
@@ -250,7 +250,7 @@
         [writeDictionary removeObjectForKey:[item uid]];
     }
     
-    BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
+    __unused BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
     
     NSAssert(writeSuccess, @"There was an error while saving item");
 }

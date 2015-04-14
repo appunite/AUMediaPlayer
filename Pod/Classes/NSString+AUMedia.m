@@ -11,7 +11,7 @@
 @implementation NSString (AUMedia)
 
 + (NSString *)au_lastPathComponentForItem:(id<AUMediaItem>)item {
-    return [NSString stringWithFormat:@"t_%ld_i_%@%@", [item itemType], [item uid], [item fileTypeExtension]];
+    return [NSString stringWithFormat:@"t_%ld_i_%@%@", (long)[item itemType], [item uid], [item fileTypeExtension]];
 }
 
 + (NSString *)au_filePathWithLastPathComponent:(NSString *)lastPath {
