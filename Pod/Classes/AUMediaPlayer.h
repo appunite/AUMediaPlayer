@@ -161,6 +161,13 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
  */
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError * __autoreleasing *)error;
 /**
+ *  Plays given item while maintaining current queue.
+ *
+ *  @param item  Item to play.
+ *  @param error Error is assigned when playback fails.
+ */
+- (void)updatePlayerWithItem:(id<AUMediaItem>)item error:(NSError * __autoreleasing*)error;
+/**
  *  Resumes playback.
  */
 - (void)play;
