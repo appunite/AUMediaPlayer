@@ -72,6 +72,7 @@
 		CA606F9983BA99D491CF5098 /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */; };
 		CEEBF37B4E146AA3B51EDEEA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */; };
 		D65F95CBA8C7675DCFE9B7F5 /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0929942B263E03E21723BB47 /* AUMediaLibrary.m */; };
+		D73A7D051AE6AF6B008312B8 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = D73A7D041AE6AF6B008312B8 /* CHANGELOG.md */; };
 		D8BE7CE95D744E42F0161E68 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */; };
 		DA56552A26E7AF37E7AE7921 /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */; };
 		DD2DE43CF91888BC68299C67 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */; };
@@ -196,6 +197,7 @@
 		CED6D159770200F1D58A4312 /* NSError+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSError+AUMedia.h"; sourceTree = "<group>"; };
 		D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AUMedia.m"; sourceTree = "<group>"; };
+		D73A7D041AE6AF6B008312B8 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
 		D8451326BFFB97C7B7EB49DE /* Pods-AUMediaPlayer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AUMediaPlayer-acknowledgements.plist"; sourceTree = "<group>"; };
 		DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		1309AF6532F04FA626F6DD21 = {
 			isa = PBXGroup;
 			children = (
+				D73A7D041AE6AF6B008312B8 /* CHANGELOG.md */,
 				158FEFA70051FEB86ADFD259 /* Podfile */,
 				7E7B6BD5BA38E495BB609B72 /* Development Pods */,
 				B7C61B3445C81D5E9CA2244D /* Frameworks */,
@@ -810,6 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9DED43AC007F014A0FD5664 /* Pods-AUMediaPlayer-dummy.m in Sources */,
+				D73A7D051AE6AF6B008312B8 /* CHANGELOG.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

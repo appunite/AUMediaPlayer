@@ -78,6 +78,24 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
     AUMediaPlaybackStatusPaused
 };
 
+/**
+ *  Mode of tracks repetition
+ */
+typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
+    /**
+     *  Doesn't repeat. Stops playback at the end of the queue.
+     */
+    AUMediaRepeatModeOff,
+    /**
+     *  Starts first track of the queue, when queue ends.
+     */
+    AUMediaRepeatModeOn,
+    /**
+     *  When playback of the track finishes, same track is started from the beginning.
+     */
+    AUMediaRepeatModeOneSong
+};
+
 @interface AUMediaPlayer : NSObject
 
 //One can get visual output by setting this player object as a player property of AVPlayerLayer object
@@ -127,8 +145,11 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
  *  Shuffle and repeat properties indicate if respectively shuffle and repeat are currently on.
  */
 @property (nonatomic, readonly) BOOL shuffle;
-@property (nonatomic, readonly) BOOL repeat;
-@property (nonatomic, readonly) NSUInteger currentlyPlayedTrackIndex;
+@property (nonatomic, readonly) AUMediaRepeatMode repeat;
+/**
+ *  Currently played track index will be -1, when there is no track in the queue
+ */
+@property (nonatomic, readonly) NSInteger currentlyPlayedTrackIndex;
 @property (nonatomic, readonly) NSUInteger queueLength;
 /**
  *  Contains id<AUMediaItem> objects that are currently in queue.
@@ -160,6 +181,21 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
  *  @param error Error is assigned when playback fails.
  */
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError * __autoreleasing *)error;
+/**
+ *  Plays track from currently played queue, either shuffled or regular.
+ *  Assert is triggered when index exceeds current queue length.
+ *
+ *  @param index of track in current queue
+ */
+- (void)playItemFromCurrentQueueAtIndex:(NSUInteger)index;
+/**
+ *  Plays given item if it's available in the current queue.
+ *
+ *  @param item to play
+ *
+ *  @return YES if given item is available in current queue, NO otherwise
+ */
+- (BOOL)tryPlayingItemFromCurrentQueue:(id<AUMediaItem>)item;
 /**
  *  Resumes playback.
  */
@@ -196,7 +232,11 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
 - (void)seekToMoment:(double)moment;
 
 - (void)setShuffleOn:(BOOL)shuffle;
-- (void)setRepeatOn:(BOOL)repeat;
+- (void)setRepeatMode:(AUMediaRepeatMode)repeat;
+/**
+ *  Toggles through available modes
+ */
+- (void)toggleRepeatMode;
 
 /**
  * Gets called before item replacement. Enables interaction with items and queues being played before new item appers.

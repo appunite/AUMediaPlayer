@@ -76,7 +76,7 @@ static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTim
 
 - (IBAction)playPauseAction:(id)sender {
     AUMediaPlayer *player = [AUMediaPlayer sharedInstance];
-    if (player.playbackStatus == AUMediaPlaybackStatusPlayerInactive || ![[player.nowPlayingItem uid] isEqualToString:self.item.uid]) {
+    if (player.playbackStatus == AUMediaPlaybackStatusPlayerInactive || (self.item && ![[player.nowPlayingItem uid] isEqualToString:self.item.uid])) {
         NSError *error;
         if (self.collection) {
             [player playItemQueue:self.collection error:&error];
@@ -102,9 +102,9 @@ static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTim
 - (IBAction)repeatAction:(id)sender {
     AUMediaPlayer *player = [self player];
     if (player.repeat) {
-        [[self player] setRepeatOn:NO];
+        [[self player] toggleRepeatMode];
     } else {
-        [[self player] setRepeatOn:YES];
+        [[self player] toggleRepeatMode];
     }
     
     [self updateShuffleAndRepeatButtons];
@@ -187,12 +187,18 @@ static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTim
         [self.shuffleButton setTitle:@"Shuffle off" forState:UIControlStateNormal];
         NSLog(@"Shuffle off");
     }
-    if (player.repeat) {
-        [self.repeatButton setTitle:@"Repeat on" forState:UIControlStateNormal];
-        NSLog(@"Repeat on");
-    } else {
-        [self.repeatButton setTitle:@"Repeat off" forState:UIControlStateNormal];
-        NSLog(@"Repeat off");
+    switch (player.repeat) {
+        case AUMediaRepeatModeOn:
+            [self.repeatButton setTitle:@"Repeat on" forState:UIControlStateNormal];
+            break;
+        case AUMediaRepeatModeOff:
+            [self.repeatButton setTitle:@"Repeat off" forState:UIControlStateNormal];
+            break;
+        case AUMediaRepeatModeOneSong:
+            [self.repeatButton setTitle:@"Repeat one" forState:UIControlStateNormal];
+            break;
+        default:
+            break;
     }
 }
 

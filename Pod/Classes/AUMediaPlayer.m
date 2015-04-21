@@ -114,6 +114,44 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     self.queue = @[];
 }
 
+- (void)playItemFromCurrentQueueAtIndex:(NSUInteger)index {
+    if (index >= self.queueLength) {
+        NSAssert(NO, @"Given index exceeds queue length");
+        return;
+    }
+    
+    NSError *error;
+    id<AUMediaItem> nextItem = [self.playingQueue objectAtIndex:index];
+    [self updatePlayerWithItem:nextItem error:&error];
+    
+    if (error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlayerFailedToPlayItemNotificationUserInfoErrorKey object:nil userInfo:@{kAUMediaPlayerFailedToPlayItemNotificationUserInfoErrorKey : error}];
+        return;
+    }
+    
+    [self play];
+}
+
+- (BOOL)tryPlayingItemFromCurrentQueue:(id<AUMediaItem>)item {
+    NSInteger index = [self findIndexForItem:item];
+    if (index < 0) {
+        return NO;
+    }
+    
+    NSError *error;
+    id<AUMediaItem> nextItem = [self.playingQueue objectAtIndex:index];
+    [self updatePlayerWithItem:nextItem error:&error];
+    
+    if (error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlayerFailedToPlayItemNotificationUserInfoErrorKey object:nil userInfo:@{kAUMediaPlayerFailedToPlayItemNotificationUserInfoErrorKey : error}];
+        return NO;
+    }
+    
+    [self play];
+    
+    return YES;
+}
+
 - (void)playNext {
     NSError *error = nil;
     
@@ -126,7 +164,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         return;
     }
     
-    if (_repeat || nextTrackIndex > 0) {
+    if (_repeat == AUMediaRepeatModeOn || nextTrackIndex > 0) {
         [self play];
     } else {
         [self pause];
@@ -140,8 +178,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
     
     NSUInteger nextTrackIndex = 0;
-    NSUInteger currentTrackIndex = self.currentlyPlayedTrackIndex;
-    if (currentTrackIndex == 0 && _repeat) {
+    NSInteger currentTrackIndex = self.currentlyPlayedTrackIndex;
+    if (currentTrackIndex <= 0 && _repeat == AUMediaRepeatModeOn) {
         nextTrackIndex = self.queue.count - 1;
     } else if (currentTrackIndex > 0) {
         nextTrackIndex = currentTrackIndex - 1;
@@ -183,8 +221,13 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     _shuffle = shuffle;
 }
 
-- (void)setRepeatOn:(BOOL)repeat {
+- (void)setRepeatMode:(AUMediaRepeatMode)repeat {
     _repeat = repeat;
+}
+
+- (void)toggleRepeatMode {
+    NSUInteger temp = _repeat + 1;
+    _repeat = temp % 3;
 }
 
 - (void)restorePlayerStateWithItem:(id<AUMediaItem>)item queue:(NSArray *)queue playbackTime:(CMTime)time error:(NSError *__autoreleasing *)error {
@@ -220,16 +263,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     return _shuffle ? self.shuffledQueue : self.queue;
 }
 
-- (NSUInteger)currentlyPlayedTrackIndex {
-    NSArray *queue = self.playingQueue;
-    
-    for (NSUInteger idx = 0; idx < queue.count; idx++) {
-        id<AUMediaItem> obj = [queue objectAtIndex:idx];
-        if ([obj.uid isEqualToString:self.nowPlayingItem.uid]) {
-            return idx;
-        }
-    }
-    return 0;
+- (NSInteger)currentlyPlayedTrackIndex {
+    return [self findIndexForItem:self.nowPlayingItem];
 }
 
 - (NSUInteger)queueLength {
@@ -392,7 +427,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     } else if (context == AVPlayerPlaybackCurrentItemOldObservationContext) {
         AVPlayerItem *priorItem = [change objectForKey:NSKeyValueChangeOldKey];
         
-        if (priorItem && priorItem != (AVPlayerItem *)[NSNull null]) {
+        if (priorItem && priorItem != (id)[NSNull null]) {
             [priorItem removeObserver:self forKeyPath:@"status" context:AVPlayerPlaybackStatusObservationContext];
             [priorItem removeObserver:self forKeyPath:@"playbackBufferEmpty" context:AVPlayerPlaybackBufferEmptyObservationContext];
             
@@ -457,7 +492,12 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
     [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackDidReachEndNotification object:nil];
-    [self playNext];
+    if (_repeat == AUMediaRepeatModeOneSong) {
+        [_player seekToTime:kCMTimeZero];
+        [self play];
+    } else {
+        [self playNext];
+    }
 }
 
 #pragma mark - Helper methods
@@ -478,6 +518,18 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         return YES;
     }
     return NO;
+}
+
+- (NSInteger)findIndexForItem:(id<AUMediaItem>)item {
+    NSArray *queue = self.playingQueue;
+    
+    for (NSUInteger idx = 0; idx < queue.count; idx++) {
+        id<AUMediaItem> obj = [queue objectAtIndex:idx];
+        if ([obj.uid isEqualToString:[item uid]]) {
+            return idx;
+        }
+    }
+    return -1;
 }
 
 - (void)replaceCurrentItemWithNewPlayerItem:(AVPlayerItem *)playerItem {
