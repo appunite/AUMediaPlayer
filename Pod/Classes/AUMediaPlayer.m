@@ -115,9 +115,20 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playNext {
+    [self playNextForced:NO];
+}
+
+- (void)playNextForced:(BOOL)force {
     NSError *error = nil;
     
-    NSUInteger nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
+    NSUInteger nextTrackIndex;
+    
+    if (_repeatSong && !force) {
+        nextTrackIndex = self.currentlyPlayedTrackIndex;
+    }else {
+        nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
+    }
+    
     id<AUMediaItem> nextItem = [self.playingQueue objectAtIndex:nextTrackIndex];
     [self updatePlayerWithItem:nextItem error:&error];
     
@@ -185,6 +196,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)setRepeatOn:(BOOL)repeat {
     _repeat = repeat;
+}
+
+- (void)setRepeatSongOn:(BOOL)repeat {
+    _repeatSong = repeat;
 }
 
 - (void)restorePlayerStateWithItem:(id<AUMediaItem>)item queue:(NSArray *)queue playbackTime:(CMTime)time error:(NSError *__autoreleasing *)error {
