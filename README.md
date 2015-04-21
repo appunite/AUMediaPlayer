@@ -25,7 +25,7 @@ AUMediaPlayer is a library allowing audio and video playback, both from network 
 
 AUMediaPlayer header files contain commented out code snippets, which allow you to setup whole playback mechanism quickly. Example project is also included.
 
-![alt tag](https://github.com/appunite/AUMediaPlayer/tree/master/Example/Screenshots/PlayerScreenshot.png)
+![alt tag](https://raw.github.com/appunite/AUMediaPlayer/tree/master/Example/Screenshots/PlayerScreenshot.png)
 
 ## Some basic methods
 
