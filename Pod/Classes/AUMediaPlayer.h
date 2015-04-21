@@ -128,6 +128,7 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
  */
 @property (nonatomic, readonly) BOOL shuffle;
 @property (nonatomic, readonly) BOOL repeat;
+@property (nonatomic, readonly) BOOL repeatSong;
 @property (nonatomic, readonly) NSUInteger currentlyPlayedTrackIndex;
 @property (nonatomic, readonly) NSUInteger queueLength;
 /**
@@ -188,6 +189,14 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
  */
 - (void)playNext;
 /**
+ *  Plays next track from queue.
+ *  Passing in true for 'force' will ignore the repeatSong parameter.  This is useful if
+ *  you want to auto playnext to repeat the song, but when a user click a UI next button
+ *  move to the next item in the queue.
+ *  @param force Force the player to the next track regardless of repeatSong state
+ */
+- (void)playNextForced:(BOOL)force;
+/**
  *  Plays previous track from the queue.
  *  If playback is on 3. second or greater it just seeks to second 0.
  *  When currently played track's index in the queue is 0, it jums to the last track
@@ -204,6 +213,7 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
 
 - (void)setShuffleOn:(BOOL)shuffle;
 - (void)setRepeatOn:(BOOL)repeat;
+- (void)setRepeatSongOn:(BOOL)repeat;
 
 /**
  * Gets called before item replacement. Enables interaction with items and queues being played before new item appers.
