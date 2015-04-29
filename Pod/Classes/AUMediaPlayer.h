@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AUMediaLibrary.h"
 #import "AUMediaConstants.h"
+#import "AUCast.h"
 
 /*********************************************************************
 
@@ -110,6 +111,10 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  *  Enables actions such as download, adding, removing items.
  */
 @property (nonatomic, strong, readonly) AUMediaLibrary *library;
+/**
+ *  This property gives access to chromecast fuctionality
+ */
+@property (nonatomic, strong, readonly) AUCast *chromecastManager;
 
 /**
  *  Item corresponding to AVPlayerItem that is currently loaded to player.
@@ -237,6 +242,10 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  *  Toggles through available modes
  */
 - (void)toggleRepeatMode;
+
+- (void)playItemWithChromecast:(id<AUMediaItem>)item;
+- (void)playCurrentItemWithChromecast;
+
 
 /**
  * Gets called before item replacement. Enables interaction with items and queues being played before new item appers.

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "lukasz.kasperek" => "lukasz.kasperek@appunite.com" }
   s.source           = { :git => "https://github.com/appunite/AUMediaPlayer.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://appunite.medium.com'
+  s.social_media_url = 'https://appunite.medium.com'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer'
   s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'google-cast-sdk', '~> 2.6'
 end

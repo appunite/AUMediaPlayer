@@ -1,37 +1,47 @@
 PODS:
-  - AFNetworking (2.5.1):
-    - AFNetworking/NSURLConnection (= 2.5.1)
-    - AFNetworking/NSURLSession (= 2.5.1)
-    - AFNetworking/Reachability (= 2.5.1)
-    - AFNetworking/Security (= 2.5.1)
-    - AFNetworking/Serialization (= 2.5.1)
-    - AFNetworking/UIKit (= 2.5.1)
-  - AFNetworking/NSURLConnection (2.5.1):
+  - AFNetworking (2.5.3):
+    - AFNetworking/NSURLConnection (= 2.5.3)
+    - AFNetworking/NSURLSession (= 2.5.3)
+    - AFNetworking/Reachability (= 2.5.3)
+    - AFNetworking/Security (= 2.5.3)
+    - AFNetworking/Serialization (= 2.5.3)
+    - AFNetworking/UIKit (= 2.5.3)
+  - AFNetworking/NSURLConnection (2.5.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.1):
+  - AFNetworking/NSURLSession (2.5.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.1)
-  - AFNetworking/Security (2.5.1)
-  - AFNetworking/Serialization (2.5.1)
-  - AFNetworking/UIKit (2.5.1):
+  - AFNetworking/Reachability (2.5.3)
+  - AFNetworking/Security (2.5.3)
+  - AFNetworking/Serialization (2.5.3)
+  - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AUMediaPlayer (1.0)
+  - AUMediaPlayer (2.0.0):
+    - AFNetworking (~> 2.3)
+    - google-cast-sdk (~> 2.6)
+  - google-cast-sdk (2.6.0):
+    - google-cast-sdk/Assets (= 2.6.0)
+    - google-cast-sdk/Core (= 2.6.0)
+  - google-cast-sdk/Assets (2.6.0):
+    - google-cast-sdk/Core
+  - google-cast-sdk/Core (2.6.0)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 2.5)
   - AUMediaPlayer (from `../`)
+  - google-cast-sdk (~> 2.6)
 
 EXTERNAL SOURCES:
   AUMediaPlayer:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  AUMediaPlayer: 8a316c6404c4ec597236b7d4ac706810b8607b74
+  AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  AUMediaPlayer: 3e4ef87aa52585f45b9110694a352fb364583675
+  google-cast-sdk: 850015a592ee713e511e6ad1b75d3087760657c1
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.4

@@ -7,604 +7,1102 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0416E9248C1140602B7D2D32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
-		04A1951DA243B984AB360811 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F4CD014CF5B82BE3428A98 /* AFNetworkReachabilityManager.m */; };
-		06E6CDCEEB04EC921710E212 /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */; };
-		09C3153A322FC6FFE17DB83B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79896EFF51B9F135506E923B /* Security.framework */; };
-		0B56C2CC95D44FB3C4DB720C /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6477ED47C4E378759F080D52 /* UIRefreshControl+AFNetworking.m */; };
-		0C1FA100B0219AD3B5CEF49F /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */; };
-		0E713D6E5DE045844CDC1A6B /* NSString+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003AED091F64BF105D4609A /* NSString+AUMedia.m */; };
-		12261475EC5248BF79752FF8 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CD83CED1B55187AF024D4 /* UIActivityIndicatorView+AFNetworking.m */; };
-		134F27FE8C19EBDD5807F124 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4510C573E4600DC7505C26 /* AFURLResponseSerialization.m */; };
-		1406C4600591491ED7B697A1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 337A6341739AF55985DDFFA0 /* AFURLSessionManager.m */; };
-		1F46BD1DE0C4C38070274AB4 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 032098B80518F0CABE4292FE /* AFSecurityPolicy.h */; };
-		2172308C4FC6808C53449BC5 /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D89D56551C6D4803D756B6 /* AUMediaConstants.h */; };
-		26A7B6A519B3D657ABBDB9B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2910DA95DDEF8DAC755F9BD5 /* SystemConfiguration.framework */; };
-		2B8CB197BAA1F031B81CD9DE /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DA6830E182F42B3E062B89 /* Pods-Tests-dummy.m */; };
-		2D44152610A530D45F94104B /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */; };
-		3093DA29E999A0B32E182DAA /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6004CC9544BFE1942EDCC9 /* AFURLConnectionOperation.h */; };
-		32178D60B29BAD24E65A2CF2 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CBF41FF2F77CF5C3B01F0774 /* UIWebView+AFNetworking.h */; };
-		35E4737E5DB0743294E3B26A /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6015568FC9DAD0ABF41F503 /* AFNetworkReachabilityManager.h */; };
-		39D854C2B5959C7C15C7122F /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */; };
-		3A9CD40200DBDEA688CDBC4E /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B0435BCEA68BB8DC4336AD0B /* AFHTTPSessionManager.h */; };
-		3ABD867DCFF60FE6A57B6F23 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F862158A71EA0DDDFAADDA /* AFHTTPRequestOperation.m */; };
-		3E3ED2FAF54B2FB674B9E95F /* AUMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */; };
-		479FCDF7D5DD35956E92153F /* AUMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */; };
-		48EB672259B285EFC764974B /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = BBA16DBD589B36908E2329F5 /* AFHTTPRequestOperation.h */; };
-		4996DB4C780F495B30C00951 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3AF41F1806FFF85B72199 /* AFURLRequestSerialization.m */; };
-		4BCF1AF17C1627CAC1D4DFBE /* NSString+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003AED091F64BF105D4609A /* NSString+AUMedia.m */; };
-		4D7C2604DE1CF61E26D3BA24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F482B3552306C4E7974251 /* CoreGraphics.framework */; };
-		4E7FB0FD0146201DDC41DBB1 /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D89D56551C6D4803D756B6 /* AUMediaConstants.h */; };
-		50DD997F7F33C41A8D08EA00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
-		51D19090EBD0A13FC958BE2C /* Pods-AUMediaPlayer-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 164662A6172D992D5C9512F8 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */; };
-		5320AF38DF652DF50E8CBEB9 /* AUMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF477038DEDA1966E66877 /* AUMediaPlayer.m */; };
-		5A73EAB4D480D918DEA6A884 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
-		5A93F135F1535D68E7BD6D5C /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0929942B263E03E21723BB47 /* AUMediaLibrary.m */; };
-		5B2D847A4C09FA13463C39B8 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CD823B5BD92496568D96EE25 /* AFNetworking.h */; };
-		6005F9F3278C9144A4EF0F33 /* NSError+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = CED6D159770200F1D58A4312 /* NSError+AUMedia.h */; };
-		62EA9E3118A6BAD575FA4A97 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0117EF4DD00AA0C156F67528 /* UIRefreshControl+AFNetworking.h */; };
-		64EEDEBE3867D3703F0A20C1 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 316450FEAB91E193F43AB45C /* AFHTTPRequestOperationManager.h */; };
-		673C37E7C32C9EE594A57EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
-		68272A9348A27124D1F87B80 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EA2AA3BF2952987DFE0FDC /* UIProgressView+AFNetworking.m */; };
-		6A306CA3B43E0754FD919F1E /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4838C1C1876A3F718D5CF0E9 /* UIButton+AFNetworking.m */; };
-		6EE21EC05094CCB8B1022D02 /* NSURL+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */; };
-		6F585FC23127FCA6937DDE1A /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */; };
-		7CF4186074DB2E0B8564F722 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A451E51C066EB9DDC5326FEC /* UIImageView+AFNetworking.m */; };
-		7DAFF0371691ABA0DBFB1AEE /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */; };
-		83B628AB22ADCB48C52C22A3 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */; };
-		866C61C600B26AE13A44E0C5 /* AUMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF477038DEDA1966E66877 /* AUMediaPlayer.m */; };
-		8D03E670D267D70B7E2B88F0 /* Pods-Tests-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7165550E52468FDD2CC4763 /* Pods-Tests-AUMediaPlayer-dummy.m */; };
-		931606A7B12035541C36F3A8 /* NSError+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = CED6D159770200F1D58A4312 /* NSError+AUMedia.h */; };
-		94B785EEBF1AF32E1C6320E1 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E3A434DAA774294873D90C30 /* UIKit+AFNetworking.h */; };
-		980BE3D0287BB405015A4160 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A90372180BC36A24803E93BC /* UIAlertView+AFNetworking.m */; };
-		A1AF368B3E8F5F7E831470F1 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858864CE4AB19EDFB4E6C0B /* UIWebView+AFNetworking.m */; };
-		A1C6CA57EFE29E8E4D1CBB81 /* AUMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */; };
-		A28279CFBD8E823F9CDCEEAD /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = EA7831DF1A9CCC6A5DF90138 /* AFURLRequestSerialization.h */; };
-		A968C5066CA02A9680A0444A /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953DAE6C4973C104CB2304D6 /* AFHTTPRequestOperationManager.m */; };
-		B0961852A2F62CB6FD65E3FB /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9BEB4DE7DBA9B980E6FBA2 /* AFHTTPSessionManager.m */; };
-		B56A0AD76C6AD441310317D2 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B692C8E43E1FE8867D93406 /* UIImageView+AFNetworking.h */; };
-		B79CA266C355B3A6C4F487F4 /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */; };
-		BFE36E076FA3037244FB208C /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA90753CF8B9302D162CED40 /* AFURLSessionManager.h */; };
-		C46EF53C8DD40E6187B26DD5 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3368757EE15AB613728BFE /* AFURLConnectionOperation.m */; };
-		C770E513ECF23B437989EE6E /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */; };
-		C8DD26ED99BC6ED60B9F3C5C /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */; };
-		C9DED43AC007F014A0FD5664 /* Pods-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DE64C3DAFF6B80123A4C57 /* Pods-AUMediaPlayer-dummy.m */; };
-		CA606F9983BA99D491CF5098 /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */; };
-		CEEBF37B4E146AA3B51EDEEA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */; };
-		D65F95CBA8C7675DCFE9B7F5 /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0929942B263E03E21723BB47 /* AUMediaLibrary.m */; };
-		D73A7D051AE6AF6B008312B8 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = D73A7D041AE6AF6B008312B8 /* CHANGELOG.md */; };
-		D8BE7CE95D744E42F0161E68 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */; };
-		DA56552A26E7AF37E7AE7921 /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */; };
-		DD2DE43CF91888BC68299C67 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */; };
-		DF6DCCEDC3359D424CEC376D /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 596AB10DB3AC46BDE100D65D /* AFNetworkActivityIndicatorManager.m */; };
-		EA2EFCC5BA95BB88846A99DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596FB896FF865140F9716BA /* Foundation.framework */; };
-		EC0C1940B264C800BE84EA02 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CC1E5E0FE277C5C1D3267 /* AFURLResponseSerialization.h */; };
-		EC8458FD1A7AC3671D696199 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5097EF2303C93A0F08573238 /* UIAlertView+AFNetworking.h */; };
-		ED5437A51D96EF31098CDBDF /* NSURL+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */; };
-		EE3AAF0173132FEDE9E70293 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9C894A0C7D0D260AEED342 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */; };
-		FC086475370EF9F0F6436361 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */; };
-		FF5086ECC47BC35691183FB7 /* AUMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */; };
+		00444B62213923412FC50EFE /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 11183A5E9D82092446726185 /* AFURLRequestSerialization.m */; };
+		03BAF78309839F89064280ED /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E1901672421E8E162782C9D /* AFNetworkReachabilityManager.h */; };
+		05771C7A2562B9A520D924F1 /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DA6885E7CA4E6E33F14D8 /* AUMediaConstants.m */; };
+		07141E505BA2CBCDC0520A45 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 88786BDA3CFE07F278AE3517 /* AFURLRequestSerialization.h */; };
+		089F5555296CE38388731047 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C8AE2E6E05B25F5B6C6F0 /* AFHTTPRequestOperationManager.m */; };
+		09AAAEFC8347DCAD7C19136B /* GCKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4391565C349A2BABE9F798 /* GCKCommon.h */; };
+		0AB1288CA3C03200C12B29E3 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 95ACBA628B7F027F71522395 /* AFHTTPSessionManager.h */; };
+		0CC2A64254F1EFF3DC11518E /* GCKDeviceScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 321C1423D320CE045B7A704A /* GCKDeviceScanner.h */; };
+		0F3EDB5B0A5EE9E965E8A392 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		108C4859AFC9CFF65FD7F695 /* AUMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 930B90B2AF536E7264EA9CAE /* AUMediaPlayer.m */; };
+		1189CB52E4F17947F80E08AF /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 148ED94F9AA4D64BBE17F950 /* UIActivityIndicatorView+AFNetworking.m */; };
+		11BD66746F6E60F525C409C7 /* CastFrameworkAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492B338066FBAE02AD471361 /* CastFrameworkAssets.xcassets */; };
+		155E726FA57332A7B3DFF2A5 /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 29B0588695BC7374EE285983 /* NSString+AUMedia.h */; };
+		1621C1F1462022189C0BA1D5 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 04079772994E6D37DBBEB762 /* UIImageView+AFNetworking.h */; };
+		1653704BC8E6718B61542CB2 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4032CD6BBA9ABBED8F2A89A4 /* UIAlertView+AFNetworking.h */; };
+		16BF48EDA9385C0E196E66E3 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C8AE2E6E05B25F5B6C6F0 /* AFHTTPRequestOperationManager.m */; };
+		195F663709073A463C52142F /* GCKMediaControlChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0084304B8F5E7D0281BD7E6B /* GCKMediaControlChannel.h */; };
+		1AB2DD24FA22F0177B8186C8 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 561240E51412ED8D61E6851C /* AFURLResponseSerialization.h */; };
+		1BC3C4AC028F22A4AF0F1260 /* GCKCastChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF5E5D3B309B204B8B925219 /* GCKCastChannel.h */; };
+		1CB081071E9190E02B183E38 /* GCKCastContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FED7ED7DD4C4C06317A73C0 /* GCKCastContext.h */; };
+		1CE050A5CFA8BE74F089B1E5 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E8CE1C6A3F244CD19403F9 /* UIImageView+AFNetworking.m */; };
+		1D7504ABC500E27884E89CF9 /* GCKCastContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FED7ED7DD4C4C06317A73C0 /* GCKCastContext.h */; };
+		1E31CEE1082D9DD49671BE88 /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 237D0BD38B20AB4EF90283C1 /* AUMediaLibrary.h */; };
+		1FEF81BCECCA0003FB18460E /* AUCast.m in Sources */ = {isa = PBXBuildFile; fileRef = EEEA92C353E4D0F1B84F9D84 /* AUCast.m */; };
+		22389CAB467FB53FFED6CCC1 /* GCKGenericChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F25BB45240C746899F9DC7 /* GCKGenericChannel.h */; };
+		2465BDB7038DC3AC858090DD /* Pods-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2FD8C563A798E37A2C52E /* Pods-AUMediaPlayer-dummy.m */; };
+		2468A3027502A84063840065 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E1901672421E8E162782C9D /* AFNetworkReachabilityManager.h */; };
+		2618C5B2FD39563ABE48FB70 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 04079772994E6D37DBBEB762 /* UIImageView+AFNetworking.h */; };
+		27E67C088B05B9B83F83D81C /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 237D0BD38B20AB4EF90283C1 /* AUMediaLibrary.h */; };
+		291B350C6FD1974010B324AD /* NSURL+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E688DAF2032CB1E29B24B27 /* NSURL+AUMedia.m */; };
+		2AA052E7E788603DD782B266 /* GCKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 38418AD5E8E53827C48D538A /* GCKError.h */; };
+		2B3EAA3906BE8F1A20A48131 /* NSString+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8F5AF6FFA1A67E315C0F8 /* NSString+AUMedia.m */; };
+		2CC73F38233FD915F18D580F /* GCKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 31C4150005115D30B0BEAB1A /* GCKImage.h */; };
+		2DF7320916C90E7762348BF8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401184A586593A814B5A3351 /* Security.framework */; };
+		2E22EA51259E34AFBF9A78A0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3974489917A2D21162122E8B /* MobileCoreServices.framework */; };
+		2FD2198654542BAAB2FEFB99 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3B908B9A56F81960113B1 /* AFHTTPRequestOperation.m */; };
+		308595DC071318AD58DCB9A5 /* AUMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B98A8A86CEBC5A4E0ADF813 /* AUMediaPlayer.h */; };
+		30AFEF39D420DC3FC1E7931B /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F95E297929D74BEB8C8D5E1 /* UIAlertView+AFNetworking.m */; };
+		30C9A22B0BEB846794AF16CA /* AUMediaConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DA6885E7CA4E6E33F14D8 /* AUMediaConstants.m */; };
+		34B412DF73F343BC32307E33 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 148ED94F9AA4D64BBE17F950 /* UIActivityIndicatorView+AFNetworking.m */; };
+		356E73481430EB4CEA50D074 /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C5FD6BC7C6F5575060286BA /* AUMediaConstants.h */; };
+		36A3E4F2B6DAD68C806227B5 /* GCKFilterCriteria.h in Headers */ = {isa = PBXBuildFile; fileRef = A53114E9FCA130A4EE15BA25 /* GCKFilterCriteria.h */; };
+		38B5E31E3D5EC9292D5902CE /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 238382F3A4BC60835A7C9B80 /* AUMediaLibrary.m */; };
+		38D85A5666C0D8EA5FE60015 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 88786BDA3CFE07F278AE3517 /* AFURLRequestSerialization.h */; };
+		3B35BF38A06A458F5A98BCDD /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1600234ABAFD2B2CF85288F5 /* AFHTTPSessionManager.m */; };
+		3D0F50E38A18AFE6F8ADD241 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		3DF4E2418FE8B1447A2B039E /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83057CC8BB91A4EAEFD8361E /* AFNetworkActivityIndicatorManager.m */; };
+		3F0307F20BF95CA4B297FC49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */; };
+		40B3233D74047FBDCD50D804 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1DA7F9922D07DD365A97D3 /* CoreGraphics.framework */; };
+		40DC81A92C86D893407F2C14 /* Pods-AUMediaPlayer-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AA305916E668DE7994366 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */; };
+		438BF05CC4F2C3CDB00CA71C /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42EC59478DF106729436BE /* UIButton+AFNetworking.m */; };
+		450694DF76DB840AB987C940 /* GCKDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1321D5A0C49E72514A60F71F /* GCKDeviceManager.h */; };
+		457443ABDEC995B73943A4DA /* GCKMediaMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 43CE1853972868705A9E5FC8 /* GCKMediaMetadata.h */; };
+		45EAB566271C0498CFFDD70B /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4495E257D83A706F51DECC72 /* UIRefreshControl+AFNetworking.m */; };
+		462EF9506D874BDDDCA4FDDC /* GCKLaunchOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = F59C894D847510BF62C2F02F /* GCKLaunchOptions.h */; };
+		472E76077F837C62491306AE /* NSString+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8F5AF6FFA1A67E315C0F8 /* NSString+AUMedia.m */; };
+		489D90F787A2B78288E5FFA8 /* Pods-Tests-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C63F6A00A19CF4EE3AC7847 /* Pods-Tests-AUMediaPlayer-dummy.m */; };
+		4BA6F87E51BA6A8F531DD5E8 /* AUMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3FE6363A2615B9757FE70E /* AUMediaItem.h */; };
+		4C2C0E77C87DF41636C8A3C0 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 11183A5E9D82092446726185 /* AFURLRequestSerialization.m */; };
+		4C37EA93597B7656CF7604F9 /* GCKMediaInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9519E4EF52515192C33EB07A /* GCKMediaInformation.h */; };
+		4CA1658B7EBEFFDDD47D9C6B /* AUCast.h in Headers */ = {isa = PBXBuildFile; fileRef = F8A4194CD55D57FD57E167A2 /* AUCast.h */; };
+		4EA0EF0C13A9490DE092780F /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6754645A009AA26BAD8121E7 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */; };
+		50231901C85E49688210074A /* NSDictionary+GCKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 948D99A1B8F7F713DAEFA5A9 /* NSDictionary+GCKAdditions.h */; };
+		503C88BB2CC0E5D02DDF224F /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3242601166C11E1AD13E06A2 /* AFHTTPRequestOperation.h */; };
+		548DB3F8CD61C660B03519FE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */; };
+		56067A94472B3200698BC845 /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C5FD6BC7C6F5575060286BA /* AUMediaConstants.h */; };
+		5694E3A102E9594B2F5FC5BD /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42EC59478DF106729436BE /* UIButton+AFNetworking.m */; };
+		575405C437FD2B0EFA7377A3 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BAF903BCD5CA36E1E6AD8A5 /* AFSecurityPolicy.h */; };
+		5B903008674979D0D360D13B /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 062081C572E6FD873F9703FC /* UIRefreshControl+AFNetworking.h */; };
+		5BA37EACFE212370B9DC69F0 /* GCKMediaMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 43CE1853972868705A9E5FC8 /* GCKMediaMetadata.h */; };
+		5D77D6C4F8A094C6A5E9F353 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A06E0B2A04F43FD82213FE8 /* AFSecurityPolicy.m */; };
+		5D8019EBDA97DF95DD70DF56 /* AUMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3FE6363A2615B9757FE70E /* AUMediaItem.h */; };
+		5FA61DFC87A904549788F172 /* GCKNSDictionary+TypedValueLookup.h in Headers */ = {isa = PBXBuildFile; fileRef = C054DE386EE7BB8B4F61C52F /* GCKNSDictionary+TypedValueLookup.h */; };
+		60DB3181A1837D3841AA1923 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 171016589D2E9C413CB89834 /* Pods-Tests-dummy.m */; };
+		60DE4128172017AF438146DC /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 14E68E8D29BD1972F6898BF9 /* AFNetworking.h */; };
+		613C4562277AF8473C847CA3 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD5E202BEFAA61AF4AE1680 /* AFHTTPRequestOperationManager.h */; };
+		61B92164845DB4AD90E8B9E7 /* NSDictionary+GCKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 948D99A1B8F7F713DAEFA5A9 /* NSDictionary+GCKAdditions.h */; };
+		63C7BF24184D4FC6C27786E2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401184A586593A814B5A3351 /* Security.framework */; };
+		6596DC17D11DBBF64F3095F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		65AA821813073473CAA9CBB1 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83057CC8BB91A4EAEFD8361E /* AFNetworkActivityIndicatorManager.m */; };
+		67B6EE858F730A1EC3D55B0D /* Pods-Tests-google-cast-sdk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 81835D02AAAB0313DCCBD19C /* Pods-Tests-google-cast-sdk-dummy.m */; };
+		6852D0EF25CB26DCAA9FBB12 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = BC4C573C0AACE2F37AE899E3 /* UIWebView+AFNetworking.h */; };
+		6C0A9BDDE86A52A4B06822DB /* GCKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0398EF2C00BB5C517C8C456F /* GCKColor.h */; };
+		6E350B58F12625E91F7E88A6 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD8722B292B2D8298F8F00 /* UIProgressView+AFNetworking.m */; };
+		6F07791B64DFD719CDAD0480 /* GCKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CAF9A5993114CF093A874B /* GCKLogger.h */; };
+		6F80EE74D7F94EA5B38775F0 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458AA8F5479CD87F487E30D2 /* GoogleCast.framework */; };
+		70F946A8584BDCDAFEB36DFA /* GCKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4391565C349A2BABE9F798 /* GCKCommon.h */; };
+		74A2D9ABFDCEFBA22D869F2B /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 14E68E8D29BD1972F6898BF9 /* AFNetworking.h */; };
+		74D5DEDACFCB8861E6A27A91 /* NSError+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E02DE5B51ED30B20EDA56DD /* NSError+AUMedia.h */; };
+		7576E3455D9A5D72355C4B96 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DF2AAAA08A0A05066BD9FD9 /* UIProgressView+AFNetworking.h */; };
+		7642B3678A70FC6A5C3465E5 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A06E0B2A04F43FD82213FE8 /* AFSecurityPolicy.m */; };
+		7892C68F63CBB81E459F4851 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F95E297929D74BEB8C8D5E1 /* UIAlertView+AFNetworking.m */; };
+		799D9984EF3511CC3CC0D36D /* GCKMediaStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8BF66473977F1BCB58FC67 /* GCKMediaStatus.h */; };
+		7B45DFD4E5B19E26AA3E8E2A /* GCKMediaTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADA7310B4A0467ACFD1AA53 /* GCKMediaTrack.h */; };
+		7C7E312BA0F930BE79E88C67 /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = AD174DD0AF8D46432E396C64 /* NSURL+AUMedia.h */; };
+		7D5E0F2F888426ECD3F97D77 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A472FB14458A2F2C7EF69A1 /* UIWebView+AFNetworking.m */; };
+		808811B695C92CEBA957EFA8 /* GCKDeviceScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 321C1423D320CE045B7A704A /* GCKDeviceScanner.h */; };
+		81B1F1A2E047103BD91F4BB6 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DF2AAAA08A0A05066BD9FD9 /* UIProgressView+AFNetworking.h */; };
+		81FB41A570BA42176B445715 /* GCKJSONUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 24946037B5E77A980B0BC8F4 /* GCKJSONUtils.h */; };
+		82AB04D88A919E275F1022D7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1937172BBE0D082432F29A /* AFURLResponseSerialization.m */; };
+		854C5B4B3003B83230329653 /* GCKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0398EF2C00BB5C517C8C456F /* GCKColor.h */; };
+		8556B34E0DE91B2D5069E73E /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D977E5B9D9F86F0B3B6875 /* UIButton+AFNetworking.h */; };
+		871E8C34B4A868D2C26E6268 /* CastFrameworkAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492B338066FBAE02AD471361 /* CastFrameworkAssets.xcassets */; };
+		880D65C74F0099DAB0AE46EF /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B199D6EA379AC211C342EF7B /* AFNetworkActivityIndicatorManager.h */; };
+		885D7BE6AA477B7FAFA0ABC9 /* GCKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CAF9A5993114CF093A874B /* GCKLogger.h */; };
+		888F5E23F6D05F85E5C635A4 /* GCKCastChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF5E5D3B309B204B8B925219 /* GCKCastChannel.h */; };
+		8A34A88FC5B022650A0A1DE2 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4032CD6BBA9ABBED8F2A89A4 /* UIAlertView+AFNetworking.h */; };
+		8EF5E140137E45038BC30D31 /* GCKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C1F485EBAE397345325101 /* GCKDefines.h */; };
+		8FB0AA619E8CE3F0C50965D6 /* GCKFilterCriteria.h in Headers */ = {isa = PBXBuildFile; fileRef = A53114E9FCA130A4EE15BA25 /* GCKFilterCriteria.h */; };
+		90104324FE641BFCFB5847FC /* GCKMediaTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADA7310B4A0467ACFD1AA53 /* GCKMediaTrack.h */; };
+		906FF455A9037CD751B1A184 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3242601166C11E1AD13E06A2 /* AFHTTPRequestOperation.h */; };
+		90F693AE62C82CD1B463BA40 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 561240E51412ED8D61E6851C /* AFURLResponseSerialization.h */; };
+		92CD74AA2CBB9A3066929677 /* GCKDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 82889F0A385D3B49406EB4F1 /* GCKDevice.h */; };
+		93E37BDACFD09D54094C852B /* NSError+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E02DE5B51ED30B20EDA56DD /* NSError+AUMedia.h */; };
+		968FF5ACBBA66B3187020CB2 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1600234ABAFD2B2CF85288F5 /* AFHTTPSessionManager.m */; };
+		96F8E885C0C1CD01C1DD8A64 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E92EC8C04BB628A422FFB7 /* AFNetworkReachabilityManager.m */; };
+		9818C8797DD8AF62FC43B851 /* GCKMediaControlChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0084304B8F5E7D0281BD7E6B /* GCKMediaControlChannel.h */; };
+		99D44B486ECD2C592BA5779F /* GCKApplicationMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B1FB19801CA4823494FFB8 /* GCKApplicationMetadata.h */; };
+		9A25CFDEC31CE90C90AEBEDD /* GCKDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1321D5A0C49E72514A60F71F /* GCKDeviceManager.h */; };
+		9C3F4FA94CF0921473791500 /* GCKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 38418AD5E8E53827C48D538A /* GCKError.h */; };
+		A0CC8BBC77E96A64ACD24A94 /* GCKGenericChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F25BB45240C746899F9DC7 /* GCKGenericChannel.h */; };
+		A1623665F72260F1AD20F293 /* GCKJSONUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 24946037B5E77A980B0BC8F4 /* GCKJSONUtils.h */; };
+		A166EBA96A00B7763286D7A2 /* AUMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 930B90B2AF536E7264EA9CAE /* AUMediaPlayer.m */; };
+		A3AD02DCCA2AC01B2D858162 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD8722B292B2D8298F8F00 /* UIProgressView+AFNetworking.m */; };
+		A6A59C36BD9131B0751E4E19 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1DA7F9922D07DD365A97D3 /* CoreGraphics.framework */; };
+		A8562863633C4D65B6D25CCB /* GCKApplicationMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B1FB19801CA4823494FFB8 /* GCKApplicationMetadata.h */; };
+		A88576C955898DBE6BC2DD4D /* AUMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 238382F3A4BC60835A7C9B80 /* AUMediaLibrary.m */; };
+		AAAB5E2AF6BDE104D89368E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */; };
+		AAC3FB027D71F7776B0C2D68 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC6123964FDEEC78A88434 /* UIActivityIndicatorView+AFNetworking.h */; };
+		ABAC98AAB983B9092EBB8DC3 /* AUCast.h in Headers */ = {isa = PBXBuildFile; fileRef = F8A4194CD55D57FD57E167A2 /* AUCast.h */; };
+		AC174BEB2CDB0AEF554145B6 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E92EC8C04BB628A422FFB7 /* AFNetworkReachabilityManager.m */; };
+		AE763A75D840138175AC216A /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = C04026FC26B488628177FCB6 /* AFURLConnectionOperation.h */; };
+		B041B0EB9A6F4213FD28F7AD /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A45E5861B974505EE9A5679 /* UIKit+AFNetworking.h */; };
+		B0636A1786832CB3325485F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		B1D8340680F8C8FCC8392FF5 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 95ACBA628B7F027F71522395 /* AFHTTPSessionManager.h */; };
+		B23B8C21819AD683DBE47CC0 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC6123964FDEEC78A88434 /* UIActivityIndicatorView+AFNetworking.h */; };
+		B294438EE8BD744F928E9C03 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A47668C536B18B09CFC78E6 /* AFURLSessionManager.h */; };
+		B33F53FF4AD8EC027930812F /* NSURL+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = AD174DD0AF8D46432E396C64 /* NSURL+AUMedia.h */; };
+		B413EDC05DA78B9FB61B6059 /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C1E67E65115A800A74A78 /* NSError+AUMedia.m */; };
+		B70039ECF1F9B5ACE3A032F9 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1937172BBE0D082432F29A /* AFURLResponseSerialization.m */; };
+		B77B7189D97EBD366E06E2B1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDACC056BD288CF1121E8B /* AFURLSessionManager.m */; };
+		B92247D5B10AE9A06EF29870 /* GCKSenderApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE7F4C0F863CFC83840AE4D /* GCKSenderApplicationInfo.h */; };
+		BA17DB5C121B1FD942C8FB4D /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BAF903BCD5CA36E1E6AD8A5 /* AFSecurityPolicy.h */; };
+		BA71517F6435D495811EF78D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3974489917A2D21162122E8B /* MobileCoreServices.framework */; };
+		BA726F2DDF6644E02B308802 /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C1E67E65115A800A74A78 /* NSError+AUMedia.m */; };
+		BAA26292880AAB5597DBDE58 /* GCKSenderApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE7F4C0F863CFC83840AE4D /* GCKSenderApplicationInfo.h */; };
+		BCD46B058DEBF2790A1AE8B9 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A472FB14458A2F2C7EF69A1 /* UIWebView+AFNetworking.m */; };
+		BEE318A97D0834079E0370E2 /* GoogleCast.h in Headers */ = {isa = PBXBuildFile; fileRef = BF1C2CF98724A2679F4AACB8 /* GoogleCast.h */; };
+		BF57A2152C5A22E9C681F6BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		C07ECE75A39CEEBE3BAF8C11 /* GCKMediaTextTrackStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEAC8C8CF6B5560A7C6721A /* GCKMediaTextTrackStyle.h */; };
+		C469D6D81BA18392DCAE227C /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD5E202BEFAA61AF4AE1680 /* AFHTTPRequestOperationManager.h */; };
+		C53D48B3461B93875B1B53AB /* AUCast.m in Sources */ = {isa = PBXBuildFile; fileRef = EEEA92C353E4D0F1B84F9D84 /* AUCast.m */; };
+		C6020D649ACA8AC896A58475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		C72F520FFDEF54FCF779E343 /* GCKMediaTextTrackStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEAC8C8CF6B5560A7C6721A /* GCKMediaTextTrackStyle.h */; };
+		C8C31A8AF24BBDBA1E1B6B5A /* GCKMediaStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8BF66473977F1BCB58FC67 /* GCKMediaStatus.h */; };
+		CABD35470288D68EF972E7C9 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDACC056BD288CF1121E8B /* AFURLSessionManager.m */; };
+		D3FD2CA61DD29496150D928D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */; };
+		D7E329361F48C80664CC1E50 /* GCKLaunchOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = F59C894D847510BF62C2F02F /* GCKLaunchOptions.h */; };
+		D8DBA4200B9CC9AE7E007711 /* GCKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 31C4150005115D30B0BEAB1A /* GCKImage.h */; };
+		D925E48B302C69EE38CBCF4D /* GCKMediaInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9519E4EF52515192C33EB07A /* GCKMediaInformation.h */; };
+		D94E8B20F1DEBF01C597E297 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4495E257D83A706F51DECC72 /* UIRefreshControl+AFNetworking.m */; };
+		DA5173A688192DAC296ACC72 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A45E5861B974505EE9A5679 /* UIKit+AFNetworking.h */; };
+		E02C13F3F0789111F3EBFB94 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8884E380F5E9C16D504A2 /* AFURLConnectionOperation.m */; };
+		E23930CD102FCB811A311947 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458AA8F5479CD87F487E30D2 /* GoogleCast.framework */; };
+		E320F7BE9CC5C20E5EEC5EFA /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B199D6EA379AC211C342EF7B /* AFNetworkActivityIndicatorManager.h */; };
+		E3582C80296532EFD9761367 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 062081C572E6FD873F9703FC /* UIRefreshControl+AFNetworking.h */; };
+		E4E58D845918637C4A753411 /* GoogleCast.h in Headers */ = {isa = PBXBuildFile; fileRef = BF1C2CF98724A2679F4AACB8 /* GoogleCast.h */; };
+		E5732950780AA50837F74316 /* AUMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B98A8A86CEBC5A4E0ADF813 /* AUMediaPlayer.h */; };
+		E60B2841FA26860A7D816F18 /* GCKDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 82889F0A385D3B49406EB4F1 /* GCKDevice.h */; };
+		E69C2E3A7FB9363DCDEAE269 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = C04026FC26B488628177FCB6 /* AFURLConnectionOperation.h */; };
+		E6A6F56DAE1B0F7FA0C747BB /* Pods-AUMediaPlayer-google-cast-sdk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF34BCD2F18E17B386978B4D /* Pods-AUMediaPlayer-google-cast-sdk-dummy.m */; };
+		E6EB5075B4D53C190A5D093A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E8CE1C6A3F244CD19403F9 /* UIImageView+AFNetworking.m */; };
+		E92085EAA40C7D15D759EB73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		E991D1151AD5A5C51ADAA053 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED25F3E59747120E4680C09A /* Foundation.framework */; };
+		F1417B11B90B5B2D2AADD79C /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A47668C536B18B09CFC78E6 /* AFURLSessionManager.h */; };
+		F4C0D16C411604B2DF8B72D4 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8884E380F5E9C16D504A2 /* AFURLConnectionOperation.m */; };
+		F7070DD0B2E42B01AE84F7D7 /* Pods-Tests-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7F25D193FE446AFF74192C /* Pods-Tests-AFNetworking-dummy.m */; };
+		F75F17F9F758B3E0D6B5C245 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D977E5B9D9F86F0B3B6875 /* UIButton+AFNetworking.h */; };
+		F76F7EE02686161F3E2EEADD /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = BC4C573C0AACE2F37AE899E3 /* UIWebView+AFNetworking.h */; };
+		F997B8399C1A1E115277E020 /* NSURL+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E688DAF2032CB1E29B24B27 /* NSURL+AUMedia.m */; };
+		FBEE4858440FE2625B48CB44 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3B908B9A56F81960113B1 /* AFHTTPRequestOperation.m */; };
+		FE447BFE98CAD645953D4374 /* GCKNSDictionary+TypedValueLookup.h in Headers */ = {isa = PBXBuildFile; fileRef = C054DE386EE7BB8B4F61C52F /* GCKNSDictionary+TypedValueLookup.h */; };
+		FEB62A485A09A02479FFB573 /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 29B0588695BC7374EE285983 /* NSString+AUMedia.h */; };
+		FED77024FAAB03D15C11369D /* GCKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C1F485EBAE397345325101 /* GCKDefines.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		17DB7D4FC7B3843819FF721E /* PBXContainerItemProxy */ = {
+		1981B362298FFA7985EB613C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B80559F3FCB3749C6B81735C;
-			remoteInfo = "Pods-AUMediaPlayer-AFNetworking";
-		};
-		485E65897A63EAD17651A399 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5E675DC85D7AB02D0A2AA6D5;
-			remoteInfo = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
-		};
-		D38454D864FF7D917F084930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC01AD1F381D3A9DA1EA39F3;
-			remoteInfo = "Pods-AUMediaPlayer-AUMediaPlayer";
-		};
-		F414E0E12735230F601FCBA6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 91122FA05D1E446414D9CFC4;
+			remoteGlobalIDString = 9A2FF64B3A0128A87DF80039;
 			remoteInfo = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
 		};
-		FA5D486F9C7EA1AA0C4BFED8 /* PBXContainerItemProxy */ = {
+		1F2A9759722518C4FCAAE14E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2DA6E71949AF05AD1336DFD /* Project object */;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FD71FEB880519C3D5E1FCECA;
+			remoteGlobalIDString = CB04B95B43E8A7D82DB024DF;
+			remoteInfo = "Pods-Tests-AFNetworking";
+		};
+		20593A4C7994984A7315D183 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1B64C75E81C3B3F877F8276;
+			remoteInfo = "Pods-Tests-google-cast-sdk-CastFrameworkAssets";
+		};
+		262C740E43521D23994DF5FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF74F7319B76BD37C1FD6BD8;
 			remoteInfo = "Pods-Tests-AUMediaPlayer";
+		};
+		3BEBCD58CD5020698191B827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6586A7EEB4133B8F5AAFEF35;
+			remoteInfo = "Pods-Tests-google-cast-sdk";
+		};
+		4052CF9511A862F4125481F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79CF8F168BFE0A434F4AF3C0;
+			remoteInfo = "Pods-AUMediaPlayer-AFNetworking";
+		};
+		41F75ECF883B897FE62352C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 679533E91750683DEDEAC1C7;
+			remoteInfo = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
+		};
+		4A4AA60CB2028D284D27769B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 182F905403E813E65C96E977;
+			remoteInfo = "Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets";
+		};
+		58B86D82502B340765160C4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB04B95B43E8A7D82DB024DF;
+			remoteInfo = "Pods-Tests-AFNetworking";
+		};
+		5F83E41C24EBF9243AA9F118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33B07C32792B1BDB3AFB805;
+			remoteInfo = "Pods-AUMediaPlayer-google-cast-sdk";
+		};
+		6C053FD9D0190687A2C7480E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45AAF7156620774A54545850;
+			remoteInfo = "Pods-AUMediaPlayer-AUMediaPlayer";
+		};
+		87D8A569E0C5DCE0791628C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33B07C32792B1BDB3AFB805;
+			remoteInfo = "Pods-AUMediaPlayer-google-cast-sdk";
+		};
+		9836011EF3ACA79ABCC7E6A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6586A7EEB4133B8F5AAFEF35;
+			remoteInfo = "Pods-Tests-google-cast-sdk";
+		};
+		E188DB7E9C21D239CF67051C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF3F7149CD846E141C2EE527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79CF8F168BFE0A434F4AF3C0;
+			remoteInfo = "Pods-AUMediaPlayer-AFNetworking";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0117EF4DD00AA0C156F67528 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
-		032098B80518F0CABE4292FE /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
-		03668A62786DE7C1A4D39778 /* libPods-Tests-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0596FB896FF865140F9716BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		05BCB4A6CD4F6BA6B32FC393 /* Pods-AUMediaPlayer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AUMediaPlayer-resources.sh"; sourceTree = "<group>"; };
-		0929942B263E03E21723BB47 /* AUMediaLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaLibrary.m; sourceTree = "<group>"; };
-		0F3368757EE15AB613728BFE /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		11EEBBE23048E44D441C862C /* Pods-AUMediaPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer.release.xcconfig"; sourceTree = "<group>"; };
-		12C23F4FE23AB88730792A5B /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		158FEFA70051FEB86ADFD259 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		164662A6172D992D5C9512F8 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AFNetworking-dummy.m"; sourceTree = "<group>"; };
-		1B692C8E43E1FE8867D93406 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		284DC1F32A6E8E18D2B26243 /* Pods-AUMediaPlayer-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
-		29101D4B260B89C5B7847A4F /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2910DA95DDEF8DAC755F9BD5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		30CDD810EE2B91CEF34E37D2 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
-		316450FEAB91E193F43AB45C /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		337A6341739AF55985DDFFA0 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
-		341A1D18D30D40D563ECD3BF /* AUMediaPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUMediaPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AA3AF41F1806FFF85B72199 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURL+AUMedia.h"; sourceTree = "<group>"; };
-		3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSError+AUMedia.m"; sourceTree = "<group>"; };
-		3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaItem.h; sourceTree = "<group>"; };
-		41DE64C3DAFF6B80123A4C57 /* Pods-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
-		42B9D603B8A29AC16EC6FE98 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4838C1C1876A3F718D5CF0E9 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
-		5097EF2303C93A0F08573238 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
-		50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		50B3346E17EB976CC11CBA3C /* libPods-AUMediaPlayer-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		537E53AFB651C4336E0AD572 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		56CC6087DA7BE854F211C348 /* libPods-AUMediaPlayer-AFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-AFNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		596AB10DB3AC46BDE100D65D /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
-		5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
-		6003AED091F64BF105D4609A /* NSString+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+AUMedia.m"; sourceTree = "<group>"; };
-		6039658405C89ACB4B4ED670 /* Pods-AUMediaPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer.debug.xcconfig"; sourceTree = "<group>"; };
-		62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaLibrary.h; sourceTree = "<group>"; };
-		6477ED47C4E378759F080D52 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		69DA6830E182F42B3E062B89 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		71F482B3552306C4E7974251 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		74EA2AA3BF2952987DFE0FDC /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
-		75F862158A71EA0DDDFAADDA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		79896EFF51B9F135506E923B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
-		7B5CD83CED1B55187AF024D4 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		8858864CE4AB19EDFB4E6C0B /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		8A57831B47A77075C64D05D8 /* libPods-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+AUMedia.h"; sourceTree = "<group>"; };
-		953DAE6C4973C104CB2304D6 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		96D89D56551C6D4803D756B6 /* AUMediaConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaConstants.h; sourceTree = "<group>"; };
-		9B3CC1E5E0FE277C5C1D3267 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		9BC0CCEE942CD2804E30B519 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
-		9C08E2D6DE99D42C5C40FCB3 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C6004CC9544BFE1942EDCC9 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		A0F4CD014CF5B82BE3428A98 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		A451E51C066EB9DDC5326FEC /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
-		A7165550E52468FDD2CC4763 /* Pods-Tests-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-AUMediaPlayer-dummy.m"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
-		A90372180BC36A24803E93BC /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
-		A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer-Private.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
-		AAE5B52B9C91F9183D892B44 /* Pods-AUMediaPlayer-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
-		AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaConstants.m; sourceTree = "<group>"; };
-		B0435BCEA68BB8DC4336AD0B /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		BB9BEB4DE7DBA9B980E6FBA2 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		BBA16DBD589B36908E2329F5 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		BE8556A2B07CF6491DDD1BCA /* Pods-AUMediaPlayer-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AFNetworking.xcconfig"; sourceTree = "<group>"; };
-		CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaPlayer.h; sourceTree = "<group>"; };
-		CBF41FF2F77CF5C3B01F0774 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		CD823B5BD92496568D96EE25 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
-		CEC928587E1D0F6FC3F165C8 /* Pods-Tests-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
-		CED6D159770200F1D58A4312 /* NSError+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSError+AUMedia.h"; sourceTree = "<group>"; };
-		D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AUMedia.m"; sourceTree = "<group>"; };
-		D73A7D041AE6AF6B008312B8 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
-		D8451326BFFB97C7B7EB49DE /* Pods-AUMediaPlayer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AUMediaPlayer-acknowledgements.plist"; sourceTree = "<group>"; };
-		DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
-		E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		E3A434DAA774294873D90C30 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		E8349178229D8E26415C370B /* Pods-AUMediaPlayer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AUMediaPlayer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
-		EA7831DF1A9CCC6A5DF90138 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		ED9DD573F1D2F452166861EF /* Pods-AUMediaPlayer-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-environment.h"; sourceTree = "<group>"; };
-		EEEAB18AEAE24EA1A9422169 /* AUMediaPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUMediaPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF4510C573E4600DC7505C26 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		F0A529F13E1167A28FFE9891 /* Pods-Tests-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-AUMediaPlayer-prefix.pch"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
-		F6015568FC9DAD0ABF41F503 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		FA90753CF8B9302D162CED40 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
-		FC2F4C4FB82470C811C627DC /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FD9C894A0C7D0D260AEED342 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
-		FECF477038DEDA1966E66877 /* AUMediaPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaPlayer.m; sourceTree = "<group>"; };
+		002AA305916E668DE7994366 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		0084304B8F5E7D0281BD7E6B /* GCKMediaControlChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaControlChannel.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaControlChannel.h"; sourceTree = "<group>"; };
+		01C1F485EBAE397345325101 /* GCKDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKDefines.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKDefines.h"; sourceTree = "<group>"; };
+		0398EF2C00BB5C517C8C456F /* GCKColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKColor.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKColor.h"; sourceTree = "<group>"; };
+		04079772994E6D37DBBEB762 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		04E6BFF489B796450314BB79 /* libPods-Tests-google-cast-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-google-cast-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		062081C572E6FD873F9703FC /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		06D8F5AF6FFA1A67E315C0F8 /* NSString+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+AUMedia.m"; sourceTree = "<group>"; };
+		09736D0915C93761E0353256 /* Pods-AUMediaPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		0B23DA244E9FB745EA38FC2F /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		0B98A8A86CEBC5A4E0ADF813 /* AUMediaPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaPlayer.h; sourceTree = "<group>"; };
+		0E688DAF2032CB1E29B24B27 /* NSURL+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AUMedia.m"; sourceTree = "<group>"; };
+		10AD37CF37E3E8852E20342A /* Pods-Tests-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-AFNetworking-prefix.pch"; path = "../Pods-Tests-AFNetworking/Pods-Tests-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		11183A5E9D82092446726185 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		1321D5A0C49E72514A60F71F /* GCKDeviceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKDeviceManager.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKDeviceManager.h"; sourceTree = "<group>"; };
+		13D3B908B9A56F81960113B1 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		148ED94F9AA4D64BBE17F950 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		14E68E8D29BD1972F6898BF9 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		153034925864C3FF15050516 /* libPods-AUMediaPlayer-google-cast-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-google-cast-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1600234ABAFD2B2CF85288F5 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		171016589D2E9C413CB89834 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		1A06E0B2A04F43FD82213FE8 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		1ADA7310B4A0467ACFD1AA53 /* GCKMediaTrack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaTrack.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaTrack.h"; sourceTree = "<group>"; };
+		1C17E9D740A4EE0447031CAB /* Pods-AUMediaPlayer-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
+		237D0BD38B20AB4EF90283C1 /* AUMediaLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaLibrary.h; sourceTree = "<group>"; };
+		238382F3A4BC60835A7C9B80 /* AUMediaLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaLibrary.m; sourceTree = "<group>"; };
+		24946037B5E77A980B0BC8F4 /* GCKJSONUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKJSONUtils.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKJSONUtils.h"; sourceTree = "<group>"; };
+		25B1FB19801CA4823494FFB8 /* GCKApplicationMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKApplicationMetadata.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKApplicationMetadata.h"; sourceTree = "<group>"; };
+		29B0588695BC7374EE285983 /* NSString+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+AUMedia.h"; sourceTree = "<group>"; };
+		2A45E5861B974505EE9A5679 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		2D6588A9340A4B38C3C9DCF9 /* CastFrameworkAssets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastFrameworkAssets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E5C1E67E65115A800A74A78 /* NSError+AUMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSError+AUMedia.m"; sourceTree = "<group>"; };
+		2EEAC8C8CF6B5560A7C6721A /* GCKMediaTextTrackStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaTextTrackStyle.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaTextTrackStyle.h"; sourceTree = "<group>"; };
+		2F1DA7F9922D07DD365A97D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		31C4150005115D30B0BEAB1A /* GCKImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKImage.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKImage.h"; sourceTree = "<group>"; };
+		321C1423D320CE045B7A704A /* GCKDeviceScanner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKDeviceScanner.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKDeviceScanner.h"; sourceTree = "<group>"; };
+		3242601166C11E1AD13E06A2 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		36D977E5B9D9F86F0B3B6875 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		38418AD5E8E53827C48D538A /* GCKError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKError.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKError.h"; sourceTree = "<group>"; };
+		38C3B2A8200DF176343A1C88 /* libPods-Tests-AFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-AFNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3974489917A2D21162122E8B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		398668B1395877D0E3AC606C /* Pods-Tests-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-AUMediaPlayer-prefix.pch"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
+		3C5FD6BC7C6F5575060286BA /* AUMediaConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaConstants.h; sourceTree = "<group>"; };
+		3F95E297929D74BEB8C8D5E1 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		3FED7ED7DD4C4C06317A73C0 /* GCKCastContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKCastContext.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKCastContext.h"; sourceTree = "<group>"; };
+		401184A586593A814B5A3351 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		4032CD6BBA9ABBED8F2A89A4 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		43CE1853972868705A9E5FC8 /* GCKMediaMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaMetadata.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaMetadata.h"; sourceTree = "<group>"; };
+		4495E257D83A706F51DECC72 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		458AA8F5479CD87F487E30D2 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/GoogleCast.framework; sourceTree = DEVELOPER_DIR; };
+		487D8FC3DB467161A8520685 /* Pods-AUMediaPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		492B338066FBAE02AD471361 /* CastFrameworkAssets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = CastFrameworkAssets.xcassets; path = "GoogleCastSDK-2.6.0-Release/CastFrameworkAssets.xcassets"; sourceTree = "<group>"; };
+		4A472FB14458A2F2C7EF69A1 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		4C8C8AE2E6E05B25F5B6C6F0 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		4DC2FD8C563A798E37A2C52E /* Pods-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
+		55A8884E380F5E9C16D504A2 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		561240E51412ED8D61E6851C /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		57CAF9A5993114CF093A874B /* GCKLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKLogger.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKLogger.h"; sourceTree = "<group>"; };
+		59DC6123964FDEEC78A88434 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		60F25BB45240C746899F9DC7 /* GCKGenericChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKGenericChannel.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKGenericChannel.h"; sourceTree = "<group>"; };
+		6754645A009AA26BAD8121E7 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
+		68DE53A2B6A1531A8FCF707B /* Pods-Tests-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AFNetworking.xcconfig"; path = "../Pods-Tests-AFNetworking/Pods-Tests-AFNetworking.xcconfig"; sourceTree = "<group>"; };
+		6BAF903BCD5CA36E1E6AD8A5 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		6D42EC59478DF106729436BE /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		6DA6D137D724ECDBEE409BB7 /* CastFrameworkAssets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastFrameworkAssets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DEDACC056BD288CF1121E8B /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		6DF2AAAA08A0A05066BD9FD9 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		6E1901672421E8E162782C9D /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		78053DB66AEA6D49C9A60CB6 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		81835D02AAAB0313DCCBD19C /* Pods-Tests-google-cast-sdk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-google-cast-sdk-dummy.m"; path = "../Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk-dummy.m"; sourceTree = "<group>"; };
+		81A78AA9CA4594EC0EBE4453 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		82889F0A385D3B49406EB4F1 /* GCKDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKDevice.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKDevice.h"; sourceTree = "<group>"; };
+		82ED393125868F99260B45B1 /* Pods-AUMediaPlayer-google-cast-sdk-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-google-cast-sdk-Private.xcconfig"; sourceTree = "<group>"; };
+		83057CC8BB91A4EAEFD8361E /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
+		85718C7E6051FC8752C0600F /* libPods-AUMediaPlayer-AFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-AFNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DA9826661379D5F7B0A222 /* Pods-Tests-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AFNetworking-Private.xcconfig"; path = "../Pods-Tests-AFNetworking/Pods-Tests-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
+		88786BDA3CFE07F278AE3517 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		8A47668C536B18B09CFC78E6 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		8C63F6A00A19CF4EE3AC7847 /* Pods-Tests-AUMediaPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-AUMediaPlayer-dummy.m"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-dummy.m"; sourceTree = "<group>"; };
+		8D1937172BBE0D082432F29A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		8E02DE5B51ED30B20EDA56DD /* NSError+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSError+AUMedia.h"; sourceTree = "<group>"; };
+		930B90B2AF536E7264EA9CAE /* AUMediaPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaPlayer.m; sourceTree = "<group>"; };
+		948D99A1B8F7F713DAEFA5A9 /* NSDictionary+GCKAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+GCKAdditions.h"; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/NSDictionary+GCKAdditions.h"; sourceTree = "<group>"; };
+		94C3ED4D05C76B35BC624DCF /* libPods-Tests-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9519E4EF52515192C33EB07A /* GCKMediaInformation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaInformation.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaInformation.h"; sourceTree = "<group>"; };
+		95ACBA628B7F027F71522395 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		95B37505D7ED622388F56112 /* Pods-AUMediaPlayer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AUMediaPlayer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		95E4A40E9817C652656C3017 /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
+		9A6DA6885E7CA4E6E33F14D8 /* AUMediaConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUMediaConstants.m; sourceTree = "<group>"; };
+		9CEA992109E5008D2BCC13C8 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		9F3FE6363A2615B9757FE70E /* AUMediaItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaItem.h; sourceTree = "<group>"; };
+		A01B58A66B0CBB00922EE0F0 /* Pods-AUMediaPlayer-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-environment.h"; sourceTree = "<group>"; };
+		A11F6370DCE36DB5C3708A03 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
+		A34086599AF77AE849D115F2 /* Pods-Tests-google-cast-sdk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-google-cast-sdk-prefix.pch"; path = "../Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk-prefix.pch"; sourceTree = "<group>"; };
+		A4E8CE1C6A3F244CD19403F9 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		A53114E9FCA130A4EE15BA25 /* GCKFilterCriteria.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKFilterCriteria.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKFilterCriteria.h"; sourceTree = "<group>"; };
+		A9F31787BB4828F0ACF16C3A /* Pods-AUMediaPlayer-google-cast-sdk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-google-cast-sdk.xcconfig"; sourceTree = "<group>"; };
+		ABD5E202BEFAA61AF4AE1680 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		AD174DD0AF8D46432E396C64 /* NSURL+AUMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURL+AUMedia.h"; sourceTree = "<group>"; };
+		AF4DD6EB72DD4FF2B57C6C39 /* libPods-AUMediaPlayer-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5E5D3B309B204B8B925219 /* GCKCastChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKCastChannel.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKCastChannel.h"; sourceTree = "<group>"; };
+		B060EB50EA4480429E18E36F /* AUMediaPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUMediaPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B199D6EA379AC211C342EF7B /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		B1CE3AD9AE84AF12F0E8F57C /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B26D8F6385B9E5256A08CBD3 /* Pods-Tests-google-cast-sdk-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-google-cast-sdk-Private.xcconfig"; path = "../Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk-Private.xcconfig"; sourceTree = "<group>"; };
+		B8EF6F27305A70712787391E /* Pods-AUMediaPlayer-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AFNetworking.xcconfig"; sourceTree = "<group>"; };
+		BA1BA9F88391D598CAA092CC /* Pods-AUMediaPlayer-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		BC4C573C0AACE2F37AE899E3 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		BEEF6B81393EEC63B6EB9E18 /* Pods-Tests-google-cast-sdk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-google-cast-sdk.xcconfig"; path = "../Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk.xcconfig"; sourceTree = "<group>"; };
+		BF1C2CF98724A2679F4AACB8 /* GoogleCast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleCast.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GoogleCast.h"; sourceTree = "<group>"; };
+		BF73DCD464E1FF401F3043AD /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
+		C04026FC26B488628177FCB6 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		C054DE386EE7BB8B4F61C52F /* GCKNSDictionary+TypedValueLookup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GCKNSDictionary+TypedValueLookup.h"; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKNSDictionary+TypedValueLookup.h"; sourceTree = "<group>"; };
+		C25924AE8055EFD6C696402C /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5BD8722B292B2D8298F8F00 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		C60F68256BE3C680EE598C9E /* libPods-AUMediaPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FE4AE80B19FEB52DF7DDA0 /* Pods-Tests-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer-Private.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
+		CD4391565C349A2BABE9F798 /* GCKCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKCommon.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKCommon.h"; sourceTree = "<group>"; };
+		CE32A7B03E152B1D4A79544F /* Pods-AUMediaPlayer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AUMediaPlayer-resources.sh"; sourceTree = "<group>"; };
+		DA8BF66473977F1BCB58FC67 /* GCKMediaStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaStatus.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaStatus.h"; sourceTree = "<group>"; };
+		DBF609CED977358B1176086F /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		DF34BCD2F18E17B386978B4D /* Pods-AUMediaPlayer-google-cast-sdk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-google-cast-sdk-dummy.m"; sourceTree = "<group>"; };
+		DFDE6C254625FC1FDDFDC298 /* Pods-AUMediaPlayer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AUMediaPlayer-acknowledgements.plist"; sourceTree = "<group>"; };
+		E6E92EC8C04BB628A422FFB7 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		E86E8B9BC66D68286FB8590A /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ED25F3E59747120E4680C09A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		EE7F25D193FE446AFF74192C /* Pods-Tests-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-AFNetworking-dummy.m"; path = "../Pods-Tests-AFNetworking/Pods-Tests-AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		EEEA92C353E4D0F1B84F9D84 /* AUCast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUCast.m; sourceTree = "<group>"; };
+		EFDB3974CE230241B51399A3 /* Pods-Tests-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
+		F214EB0AAEB4D4A836DAF634 /* AUMediaPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUMediaPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F53FA94F274065020AA68D6D /* Pods-AUMediaPlayer-google-cast-sdk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-google-cast-sdk-prefix.pch"; sourceTree = "<group>"; };
+		F59C894D847510BF62C2F02F /* GCKLaunchOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKLaunchOptions.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKLaunchOptions.h"; sourceTree = "<group>"; };
+		F8A4194CD55D57FD57E167A2 /* AUCast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUCast.h; sourceTree = "<group>"; };
+		FCE7F4C0F863CFC83840AE4D /* GCKSenderApplicationInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKSenderApplicationInfo.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKSenderApplicationInfo.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01C1D4173427032B00C86006 /* Frameworks */ = {
+		0012443A881C24CE4BE1FAEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E991D1151AD5A5C51ADAA053 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D731D7DA55205A190EC2175 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		06C90AE5A8E904D6CFB9E0DD /* Frameworks */ = {
+		2F5AB329B043AF3B8C43903A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0416E9248C1140602B7D2D32 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1ED78DB2780689D6AC9BD732 /* Frameworks */ = {
+		30500100A1840B3E69A249D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA2EFCC5BA95BB88846A99DD /* Foundation.framework in Frameworks */,
+				0F3EDB5B0A5EE9E965E8A392 /* Foundation.framework in Frameworks */,
+				E23930CD102FCB811A311947 /* GoogleCast.framework in Frameworks */,
+				3F0307F20BF95CA4B297FC49 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66682F27CE4EB25366349786 /* Frameworks */ = {
+		42CF509FB2199C1106FA2EB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A73EAB4D480D918DEA6A884 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D9401637E2C804F2F49312F /* Frameworks */ = {
+		8DED2AABF59280E23E3FB6A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				673C37E7C32C9EE594A57EAA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4ED62EC19BCB2492789325A /* Frameworks */ = {
+		B66395E5A6DF1D1E86789678 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D7C2604DE1CF61E26D3BA24 /* CoreGraphics.framework in Frameworks */,
-				50DD997F7F33C41A8D08EA00 /* Foundation.framework in Frameworks */,
-				FC086475370EF9F0F6436361 /* MobileCoreServices.framework in Frameworks */,
-				09C3153A322FC6FFE17DB83B /* Security.framework in Frameworks */,
-				26A7B6A519B3D657ABBDB9B5 /* SystemConfiguration.framework in Frameworks */,
+				BF57A2152C5A22E9C681F6BF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA77FACBE500E1EE049DB450 /* Frameworks */ = {
+		B9082CC0C705566F2C8244FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B3233D74047FBDCD50D804 /* CoreGraphics.framework in Frameworks */,
+				B0636A1786832CB3325485F3 /* Foundation.framework in Frameworks */,
+				2E22EA51259E34AFBF9A78A0 /* MobileCoreServices.framework in Frameworks */,
+				63C7BF24184D4FC6C27786E2 /* Security.framework in Frameworks */,
+				548DB3F8CD61C660B03519FE /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6B67C9CA508AB68D9DEA6E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6596DC17D11DBBF64F3095F0 /* Foundation.framework in Frameworks */,
+				6F80EE74D7F94EA5B38775F0 /* GoogleCast.framework in Frameworks */,
+				AAAB5E2AF6BDE104D89368E0 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C89C5AE182C59B3662EA04A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E92085EAA40C7D15D759EB73 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7E90B8E6D6602A28445BF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A59C36BD9131B0751E4E19 /* CoreGraphics.framework in Frameworks */,
+				3D0F50E38A18AFE6F8ADD241 /* Foundation.framework in Frameworks */,
+				BA71517F6435D495811EF78D /* MobileCoreServices.framework in Frameworks */,
+				2DF7320916C90E7762348BF8 /* Security.framework in Frameworks */,
+				D3FD2CA61DD29496150D928D /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E87F9DD5ADA386251A74BF2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6020D649ACA8AC896A58475 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06CFFB84B46AF228A682138D /* Pods */ = {
+		00E3077E8DC0ECC2DC0066DA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EE5D86AF3B877D29F2F70DE3 /* AFNetworking */,
+				0355F998E636335939458CFA /* AFNetworking */,
+				567042EDD1691489DA726A08 /* google-cast-sdk */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		11744870C8E930C56DABEAF8 /* Targets Support Files */ = {
+		0355F998E636335939458CFA /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				9CA3410C76046F0F22986FD7 /* Pods-AUMediaPlayer */,
-				E591D3535931C1A5512E6CC5 /* Pods-Tests */,
+				14E68E8D29BD1972F6898BF9 /* AFNetworking.h */,
+				2A43CF0D8AE382AC8D6591F5 /* NSURLConnection */,
+				067DE9C3AE673B431B64C882 /* NSURLSession */,
+				245ABEF032B154A5B6587CF6 /* Reachability */,
+				C14AF81C854098DF1A8404D9 /* Security */,
+				D9CAD8761A6CEB7F90173C22 /* Serialization */,
+				A568CC2B26C47E1612F7B30B /* Support Files */,
+				5785A441CBA1AC00E995CC39 /* UIKit */,
 			);
-			name = "Targets Support Files";
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		11E27117E972A8024F3FCD2E /* Pod */ = {
+		067DE9C3AE673B431B64C882 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
-				2B16393DA4FAED1361AF34A4 /* Classes */,
+				95ACBA628B7F027F71522395 /* AFHTTPSessionManager.h */,
+				1600234ABAFD2B2CF85288F5 /* AFHTTPSessionManager.m */,
+				8A47668C536B18B09CFC78E6 /* AFURLSessionManager.h */,
+				6DEDACC056BD288CF1121E8B /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		19AAA6CFB56BB233A5C310ED /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F378D05860AC4FD3F07F543D /* Resources */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		1F911D8B79D59720085FF9AD /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C5EFD0497ED836B6C1150203 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		1309AF6532F04FA626F6DD21 = {
+		245ABEF032B154A5B6587CF6 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
-				D73A7D041AE6AF6B008312B8 /* CHANGELOG.md */,
-				158FEFA70051FEB86ADFD259 /* Podfile */,
-				7E7B6BD5BA38E495BB609B72 /* Development Pods */,
-				B7C61B3445C81D5E9CA2244D /* Frameworks */,
-				06CFFB84B46AF228A682138D /* Pods */,
-				58194E46D264CFE2B3384EA0 /* Products */,
-				11744870C8E930C56DABEAF8 /* Targets Support Files */,
+				6E1901672421E8E162782C9D /* AFNetworkReachabilityManager.h */,
+				E6E92EC8C04BB628A422FFB7 /* AFNetworkReachabilityManager.m */,
 			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
-		238FEB26C090D803782A1BED /* Support Files */ = {
+		28D55EC31C6588AD2A1B5221 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				284DC1F32A6E8E18D2B26243 /* Pods-AUMediaPlayer-AUMediaPlayer.xcconfig */,
-				EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */,
-				FD9C894A0C7D0D260AEED342 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */,
-				30CDD810EE2B91CEF34E37D2 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */,
-				CEC928587E1D0F6FC3F165C8 /* Pods-Tests-AUMediaPlayer.xcconfig */,
-				A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */,
-				A7165550E52468FDD2CC4763 /* Pods-Tests-AUMediaPlayer-dummy.m */,
-				F0A529F13E1167A28FFE9891 /* Pods-Tests-AUMediaPlayer-prefix.pch */,
+				2F1DA7F9922D07DD365A97D3 /* CoreGraphics.framework */,
+				ED25F3E59747120E4680C09A /* Foundation.framework */,
+				458AA8F5479CD87F487E30D2 /* GoogleCast.framework */,
+				3974489917A2D21162122E8B /* MobileCoreServices.framework */,
+				401184A586593A814B5A3351 /* Security.framework */,
+				ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2A36FF42047E936B385E926E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28D55EC31C6588AD2A1B5221 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A43CF0D8AE382AC8D6591F5 /* NSURLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				3242601166C11E1AD13E06A2 /* AFHTTPRequestOperation.h */,
+				13D3B908B9A56F81960113B1 /* AFHTTPRequestOperation.m */,
+				ABD5E202BEFAA61AF4AE1680 /* AFHTTPRequestOperationManager.h */,
+				4C8C8AE2E6E05B25F5B6C6F0 /* AFHTTPRequestOperationManager.m */,
+				C04026FC26B488628177FCB6 /* AFURLConnectionOperation.h */,
+				55A8884E380F5E9C16D504A2 /* AFURLConnectionOperation.m */,
+			);
+			name = NSURLConnection;
+			sourceTree = "<group>";
+		};
+		567042EDD1691489DA726A08 /* google-cast-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				19AAA6CFB56BB233A5C310ED /* Assets */,
+				856962E17F50AA9E9B80E0CD /* Core */,
+				5A6C6C6C2DE0D4E3FACEB4F5 /* Support Files */,
+			);
+			path = "google-cast-sdk";
+			sourceTree = "<group>";
+		};
+		5785A441CBA1AC00E995CC39 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B199D6EA379AC211C342EF7B /* AFNetworkActivityIndicatorManager.h */,
+				83057CC8BB91A4EAEFD8361E /* AFNetworkActivityIndicatorManager.m */,
+				59DC6123964FDEEC78A88434 /* UIActivityIndicatorView+AFNetworking.h */,
+				148ED94F9AA4D64BBE17F950 /* UIActivityIndicatorView+AFNetworking.m */,
+				4032CD6BBA9ABBED8F2A89A4 /* UIAlertView+AFNetworking.h */,
+				3F95E297929D74BEB8C8D5E1 /* UIAlertView+AFNetworking.m */,
+				36D977E5B9D9F86F0B3B6875 /* UIButton+AFNetworking.h */,
+				6D42EC59478DF106729436BE /* UIButton+AFNetworking.m */,
+				04079772994E6D37DBBEB762 /* UIImageView+AFNetworking.h */,
+				A4E8CE1C6A3F244CD19403F9 /* UIImageView+AFNetworking.m */,
+				2A45E5861B974505EE9A5679 /* UIKit+AFNetworking.h */,
+				6DF2AAAA08A0A05066BD9FD9 /* UIProgressView+AFNetworking.h */,
+				C5BD8722B292B2D8298F8F00 /* UIProgressView+AFNetworking.m */,
+				062081C572E6FD873F9703FC /* UIRefreshControl+AFNetworking.h */,
+				4495E257D83A706F51DECC72 /* UIRefreshControl+AFNetworking.m */,
+				BC4C573C0AACE2F37AE899E3 /* UIWebView+AFNetworking.h */,
+				4A472FB14458A2F2C7EF69A1 /* UIWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		5A6C6C6C2DE0D4E3FACEB4F5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9F31787BB4828F0ACF16C3A /* Pods-AUMediaPlayer-google-cast-sdk.xcconfig */,
+				82ED393125868F99260B45B1 /* Pods-AUMediaPlayer-google-cast-sdk-Private.xcconfig */,
+				DF34BCD2F18E17B386978B4D /* Pods-AUMediaPlayer-google-cast-sdk-dummy.m */,
+				F53FA94F274065020AA68D6D /* Pods-AUMediaPlayer-google-cast-sdk-prefix.pch */,
+				BEEF6B81393EEC63B6EB9E18 /* Pods-Tests-google-cast-sdk.xcconfig */,
+				B26D8F6385B9E5256A08CBD3 /* Pods-Tests-google-cast-sdk-Private.xcconfig */,
+				81835D02AAAB0313DCCBD19C /* Pods-Tests-google-cast-sdk-dummy.m */,
+				A34086599AF77AE849D115F2 /* Pods-Tests-google-cast-sdk-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer";
+			path = "../Target Support Files/Pods-AUMediaPlayer-google-cast-sdk";
 			sourceTree = "<group>";
 		};
-		2B16393DA4FAED1361AF34A4 /* Classes */ = {
+		856962E17F50AA9E9B80E0CD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				96D89D56551C6D4803D756B6 /* AUMediaConstants.h */,
-				AD1D441DF7BA913D28D4A015 /* AUMediaConstants.m */,
-				3F46E9DE06C9170E84A36C0D /* AUMediaItem.h */,
-				62EF6C1FEC3B0CAD3DE0B193 /* AUMediaLibrary.h */,
-				0929942B263E03E21723BB47 /* AUMediaLibrary.m */,
-				CB88C44FD0AD3C36AB410328 /* AUMediaPlayer.h */,
-				FECF477038DEDA1966E66877 /* AUMediaPlayer.m */,
-				CED6D159770200F1D58A4312 /* NSError+AUMedia.h */,
-				3E6E0796212000B1B8BC3A36 /* NSError+AUMedia.m */,
-				8A715F782430CCCE47DCBFDB /* NSString+AUMedia.h */,
-				6003AED091F64BF105D4609A /* NSString+AUMedia.m */,
-				3C2C87757410413C3D7BB540 /* NSURL+AUMedia.h */,
-				D5558936C541B73BD5E40FE8 /* NSURL+AUMedia.m */,
+				25B1FB19801CA4823494FFB8 /* GCKApplicationMetadata.h */,
+				AF5E5D3B309B204B8B925219 /* GCKCastChannel.h */,
+				3FED7ED7DD4C4C06317A73C0 /* GCKCastContext.h */,
+				0398EF2C00BB5C517C8C456F /* GCKColor.h */,
+				CD4391565C349A2BABE9F798 /* GCKCommon.h */,
+				01C1F485EBAE397345325101 /* GCKDefines.h */,
+				82889F0A385D3B49406EB4F1 /* GCKDevice.h */,
+				1321D5A0C49E72514A60F71F /* GCKDeviceManager.h */,
+				321C1423D320CE045B7A704A /* GCKDeviceScanner.h */,
+				38418AD5E8E53827C48D538A /* GCKError.h */,
+				A53114E9FCA130A4EE15BA25 /* GCKFilterCriteria.h */,
+				60F25BB45240C746899F9DC7 /* GCKGenericChannel.h */,
+				31C4150005115D30B0BEAB1A /* GCKImage.h */,
+				24946037B5E77A980B0BC8F4 /* GCKJSONUtils.h */,
+				F59C894D847510BF62C2F02F /* GCKLaunchOptions.h */,
+				57CAF9A5993114CF093A874B /* GCKLogger.h */,
+				0084304B8F5E7D0281BD7E6B /* GCKMediaControlChannel.h */,
+				9519E4EF52515192C33EB07A /* GCKMediaInformation.h */,
+				43CE1853972868705A9E5FC8 /* GCKMediaMetadata.h */,
+				DA8BF66473977F1BCB58FC67 /* GCKMediaStatus.h */,
+				2EEAC8C8CF6B5560A7C6721A /* GCKMediaTextTrackStyle.h */,
+				1ADA7310B4A0467ACFD1AA53 /* GCKMediaTrack.h */,
+				C054DE386EE7BB8B4F61C52F /* GCKNSDictionary+TypedValueLookup.h */,
+				FCE7F4C0F863CFC83840AE4D /* GCKSenderApplicationInfo.h */,
+				BF1C2CF98724A2679F4AACB8 /* GoogleCast.h */,
+				948D99A1B8F7F713DAEFA5A9 /* NSDictionary+GCKAdditions.h */,
 			);
-			path = Classes;
+			name = Core;
 			sourceTree = "<group>";
 		};
-		2F43C73AA03F2910F4E68C9B /* AUMediaPlayer */ = {
+		A568CC2B26C47E1612F7B30B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				11E27117E972A8024F3FCD2E /* Pod */,
-				238FEB26C090D803782A1BED /* Support Files */,
-			);
-			name = AUMediaPlayer;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		58194E46D264CFE2B3384EA0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				341A1D18D30D40D563ECD3BF /* AUMediaPlayer.bundle */,
-				EEEAB18AEAE24EA1A9422169 /* AUMediaPlayer.bundle */,
-				8A57831B47A77075C64D05D8 /* libPods-AUMediaPlayer.a */,
-				56CC6087DA7BE854F211C348 /* libPods-AUMediaPlayer-AFNetworking.a */,
-				50B3346E17EB976CC11CBA3C /* libPods-AUMediaPlayer-AUMediaPlayer.a */,
-				9C08E2D6DE99D42C5C40FCB3 /* libPods-Tests.a */,
-				03668A62786DE7C1A4D39778 /* libPods-Tests-AUMediaPlayer.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7E7B6BD5BA38E495BB609B72 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2F43C73AA03F2910F4E68C9B /* AUMediaPlayer */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		9044CE504F35CBB0DE9A6B23 /* Serialization */ = {
-			isa = PBXGroup;
-			children = (
-				EA7831DF1A9CCC6A5DF90138 /* AFURLRequestSerialization.h */,
-				3AA3AF41F1806FFF85B72199 /* AFURLRequestSerialization.m */,
-				9B3CC1E5E0FE277C5C1D3267 /* AFURLResponseSerialization.h */,
-				EF4510C573E4600DC7505C26 /* AFURLResponseSerialization.m */,
-			);
-			name = Serialization;
-			sourceTree = "<group>";
-		};
-		92A128DB39A1FD2BEEADB2FE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BE8556A2B07CF6491DDD1BCA /* Pods-AUMediaPlayer-AFNetworking.xcconfig */,
-				5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */,
-				164662A6172D992D5C9512F8 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */,
-				AAE5B52B9C91F9183D892B44 /* Pods-AUMediaPlayer-AFNetworking-prefix.pch */,
+				B8EF6F27305A70712787391E /* Pods-AUMediaPlayer-AFNetworking.xcconfig */,
+				BF73DCD464E1FF401F3043AD /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */,
+				002AA305916E668DE7994366 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */,
+				BA1BA9F88391D598CAA092CC /* Pods-AUMediaPlayer-AFNetworking-prefix.pch */,
+				68DE53A2B6A1531A8FCF707B /* Pods-Tests-AFNetworking.xcconfig */,
+				86DA9826661379D5F7B0A222 /* Pods-Tests-AFNetworking-Private.xcconfig */,
+				EE7F25D193FE446AFF74192C /* Pods-Tests-AFNetworking-dummy.m */,
+				10AD37CF37E3E8852E20342A /* Pods-Tests-AFNetworking-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-AUMediaPlayer-AFNetworking";
 			sourceTree = "<group>";
 		};
-		9CA3410C76046F0F22986FD7 /* Pods-AUMediaPlayer */ = {
+		A89AD337C0896A4D4FFAC9F3 /* Pods-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E8349178229D8E26415C370B /* Pods-AUMediaPlayer-acknowledgements.markdown */,
-				D8451326BFFB97C7B7EB49DE /* Pods-AUMediaPlayer-acknowledgements.plist */,
-				41DE64C3DAFF6B80123A4C57 /* Pods-AUMediaPlayer-dummy.m */,
-				ED9DD573F1D2F452166861EF /* Pods-AUMediaPlayer-environment.h */,
-				05BCB4A6CD4F6BA6B32FC393 /* Pods-AUMediaPlayer-resources.sh */,
-				6039658405C89ACB4B4ED670 /* Pods-AUMediaPlayer.debug.xcconfig */,
-				11EEBBE23048E44D441C862C /* Pods-AUMediaPlayer.release.xcconfig */,
-			);
-			name = "Pods-AUMediaPlayer";
-			path = "Target Support Files/Pods-AUMediaPlayer";
-			sourceTree = "<group>";
-		};
-		B08A3125FE4C2A978EC96A8E /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				F6015568FC9DAD0ABF41F503 /* AFNetworkReachabilityManager.h */,
-				A0F4CD014CF5B82BE3428A98 /* AFNetworkReachabilityManager.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
-		B7C61B3445C81D5E9CA2244D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DD9A96BA9862A5C9266098E8 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BC73E456353044947F1ECB62 /* NSURLConnection */ = {
-			isa = PBXGroup;
-			children = (
-				BBA16DBD589B36908E2329F5 /* AFHTTPRequestOperation.h */,
-				75F862158A71EA0DDDFAADDA /* AFHTTPRequestOperation.m */,
-				316450FEAB91E193F43AB45C /* AFHTTPRequestOperationManager.h */,
-				953DAE6C4973C104CB2304D6 /* AFHTTPRequestOperationManager.m */,
-				9C6004CC9544BFE1942EDCC9 /* AFURLConnectionOperation.h */,
-				0F3368757EE15AB613728BFE /* AFURLConnectionOperation.m */,
-			);
-			name = NSURLConnection;
-			sourceTree = "<group>";
-		};
-		DA2C90EC108CD94CAE8E793C /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				DC71FCD1741E5A6D1D57BCB9 /* AFNetworkActivityIndicatorManager.h */,
-				596AB10DB3AC46BDE100D65D /* AFNetworkActivityIndicatorManager.m */,
-				E285D8BCD7D32F8D37E749AD /* UIActivityIndicatorView+AFNetworking.h */,
-				7B5CD83CED1B55187AF024D4 /* UIActivityIndicatorView+AFNetworking.m */,
-				5097EF2303C93A0F08573238 /* UIAlertView+AFNetworking.h */,
-				A90372180BC36A24803E93BC /* UIAlertView+AFNetworking.m */,
-				A6E1BC4D654EDDAF7096316A /* UIButton+AFNetworking.h */,
-				4838C1C1876A3F718D5CF0E9 /* UIButton+AFNetworking.m */,
-				1B692C8E43E1FE8867D93406 /* UIImageView+AFNetworking.h */,
-				A451E51C066EB9DDC5326FEC /* UIImageView+AFNetworking.m */,
-				E3A434DAA774294873D90C30 /* UIKit+AFNetworking.h */,
-				50A3D42789EDA93AF0498323 /* UIProgressView+AFNetworking.h */,
-				74EA2AA3BF2952987DFE0FDC /* UIProgressView+AFNetworking.m */,
-				0117EF4DD00AA0C156F67528 /* UIRefreshControl+AFNetworking.h */,
-				6477ED47C4E378759F080D52 /* UIRefreshControl+AFNetworking.m */,
-				CBF41FF2F77CF5C3B01F0774 /* UIWebView+AFNetworking.h */,
-				8858864CE4AB19EDFB4E6C0B /* UIWebView+AFNetworking.m */,
-			);
-			name = UIKit;
-			sourceTree = "<group>";
-		};
-		DD9A96BA9862A5C9266098E8 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				71F482B3552306C4E7974251 /* CoreGraphics.framework */,
-				0596FB896FF865140F9716BA /* Foundation.framework */,
-				D0087D0A9E642D223275FE85 /* MobileCoreServices.framework */,
-				79896EFF51B9F135506E923B /* Security.framework */,
-				2910DA95DDEF8DAC755F9BD5 /* SystemConfiguration.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		E158078FF9CDFE84495A76F9 /* Security */ = {
-			isa = PBXGroup;
-			children = (
-				032098B80518F0CABE4292FE /* AFSecurityPolicy.h */,
-				79E23D809FE222E70FCE31D0 /* AFSecurityPolicy.m */,
-			);
-			name = Security;
-			sourceTree = "<group>";
-		};
-		E591D3535931C1A5512E6CC5 /* Pods-Tests */ = {
-			isa = PBXGroup;
-			children = (
-				29101D4B260B89C5B7847A4F /* Pods-Tests-acknowledgements.markdown */,
-				12C23F4FE23AB88730792A5B /* Pods-Tests-acknowledgements.plist */,
-				69DA6830E182F42B3E062B89 /* Pods-Tests-dummy.m */,
-				9BC0CCEE942CD2804E30B519 /* Pods-Tests-environment.h */,
-				537E53AFB651C4336E0AD572 /* Pods-Tests-resources.sh */,
-				42B9D603B8A29AC16EC6FE98 /* Pods-Tests.debug.xcconfig */,
-				FC2F4C4FB82470C811C627DC /* Pods-Tests.release.xcconfig */,
+				E86E8B9BC66D68286FB8590A /* Pods-Tests-acknowledgements.markdown */,
+				81A78AA9CA4594EC0EBE4453 /* Pods-Tests-acknowledgements.plist */,
+				171016589D2E9C413CB89834 /* Pods-Tests-dummy.m */,
+				DBF609CED977358B1176086F /* Pods-Tests-environment.h */,
+				9CEA992109E5008D2BCC13C8 /* Pods-Tests-resources.sh */,
+				B1CE3AD9AE84AF12F0E8F57C /* Pods-Tests.debug.xcconfig */,
+				0B23DA244E9FB745EA38FC2F /* Pods-Tests.release.xcconfig */,
 			);
 			name = "Pods-Tests";
 			path = "Target Support Files/Pods-Tests";
 			sourceTree = "<group>";
 		};
-		EE5D86AF3B877D29F2F70DE3 /* AFNetworking */ = {
+		BC0284835774920488820A42 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CD823B5BD92496568D96EE25 /* AFNetworking.h */,
-				BC73E456353044947F1ECB62 /* NSURLConnection */,
-				EFDF5295A063570B3C8B0931 /* NSURLSession */,
-				B08A3125FE4C2A978EC96A8E /* Reachability */,
-				E158078FF9CDFE84495A76F9 /* Security */,
-				9044CE504F35CBB0DE9A6B23 /* Serialization */,
-				92A128DB39A1FD2BEEADB2FE /* Support Files */,
-				DA2C90EC108CD94CAE8E793C /* UIKit */,
+				CB715BD39E629D4873561858 /* Pods-AUMediaPlayer */,
+				A89AD337C0896A4D4FFAC9F3 /* Pods-Tests */,
 			);
-			path = AFNetworking;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		EFDF5295A063570B3C8B0931 /* NSURLSession */ = {
+		C14AF81C854098DF1A8404D9 /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				B0435BCEA68BB8DC4336AD0B /* AFHTTPSessionManager.h */,
-				BB9BEB4DE7DBA9B980E6FBA2 /* AFHTTPSessionManager.m */,
-				FA90753CF8B9302D162CED40 /* AFURLSessionManager.h */,
-				337A6341739AF55985DDFFA0 /* AFURLSessionManager.m */,
+				6BAF903BCD5CA36E1E6AD8A5 /* AFSecurityPolicy.h */,
+				1A06E0B2A04F43FD82213FE8 /* AFSecurityPolicy.m */,
 			);
-			name = NSURLSession;
+			name = Security;
+			sourceTree = "<group>";
+		};
+		C5EFD0497ED836B6C1150203 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F8A4194CD55D57FD57E167A2 /* AUCast.h */,
+				EEEA92C353E4D0F1B84F9D84 /* AUCast.m */,
+				3C5FD6BC7C6F5575060286BA /* AUMediaConstants.h */,
+				9A6DA6885E7CA4E6E33F14D8 /* AUMediaConstants.m */,
+				9F3FE6363A2615B9757FE70E /* AUMediaItem.h */,
+				237D0BD38B20AB4EF90283C1 /* AUMediaLibrary.h */,
+				238382F3A4BC60835A7C9B80 /* AUMediaLibrary.m */,
+				0B98A8A86CEBC5A4E0ADF813 /* AUMediaPlayer.h */,
+				930B90B2AF536E7264EA9CAE /* AUMediaPlayer.m */,
+				8E02DE5B51ED30B20EDA56DD /* NSError+AUMedia.h */,
+				2E5C1E67E65115A800A74A78 /* NSError+AUMedia.m */,
+				29B0588695BC7374EE285983 /* NSString+AUMedia.h */,
+				06D8F5AF6FFA1A67E315C0F8 /* NSString+AUMedia.m */,
+				AD174DD0AF8D46432E396C64 /* NSURL+AUMedia.h */,
+				0E688DAF2032CB1E29B24B27 /* NSURL+AUMedia.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C6DFF50791B987B7D39A704A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBAF4238F4FB883B14A59DD1 /* AUMediaPlayer */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CB715BD39E629D4873561858 /* Pods-AUMediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				95B37505D7ED622388F56112 /* Pods-AUMediaPlayer-acknowledgements.markdown */,
+				DFDE6C254625FC1FDDFDC298 /* Pods-AUMediaPlayer-acknowledgements.plist */,
+				4DC2FD8C563A798E37A2C52E /* Pods-AUMediaPlayer-dummy.m */,
+				A01B58A66B0CBB00922EE0F0 /* Pods-AUMediaPlayer-environment.h */,
+				CE32A7B03E152B1D4A79544F /* Pods-AUMediaPlayer-resources.sh */,
+				487D8FC3DB467161A8520685 /* Pods-AUMediaPlayer.debug.xcconfig */,
+				09736D0915C93761E0353256 /* Pods-AUMediaPlayer.release.xcconfig */,
+			);
+			name = "Pods-AUMediaPlayer";
+			path = "Target Support Files/Pods-AUMediaPlayer";
+			sourceTree = "<group>";
+		};
+		D09B1A23F79CDC7920346392 = {
+			isa = PBXGroup;
+			children = (
+				78053DB66AEA6D49C9A60CB6 /* Podfile */,
+				C6DFF50791B987B7D39A704A /* Development Pods */,
+				2A36FF42047E936B385E926E /* Frameworks */,
+				00E3077E8DC0ECC2DC0066DA /* Pods */,
+				D6BD6E6BCE9AB1EA79992B4C /* Products */,
+				BC0284835774920488820A42 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D6BD6E6BCE9AB1EA79992B4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F214EB0AAEB4D4A836DAF634 /* AUMediaPlayer.bundle */,
+				B060EB50EA4480429E18E36F /* AUMediaPlayer.bundle */,
+				6DA6D137D724ECDBEE409BB7 /* CastFrameworkAssets.bundle */,
+				2D6588A9340A4B38C3C9DCF9 /* CastFrameworkAssets.bundle */,
+				C60F68256BE3C680EE598C9E /* libPods-AUMediaPlayer.a */,
+				85718C7E6051FC8752C0600F /* libPods-AUMediaPlayer-AFNetworking.a */,
+				AF4DD6EB72DD4FF2B57C6C39 /* libPods-AUMediaPlayer-AUMediaPlayer.a */,
+				153034925864C3FF15050516 /* libPods-AUMediaPlayer-google-cast-sdk.a */,
+				C25924AE8055EFD6C696402C /* libPods-Tests.a */,
+				38C3B2A8200DF176343A1C88 /* libPods-Tests-AFNetworking.a */,
+				94C3ED4D05C76B35BC624DCF /* libPods-Tests-AUMediaPlayer.a */,
+				04E6BFF489B796450314BB79 /* libPods-Tests-google-cast-sdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9CAD8761A6CEB7F90173C22 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				88786BDA3CFE07F278AE3517 /* AFURLRequestSerialization.h */,
+				11183A5E9D82092446726185 /* AFURLRequestSerialization.m */,
+				561240E51412ED8D61E6851C /* AFURLResponseSerialization.h */,
+				8D1937172BBE0D082432F29A /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		E1CC39724BDA1C663E1DEE32 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C17E9D740A4EE0447031CAB /* Pods-AUMediaPlayer-AUMediaPlayer.xcconfig */,
+				95E4A40E9817C652656C3017 /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */,
+				6754645A009AA26BAD8121E7 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m */,
+				A11F6370DCE36DB5C3708A03 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */,
+				EFDB3974CE230241B51399A3 /* Pods-Tests-AUMediaPlayer.xcconfig */,
+				C9FE4AE80B19FEB52DF7DDA0 /* Pods-Tests-AUMediaPlayer-Private.xcconfig */,
+				8C63F6A00A19CF4EE3AC7847 /* Pods-Tests-AUMediaPlayer-dummy.m */,
+				398668B1395877D0E3AC606C /* Pods-Tests-AUMediaPlayer-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer";
+			sourceTree = "<group>";
+		};
+		EBAF4238F4FB883B14A59DD1 /* AUMediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				1F911D8B79D59720085FF9AD /* Pod */,
+				E1CC39724BDA1C663E1DEE32 /* Support Files */,
+			);
+			name = AUMediaPlayer;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		F378D05860AC4FD3F07F543D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				492B338066FBAE02AD471361 /* CastFrameworkAssets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		25FABF0E45EA21766A86A35F /* Headers */ = {
+		3DFE67311EC2D6B94E9E29E3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48EB672259B285EFC764974B /* AFHTTPRequestOperation.h in Headers */,
-				64EEDEBE3867D3703F0A20C1 /* AFHTTPRequestOperationManager.h in Headers */,
-				3A9CD40200DBDEA688CDBC4E /* AFHTTPSessionManager.h in Headers */,
-				6F585FC23127FCA6937DDE1A /* AFNetworkActivityIndicatorManager.h in Headers */,
-				35E4737E5DB0743294E3B26A /* AFNetworkReachabilityManager.h in Headers */,
-				5B2D847A4C09FA13463C39B8 /* AFNetworking.h in Headers */,
-				1F46BD1DE0C4C38070274AB4 /* AFSecurityPolicy.h in Headers */,
-				3093DA29E999A0B32E182DAA /* AFURLConnectionOperation.h in Headers */,
-				A28279CFBD8E823F9CDCEEAD /* AFURLRequestSerialization.h in Headers */,
-				EC0C1940B264C800BE84EA02 /* AFURLResponseSerialization.h in Headers */,
-				BFE36E076FA3037244FB208C /* AFURLSessionManager.h in Headers */,
-				83B628AB22ADCB48C52C22A3 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
-				EC8458FD1A7AC3671D696199 /* UIAlertView+AFNetworking.h in Headers */,
-				DD2DE43CF91888BC68299C67 /* UIButton+AFNetworking.h in Headers */,
-				B56A0AD76C6AD441310317D2 /* UIImageView+AFNetworking.h in Headers */,
-				94B785EEBF1AF32E1C6320E1 /* UIKit+AFNetworking.h in Headers */,
-				D8BE7CE95D744E42F0161E68 /* UIProgressView+AFNetworking.h in Headers */,
-				62EA9E3118A6BAD575FA4A97 /* UIRefreshControl+AFNetworking.h in Headers */,
-				32178D60B29BAD24E65A2CF2 /* UIWebView+AFNetworking.h in Headers */,
+				906FF455A9037CD751B1A184 /* AFHTTPRequestOperation.h in Headers */,
+				613C4562277AF8473C847CA3 /* AFHTTPRequestOperationManager.h in Headers */,
+				B1D8340680F8C8FCC8392FF5 /* AFHTTPSessionManager.h in Headers */,
+				880D65C74F0099DAB0AE46EF /* AFNetworkActivityIndicatorManager.h in Headers */,
+				03BAF78309839F89064280ED /* AFNetworkReachabilityManager.h in Headers */,
+				60DE4128172017AF438146DC /* AFNetworking.h in Headers */,
+				575405C437FD2B0EFA7377A3 /* AFSecurityPolicy.h in Headers */,
+				AE763A75D840138175AC216A /* AFURLConnectionOperation.h in Headers */,
+				07141E505BA2CBCDC0520A45 /* AFURLRequestSerialization.h in Headers */,
+				1AB2DD24FA22F0177B8186C8 /* AFURLResponseSerialization.h in Headers */,
+				F1417B11B90B5B2D2AADD79C /* AFURLSessionManager.h in Headers */,
+				B23B8C21819AD683DBE47CC0 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				8A34A88FC5B022650A0A1DE2 /* UIAlertView+AFNetworking.h in Headers */,
+				8556B34E0DE91B2D5069E73E /* UIButton+AFNetworking.h in Headers */,
+				2618C5B2FD39563ABE48FB70 /* UIImageView+AFNetworking.h in Headers */,
+				DA5173A688192DAC296ACC72 /* UIKit+AFNetworking.h in Headers */,
+				81B1F1A2E047103BD91F4BB6 /* UIProgressView+AFNetworking.h in Headers */,
+				E3582C80296532EFD9761367 /* UIRefreshControl+AFNetworking.h in Headers */,
+				6852D0EF25CB26DCAA9FBB12 /* UIWebView+AFNetworking.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95BE57D179E072E9F138E10A /* Headers */ = {
+		74780CC76C9327838A50D313 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2172308C4FC6808C53449BC5 /* AUMediaConstants.h in Headers */,
-				A1C6CA57EFE29E8E4D1CBB81 /* AUMediaItem.h in Headers */,
-				C770E513ECF23B437989EE6E /* AUMediaLibrary.h in Headers */,
-				3E3ED2FAF54B2FB674B9E95F /* AUMediaPlayer.h in Headers */,
-				931606A7B12035541C36F3A8 /* NSError+AUMedia.h in Headers */,
-				7DAFF0371691ABA0DBFB1AEE /* NSString+AUMedia.h in Headers */,
-				DA56552A26E7AF37E7AE7921 /* NSURL+AUMedia.h in Headers */,
+				99D44B486ECD2C592BA5779F /* GCKApplicationMetadata.h in Headers */,
+				888F5E23F6D05F85E5C635A4 /* GCKCastChannel.h in Headers */,
+				1D7504ABC500E27884E89CF9 /* GCKCastContext.h in Headers */,
+				854C5B4B3003B83230329653 /* GCKColor.h in Headers */,
+				70F946A8584BDCDAFEB36DFA /* GCKCommon.h in Headers */,
+				FED77024FAAB03D15C11369D /* GCKDefines.h in Headers */,
+				92CD74AA2CBB9A3066929677 /* GCKDevice.h in Headers */,
+				450694DF76DB840AB987C940 /* GCKDeviceManager.h in Headers */,
+				808811B695C92CEBA957EFA8 /* GCKDeviceScanner.h in Headers */,
+				2AA052E7E788603DD782B266 /* GCKError.h in Headers */,
+				8FB0AA619E8CE3F0C50965D6 /* GCKFilterCriteria.h in Headers */,
+				22389CAB467FB53FFED6CCC1 /* GCKGenericChannel.h in Headers */,
+				D8DBA4200B9CC9AE7E007711 /* GCKImage.h in Headers */,
+				A1623665F72260F1AD20F293 /* GCKJSONUtils.h in Headers */,
+				D7E329361F48C80664CC1E50 /* GCKLaunchOptions.h in Headers */,
+				885D7BE6AA477B7FAFA0ABC9 /* GCKLogger.h in Headers */,
+				9818C8797DD8AF62FC43B851 /* GCKMediaControlChannel.h in Headers */,
+				4C37EA93597B7656CF7604F9 /* GCKMediaInformation.h in Headers */,
+				5BA37EACFE212370B9DC69F0 /* GCKMediaMetadata.h in Headers */,
+				799D9984EF3511CC3CC0D36D /* GCKMediaStatus.h in Headers */,
+				C07ECE75A39CEEBE3BAF8C11 /* GCKMediaTextTrackStyle.h in Headers */,
+				7B45DFD4E5B19E26AA3E8E2A /* GCKMediaTrack.h in Headers */,
+				5FA61DFC87A904549788F172 /* GCKNSDictionary+TypedValueLookup.h in Headers */,
+				BAA26292880AAB5597DBDE58 /* GCKSenderApplicationInfo.h in Headers */,
+				E4E58D845918637C4A753411 /* GoogleCast.h in Headers */,
+				61B92164845DB4AD90E8B9E7 /* NSDictionary+GCKAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A70FC5E5D899FFF7E05304D9 /* Headers */ = {
+		BB260205A475E420883E4F4E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E7FB0FD0146201DDC41DBB1 /* AUMediaConstants.h in Headers */,
-				FF5086ECC47BC35691183FB7 /* AUMediaItem.h in Headers */,
-				06E6CDCEEB04EC921710E212 /* AUMediaLibrary.h in Headers */,
-				479FCDF7D5DD35956E92153F /* AUMediaPlayer.h in Headers */,
-				6005F9F3278C9144A4EF0F33 /* NSError+AUMedia.h in Headers */,
-				39D854C2B5959C7C15C7122F /* NSString+AUMedia.h in Headers */,
-				0C1FA100B0219AD3B5CEF49F /* NSURL+AUMedia.h in Headers */,
+				A8562863633C4D65B6D25CCB /* GCKApplicationMetadata.h in Headers */,
+				1BC3C4AC028F22A4AF0F1260 /* GCKCastChannel.h in Headers */,
+				1CB081071E9190E02B183E38 /* GCKCastContext.h in Headers */,
+				6C0A9BDDE86A52A4B06822DB /* GCKColor.h in Headers */,
+				09AAAEFC8347DCAD7C19136B /* GCKCommon.h in Headers */,
+				8EF5E140137E45038BC30D31 /* GCKDefines.h in Headers */,
+				E60B2841FA26860A7D816F18 /* GCKDevice.h in Headers */,
+				9A25CFDEC31CE90C90AEBEDD /* GCKDeviceManager.h in Headers */,
+				0CC2A64254F1EFF3DC11518E /* GCKDeviceScanner.h in Headers */,
+				9C3F4FA94CF0921473791500 /* GCKError.h in Headers */,
+				36A3E4F2B6DAD68C806227B5 /* GCKFilterCriteria.h in Headers */,
+				A0CC8BBC77E96A64ACD24A94 /* GCKGenericChannel.h in Headers */,
+				2CC73F38233FD915F18D580F /* GCKImage.h in Headers */,
+				81FB41A570BA42176B445715 /* GCKJSONUtils.h in Headers */,
+				462EF9506D874BDDDCA4FDDC /* GCKLaunchOptions.h in Headers */,
+				6F07791B64DFD719CDAD0480 /* GCKLogger.h in Headers */,
+				195F663709073A463C52142F /* GCKMediaControlChannel.h in Headers */,
+				D925E48B302C69EE38CBCF4D /* GCKMediaInformation.h in Headers */,
+				457443ABDEC995B73943A4DA /* GCKMediaMetadata.h in Headers */,
+				C8C31A8AF24BBDBA1E1B6B5A /* GCKMediaStatus.h in Headers */,
+				C72F520FFDEF54FCF779E343 /* GCKMediaTextTrackStyle.h in Headers */,
+				90104324FE641BFCFB5847FC /* GCKMediaTrack.h in Headers */,
+				FE447BFE98CAD645953D4374 /* GCKNSDictionary+TypedValueLookup.h in Headers */,
+				B92247D5B10AE9A06EF29870 /* GCKSenderApplicationInfo.h in Headers */,
+				BEE318A97D0834079E0370E2 /* GoogleCast.h in Headers */,
+				50231901C85E49688210074A /* NSDictionary+GCKAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC3A5035F681CE5B2E9814BC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CA1658B7EBEFFDDD47D9C6B /* AUCast.h in Headers */,
+				56067A94472B3200698BC845 /* AUMediaConstants.h in Headers */,
+				5D8019EBDA97DF95DD70DF56 /* AUMediaItem.h in Headers */,
+				27E67C088B05B9B83F83D81C /* AUMediaLibrary.h in Headers */,
+				E5732950780AA50837F74316 /* AUMediaPlayer.h in Headers */,
+				74D5DEDACFCB8861E6A27A91 /* NSError+AUMedia.h in Headers */,
+				155E726FA57332A7B3DFF2A5 /* NSString+AUMedia.h in Headers */,
+				7C7E312BA0F930BE79E88C67 /* NSURL+AUMedia.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC74B09E9E12B6C54132353B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503C88BB2CC0E5D02DDF224F /* AFHTTPRequestOperation.h in Headers */,
+				C469D6D81BA18392DCAE227C /* AFHTTPRequestOperationManager.h in Headers */,
+				0AB1288CA3C03200C12B29E3 /* AFHTTPSessionManager.h in Headers */,
+				E320F7BE9CC5C20E5EEC5EFA /* AFNetworkActivityIndicatorManager.h in Headers */,
+				2468A3027502A84063840065 /* AFNetworkReachabilityManager.h in Headers */,
+				74A2D9ABFDCEFBA22D869F2B /* AFNetworking.h in Headers */,
+				BA17DB5C121B1FD942C8FB4D /* AFSecurityPolicy.h in Headers */,
+				E69C2E3A7FB9363DCDEAE269 /* AFURLConnectionOperation.h in Headers */,
+				38D85A5666C0D8EA5FE60015 /* AFURLRequestSerialization.h in Headers */,
+				90F693AE62C82CD1B463BA40 /* AFURLResponseSerialization.h in Headers */,
+				B294438EE8BD744F928E9C03 /* AFURLSessionManager.h in Headers */,
+				AAC3FB027D71F7776B0C2D68 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				1653704BC8E6718B61542CB2 /* UIAlertView+AFNetworking.h in Headers */,
+				F75F17F9F758B3E0D6B5C245 /* UIButton+AFNetworking.h in Headers */,
+				1621C1F1462022189C0BA1D5 /* UIImageView+AFNetworking.h in Headers */,
+				B041B0EB9A6F4213FD28F7AD /* UIKit+AFNetworking.h in Headers */,
+				7576E3455D9A5D72355C4B96 /* UIProgressView+AFNetworking.h in Headers */,
+				5B903008674979D0D360D13B /* UIRefreshControl+AFNetworking.h in Headers */,
+				F76F7EE02686161F3E2EEADD /* UIWebView+AFNetworking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD68BF4D9B9DE7A32EE12B0C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABAC98AAB983B9092EBB8DC3 /* AUCast.h in Headers */,
+				356E73481430EB4CEA50D074 /* AUMediaConstants.h in Headers */,
+				4BA6F87E51BA6A8F531DD5E8 /* AUMediaItem.h in Headers */,
+				1E31CEE1082D9DD49671BE88 /* AUMediaLibrary.h in Headers */,
+				308595DC071318AD58DCB9A5 /* AUMediaPlayer.h in Headers */,
+				93E37BDACFD09D54094C852B /* NSError+AUMedia.h in Headers */,
+				FEB62A485A09A02479FFB573 /* NSString+AUMedia.h in Headers */,
+				B33F53FF4AD8EC027930812F /* NSURL+AUMedia.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5E675DC85D7AB02D0A2AA6D5 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */ = {
+		182F905403E813E65C96E977 /* Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 278CC10AE0878AC6230728DB /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer" */;
+			buildConfigurationList = A2CB69D94E49AA1A4EA165C2 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets" */;
 			buildPhases = (
-				18C7F81E55E25D7C8FCC71A0 /* Sources */,
-				01C1D4173427032B00C86006 /* Frameworks */,
-				83A502DC7C9BEDFE5900A74A /* Resources */,
+				2A7755FEE4F8CE1CC26CAAE6 /* Sources */,
+				0D731D7DA55205A190EC2175 /* Frameworks */,
+				EC2EFD3640E8D7B6EF3E8B54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets";
+			productName = "Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets";
+			productReference = 2D6588A9340A4B38C3C9DCF9 /* CastFrameworkAssets.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		45AAF7156620774A54545850 /* Pods-AUMediaPlayer-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B68C4AC1075E6EFDD012B778 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer" */;
+			buildPhases = (
+				FD22CDA9C963C58302D91CA6 /* Sources */,
+				B66395E5A6DF1D1E86789678 /* Frameworks */,
+				FD68BF4D9B9DE7A32EE12B0C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD231B1D833D14F0F1D053E1 /* PBXTargetDependency */,
+				8524030F7BA440722C429D0A /* PBXTargetDependency */,
+				13905B96C985C5409DC2A8CA /* PBXTargetDependency */,
+			);
+			name = "Pods-AUMediaPlayer-AUMediaPlayer";
+			productName = "Pods-AUMediaPlayer-AUMediaPlayer";
+			productReference = AF4DD6EB72DD4FF2B57C6C39 /* libPods-AUMediaPlayer-AUMediaPlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6586A7EEB4133B8F5AAFEF35 /* Pods-Tests-google-cast-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BF66F6080A61B09D93FCCE1 /* Build configuration list for PBXNativeTarget "Pods-Tests-google-cast-sdk" */;
+			buildPhases = (
+				6E7E69CC357F3D11A29C6AAE /* Sources */,
+				30500100A1840B3E69A249D6 /* Frameworks */,
+				BB260205A475E420883E4F4E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCC12AD1CA025FB532D63028 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests-google-cast-sdk";
+			productName = "Pods-Tests-google-cast-sdk";
+			productReference = 04E6BFF489B796450314BB79 /* libPods-Tests-google-cast-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		679533E91750683DEDEAC1C7 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CF0D55728BC84C0664FD57F /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer" */;
+			buildPhases = (
+				3EFF18BA16ED61EF76EBD900 /* Sources */,
+				42CF509FB2199C1106FA2EB6 /* Frameworks */,
+				73F50E5A18D1745890219CA1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -612,68 +1110,16 @@
 			);
 			name = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
 			productName = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
-			productReference = EEEAB18AEAE24EA1A9422169 /* AUMediaPlayer.bundle */;
+			productReference = B060EB50EA4480429E18E36F /* AUMediaPlayer.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		6EACBCD2C41EB097A915D70D /* Pods-AUMediaPlayer */ = {
+		79CF8F168BFE0A434F4AF3C0 /* Pods-AUMediaPlayer-AFNetworking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A921FDB62DAE2B1E2B8B66D /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer" */;
+			buildConfigurationList = 116469A769EE7733080E2A91 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AFNetworking" */;
 			buildPhases = (
-				896EE49C972E1077C9759D5E /* Sources */,
-				1ED78DB2780689D6AC9BD732 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				304A05780A879EC9995DA00A /* PBXTargetDependency */,
-				2D1B7E43517F1BD890994A9C /* PBXTargetDependency */,
-			);
-			name = "Pods-AUMediaPlayer";
-			productName = "Pods-AUMediaPlayer";
-			productReference = 8A57831B47A77075C64D05D8 /* libPods-AUMediaPlayer.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		91122FA05D1E446414D9CFC4 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A5493D89A7F17AA16D1C6AD /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer-AUMediaPlayer" */;
-			buildPhases = (
-				7CDF32BA8F2B95182B388FF7 /* Sources */,
-				DA77FACBE500E1EE049DB450 /* Frameworks */,
-				6FA58FD82741942E072A524D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
-			productName = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
-			productReference = 341A1D18D30D40D563ECD3BF /* AUMediaPlayer.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-		973D271A8738C96B6573BD3B /* Pods-Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 005ADB3F73287FDB52977EC9 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
-			buildPhases = (
-				DBF79DD2A315D93E7B581638 /* Sources */,
-				6D9401637E2C804F2F49312F /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				207FBBC6C1CF567B3DBF6815 /* PBXTargetDependency */,
-			);
-			name = "Pods-Tests";
-			productName = "Pods-Tests";
-			productReference = 9C08E2D6DE99D42C5C40FCB3 /* libPods-Tests.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		B80559F3FCB3749C6B81735C /* Pods-AUMediaPlayer-AFNetworking */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7CA06E98B94BAF625ECD1762 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AFNetworking" */;
-			buildPhases = (
-				498B7FF0547B230D97D33D24 /* Sources */,
-				D4ED62EC19BCB2492789325A /* Frameworks */,
-				25FABF0E45EA21766A86A35F /* Headers */,
+				21514803FBCD9BCEB9585E0C /* Sources */,
+				CA7E90B8E6D6602A28445BF1 /* Frameworks */,
+				FC74B09E9E12B6C54132353B /* Headers */,
 			);
 			buildRules = (
 			);
@@ -681,85 +1127,197 @@
 			);
 			name = "Pods-AUMediaPlayer-AFNetworking";
 			productName = "Pods-AUMediaPlayer-AFNetworking";
-			productReference = 56CC6087DA7BE854F211C348 /* libPods-AUMediaPlayer-AFNetworking.a */;
+			productReference = 85718C7E6051FC8752C0600F /* libPods-AUMediaPlayer-AFNetworking.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EC01AD1F381D3A9DA1EA39F3 /* Pods-AUMediaPlayer-AUMediaPlayer */ = {
+		9A2FF64B3A0128A87DF80039 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B8C7063ED348FCA188FBE81 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer" */;
+			buildConfigurationList = 615A792546B9AAE5A0F31588 /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer-AUMediaPlayer" */;
 			buildPhases = (
-				FDB55ADF9E615BDB21D191E3 /* Sources */,
-				06C90AE5A8E904D6CFB9E0DD /* Frameworks */,
-				95BE57D179E072E9F138E10A /* Headers */,
+				0BA5888A245CEE63D4150BCD /* Sources */,
+				2F5AB329B043AF3B8C43903A /* Frameworks */,
+				F3F3A49F0E8B175CD27F41C0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DFFBAA2BE02FBE5C2C986C81 /* PBXTargetDependency */,
 			);
-			name = "Pods-AUMediaPlayer-AUMediaPlayer";
-			productName = "Pods-AUMediaPlayer-AUMediaPlayer";
-			productReference = 50B3346E17EB976CC11CBA3C /* libPods-AUMediaPlayer-AUMediaPlayer.a */;
-			productType = "com.apple.product-type.library.static";
+			name = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+			productName = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+			productReference = F214EB0AAEB4D4A836DAF634 /* AUMediaPlayer.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
-		FD71FEB880519C3D5E1FCECA /* Pods-Tests-AUMediaPlayer */ = {
+		9BA4919E24E6B34FA0BAABEC /* Pods-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0071B2FB495CB5458962C03C /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer" */;
+			buildConfigurationList = D915405D780557F5C18FA42E /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
 			buildPhases = (
-				A32A69C7391E457791B1CE01 /* Sources */,
-				66682F27CE4EB25366349786 /* Frameworks */,
-				A70FC5E5D899FFF7E05304D9 /* Headers */,
+				13B17EEF2DB2028EF909DA1B /* Sources */,
+				0012443A881C24CE4BE1FAEF /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C410840F81EE9F0B7E4548F8 /* PBXTargetDependency */,
+				BC03CE9058380B863B66B495 /* PBXTargetDependency */,
+				F866AB7DD944191BA6A54628 /* PBXTargetDependency */,
+				DD5AD517B3E0D7216142DCB6 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests";
+			productName = "Pods-Tests";
+			productReference = C25924AE8055EFD6C696402C /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AF74F7319B76BD37C1FD6BD8 /* Pods-Tests-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D87677028495A5B4559B9AE1 /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer" */;
+			buildPhases = (
+				8A2BF0C54239C35BAE5EC968 /* Sources */,
+				C89C5AE182C59B3662EA04A3 /* Frameworks */,
+				DC3A5035F681CE5B2E9814BC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73CFC099BC8A8C3DEE36D3B8 /* PBXTargetDependency */,
+				E6CBE96F0848BB3F523FB6AE /* PBXTargetDependency */,
+				17ED4C47569257344DA3C922 /* PBXTargetDependency */,
 			);
 			name = "Pods-Tests-AUMediaPlayer";
 			productName = "Pods-Tests-AUMediaPlayer";
-			productReference = 03668A62786DE7C1A4D39778 /* libPods-Tests-AUMediaPlayer.a */;
+			productReference = 94C3ED4D05C76B35BC624DCF /* libPods-Tests-AUMediaPlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B1B64C75E81C3B3F877F8276 /* Pods-Tests-google-cast-sdk-CastFrameworkAssets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ADD7B20214991CA6F020493 /* Build configuration list for PBXNativeTarget "Pods-Tests-google-cast-sdk-CastFrameworkAssets" */;
+			buildPhases = (
+				2AE2B993FD059AE89533D1A5 /* Sources */,
+				8DED2AABF59280E23E3FB6A5 /* Frameworks */,
+				E89000828651EC04F2C612A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-google-cast-sdk-CastFrameworkAssets";
+			productName = "Pods-Tests-google-cast-sdk-CastFrameworkAssets";
+			productReference = 6DA6D137D724ECDBEE409BB7 /* CastFrameworkAssets.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		CB04B95B43E8A7D82DB024DF /* Pods-Tests-AFNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC90E76669748DA12F4219F9 /* Build configuration list for PBXNativeTarget "Pods-Tests-AFNetworking" */;
+			buildPhases = (
+				03D48C817D8E612C0210FD88 /* Sources */,
+				B9082CC0C705566F2C8244FB /* Frameworks */,
+				3DFE67311EC2D6B94E9E29E3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-AFNetworking";
+			productName = "Pods-Tests-AFNetworking";
+			productReference = 38C3B2A8200DF176343A1C88 /* libPods-Tests-AFNetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D33B07C32792B1BDB3AFB805 /* Pods-AUMediaPlayer-google-cast-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54177D4E59F73746F04A8CD8 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-google-cast-sdk" */;
+			buildPhases = (
+				10C1E98B39E45EB10CB10DA1 /* Sources */,
+				C6B67C9CA508AB68D9DEA6E6 /* Frameworks */,
+				74780CC76C9327838A50D313 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE81A098B7CF856C2F89262D /* PBXTargetDependency */,
+			);
+			name = "Pods-AUMediaPlayer-google-cast-sdk";
+			productName = "Pods-AUMediaPlayer-google-cast-sdk";
+			productReference = 153034925864C3FF15050516 /* libPods-AUMediaPlayer-google-cast-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E972255BBDE319FA48C0B80A /* Pods-AUMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB5CA60F985D35B4612A9DC /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer" */;
+			buildPhases = (
+				9464DD3DE7BD24804503EB2A /* Sources */,
+				E87F9DD5ADA386251A74BF2B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9123CD516D3EF5FFB9E88B03 /* PBXTargetDependency */,
+				2E225B032F5FFD0A6B093E31 /* PBXTargetDependency */,
+				DCDDFE9EBEA524A3CE10299B /* PBXTargetDependency */,
+			);
+			name = "Pods-AUMediaPlayer";
+			productName = "Pods-AUMediaPlayer";
+			productReference = C60F68256BE3C680EE598C9E /* libPods-AUMediaPlayer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B2DA6E71949AF05AD1336DFD /* Project object */ = {
+		DF3F7149CD846E141C2EE527 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = A72E648134E98B3E36F43200 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 6E37978CA57C7960AD16794F /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1309AF6532F04FA626F6DD21;
-			productRefGroup = 58194E46D264CFE2B3384EA0 /* Products */;
+			mainGroup = D09B1A23F79CDC7920346392;
+			productRefGroup = D6BD6E6BCE9AB1EA79992B4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6EACBCD2C41EB097A915D70D /* Pods-AUMediaPlayer */,
-				B80559F3FCB3749C6B81735C /* Pods-AUMediaPlayer-AFNetworking */,
-				EC01AD1F381D3A9DA1EA39F3 /* Pods-AUMediaPlayer-AUMediaPlayer */,
-				5E675DC85D7AB02D0A2AA6D5 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */,
-				973D271A8738C96B6573BD3B /* Pods-Tests */,
-				FD71FEB880519C3D5E1FCECA /* Pods-Tests-AUMediaPlayer */,
-				91122FA05D1E446414D9CFC4 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */,
+				E972255BBDE319FA48C0B80A /* Pods-AUMediaPlayer */,
+				79CF8F168BFE0A434F4AF3C0 /* Pods-AUMediaPlayer-AFNetworking */,
+				45AAF7156620774A54545850 /* Pods-AUMediaPlayer-AUMediaPlayer */,
+				679533E91750683DEDEAC1C7 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */,
+				D33B07C32792B1BDB3AFB805 /* Pods-AUMediaPlayer-google-cast-sdk */,
+				182F905403E813E65C96E977 /* Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets */,
+				9BA4919E24E6B34FA0BAABEC /* Pods-Tests */,
+				CB04B95B43E8A7D82DB024DF /* Pods-Tests-AFNetworking */,
+				AF74F7319B76BD37C1FD6BD8 /* Pods-Tests-AUMediaPlayer */,
+				9A2FF64B3A0128A87DF80039 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */,
+				6586A7EEB4133B8F5AAFEF35 /* Pods-Tests-google-cast-sdk */,
+				B1B64C75E81C3B3F877F8276 /* Pods-Tests-google-cast-sdk-CastFrameworkAssets */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6FA58FD82741942E072A524D /* Resources */ = {
+		73F50E5A18D1745890219CA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83A502DC7C9BEDFE5900A74A /* Resources */ = {
+		E89000828651EC04F2C612A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871E8C34B4A868D2C26E6268 /* CastFrameworkAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2EFD3640E8D7B6EF3E8B54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11BD66746F6E60F525C409C7 /* CastFrameworkAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F3A49F0E8B175CD27F41C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -769,127 +1327,303 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		18C7F81E55E25D7C8FCC71A0 /* Sources */ = {
+		03D48C817D8E612C0210FD88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBEE4858440FE2625B48CB44 /* AFHTTPRequestOperation.m in Sources */,
+				16BF48EDA9385C0E196E66E3 /* AFHTTPRequestOperationManager.m in Sources */,
+				968FF5ACBBA66B3187020CB2 /* AFHTTPSessionManager.m in Sources */,
+				3DF4E2418FE8B1447A2B039E /* AFNetworkActivityIndicatorManager.m in Sources */,
+				AC174BEB2CDB0AEF554145B6 /* AFNetworkReachabilityManager.m in Sources */,
+				7642B3678A70FC6A5C3465E5 /* AFSecurityPolicy.m in Sources */,
+				E02C13F3F0789111F3EBFB94 /* AFURLConnectionOperation.m in Sources */,
+				4C2C0E77C87DF41636C8A3C0 /* AFURLRequestSerialization.m in Sources */,
+				B70039ECF1F9B5ACE3A032F9 /* AFURLResponseSerialization.m in Sources */,
+				CABD35470288D68EF972E7C9 /* AFURLSessionManager.m in Sources */,
+				F7070DD0B2E42B01AE84F7D7 /* Pods-Tests-AFNetworking-dummy.m in Sources */,
+				34B412DF73F343BC32307E33 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				7892C68F63CBB81E459F4851 /* UIAlertView+AFNetworking.m in Sources */,
+				5694E3A102E9594B2F5FC5BD /* UIButton+AFNetworking.m in Sources */,
+				1CE050A5CFA8BE74F089B1E5 /* UIImageView+AFNetworking.m in Sources */,
+				6E350B58F12625E91F7E88A6 /* UIProgressView+AFNetworking.m in Sources */,
+				D94E8B20F1DEBF01C597E297 /* UIRefreshControl+AFNetworking.m in Sources */,
+				7D5E0F2F888426ECD3F97D77 /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BA5888A245CEE63D4150BCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		498B7FF0547B230D97D33D24 /* Sources */ = {
+		10C1E98B39E45EB10CB10DA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ABD867DCFF60FE6A57B6F23 /* AFHTTPRequestOperation.m in Sources */,
-				A968C5066CA02A9680A0444A /* AFHTTPRequestOperationManager.m in Sources */,
-				B0961852A2F62CB6FD65E3FB /* AFHTTPSessionManager.m in Sources */,
-				DF6DCCEDC3359D424CEC376D /* AFNetworkActivityIndicatorManager.m in Sources */,
-				04A1951DA243B984AB360811 /* AFNetworkReachabilityManager.m in Sources */,
-				CEEBF37B4E146AA3B51EDEEA /* AFSecurityPolicy.m in Sources */,
-				C46EF53C8DD40E6187B26DD5 /* AFURLConnectionOperation.m in Sources */,
-				4996DB4C780F495B30C00951 /* AFURLRequestSerialization.m in Sources */,
-				134F27FE8C19EBDD5807F124 /* AFURLResponseSerialization.m in Sources */,
-				1406C4600591491ED7B697A1 /* AFURLSessionManager.m in Sources */,
-				51D19090EBD0A13FC958BE2C /* Pods-AUMediaPlayer-AFNetworking-dummy.m in Sources */,
-				12261475EC5248BF79752FF8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				980BE3D0287BB405015A4160 /* UIAlertView+AFNetworking.m in Sources */,
-				6A306CA3B43E0754FD919F1E /* UIButton+AFNetworking.m in Sources */,
-				7CF4186074DB2E0B8564F722 /* UIImageView+AFNetworking.m in Sources */,
-				68272A9348A27124D1F87B80 /* UIProgressView+AFNetworking.m in Sources */,
-				0B56C2CC95D44FB3C4DB720C /* UIRefreshControl+AFNetworking.m in Sources */,
-				A1AF368B3E8F5F7E831470F1 /* UIWebView+AFNetworking.m in Sources */,
+				E6A6F56DAE1B0F7FA0C747BB /* Pods-AUMediaPlayer-google-cast-sdk-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7CDF32BA8F2B95182B388FF7 /* Sources */ = {
+		13B17EEF2DB2028EF909DA1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60DB3181A1837D3841AA1923 /* Pods-Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21514803FBCD9BCEB9585E0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD2198654542BAAB2FEFB99 /* AFHTTPRequestOperation.m in Sources */,
+				089F5555296CE38388731047 /* AFHTTPRequestOperationManager.m in Sources */,
+				3B35BF38A06A458F5A98BCDD /* AFHTTPSessionManager.m in Sources */,
+				65AA821813073473CAA9CBB1 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				96F8E885C0C1CD01C1DD8A64 /* AFNetworkReachabilityManager.m in Sources */,
+				5D77D6C4F8A094C6A5E9F353 /* AFSecurityPolicy.m in Sources */,
+				F4C0D16C411604B2DF8B72D4 /* AFURLConnectionOperation.m in Sources */,
+				00444B62213923412FC50EFE /* AFURLRequestSerialization.m in Sources */,
+				82AB04D88A919E275F1022D7 /* AFURLResponseSerialization.m in Sources */,
+				B77B7189D97EBD366E06E2B1 /* AFURLSessionManager.m in Sources */,
+				40DC81A92C86D893407F2C14 /* Pods-AUMediaPlayer-AFNetworking-dummy.m in Sources */,
+				1189CB52E4F17947F80E08AF /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				30AFEF39D420DC3FC1E7931B /* UIAlertView+AFNetworking.m in Sources */,
+				438BF05CC4F2C3CDB00CA71C /* UIButton+AFNetworking.m in Sources */,
+				E6EB5075B4D53C190A5D093A /* UIImageView+AFNetworking.m in Sources */,
+				A3AD02DCCA2AC01B2D858162 /* UIProgressView+AFNetworking.m in Sources */,
+				45EAB566271C0498CFFDD70B /* UIRefreshControl+AFNetworking.m in Sources */,
+				BCD46B058DEBF2790A1AE8B9 /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A7755FEE4F8CE1CC26CAAE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		896EE49C972E1077C9759D5E /* Sources */ = {
+		2AE2B993FD059AE89533D1A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9DED43AC007F014A0FD5664 /* Pods-AUMediaPlayer-dummy.m in Sources */,
-				D73A7D051AE6AF6B008312B8 /* CHANGELOG.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A32A69C7391E457791B1CE01 /* Sources */ = {
+		3EFF18BA16ED61EF76EBD900 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D44152610A530D45F94104B /* AUMediaConstants.m in Sources */,
-				5A93F135F1535D68E7BD6D5C /* AUMediaLibrary.m in Sources */,
-				5320AF38DF652DF50E8CBEB9 /* AUMediaPlayer.m in Sources */,
-				C8DD26ED99BC6ED60B9F3C5C /* NSError+AUMedia.m in Sources */,
-				4BCF1AF17C1627CAC1D4DFBE /* NSString+AUMedia.m in Sources */,
-				6EE21EC05094CCB8B1022D02 /* NSURL+AUMedia.m in Sources */,
-				8D03E670D267D70B7E2B88F0 /* Pods-Tests-AUMediaPlayer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DBF79DD2A315D93E7B581638 /* Sources */ = {
+		6E7E69CC357F3D11A29C6AAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B8CB197BAA1F031B81CD9DE /* Pods-Tests-dummy.m in Sources */,
+				67B6EE858F730A1EC3D55B0D /* Pods-Tests-google-cast-sdk-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDB55ADF9E615BDB21D191E3 /* Sources */ = {
+		8A2BF0C54239C35BAE5EC968 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA606F9983BA99D491CF5098 /* AUMediaConstants.m in Sources */,
-				D65F95CBA8C7675DCFE9B7F5 /* AUMediaLibrary.m in Sources */,
-				866C61C600B26AE13A44E0C5 /* AUMediaPlayer.m in Sources */,
-				B79CA266C355B3A6C4F487F4 /* NSError+AUMedia.m in Sources */,
-				0E713D6E5DE045844CDC1A6B /* NSString+AUMedia.m in Sources */,
-				ED5437A51D96EF31098CDBDF /* NSURL+AUMedia.m in Sources */,
-				EE3AAF0173132FEDE9E70293 /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m in Sources */,
+				1FEF81BCECCA0003FB18460E /* AUCast.m in Sources */,
+				05771C7A2562B9A520D924F1 /* AUMediaConstants.m in Sources */,
+				38B5E31E3D5EC9292D5902CE /* AUMediaLibrary.m in Sources */,
+				108C4859AFC9CFF65FD7F695 /* AUMediaPlayer.m in Sources */,
+				B413EDC05DA78B9FB61B6059 /* NSError+AUMedia.m in Sources */,
+				472E76077F837C62491306AE /* NSString+AUMedia.m in Sources */,
+				291B350C6FD1974010B324AD /* NSURL+AUMedia.m in Sources */,
+				489D90F787A2B78288E5FFA8 /* Pods-Tests-AUMediaPlayer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9464DD3DE7BD24804503EB2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2465BDB7038DC3AC858090DD /* Pods-AUMediaPlayer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD22CDA9C963C58302D91CA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C53D48B3461B93875B1B53AB /* AUCast.m in Sources */,
+				30C9A22B0BEB846794AF16CA /* AUMediaConstants.m in Sources */,
+				A88576C955898DBE6BC2DD4D /* AUMediaLibrary.m in Sources */,
+				A166EBA96A00B7763286D7A2 /* AUMediaPlayer.m in Sources */,
+				BA726F2DDF6644E02B308802 /* NSError+AUMedia.m in Sources */,
+				2B3EAA3906BE8F1A20A48131 /* NSString+AUMedia.m in Sources */,
+				F997B8399C1A1E115277E020 /* NSURL+AUMedia.m in Sources */,
+				4EA0EF0C13A9490DE092780F /* Pods-AUMediaPlayer-AUMediaPlayer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		207FBBC6C1CF567B3DBF6815 /* PBXTargetDependency */ = {
+		13905B96C985C5409DC2A8CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Tests-AUMediaPlayer";
-			target = FD71FEB880519C3D5E1FCECA /* Pods-Tests-AUMediaPlayer */;
-			targetProxy = FA5D486F9C7EA1AA0C4BFED8 /* PBXContainerItemProxy */;
+			name = "Pods-AUMediaPlayer-google-cast-sdk";
+			target = D33B07C32792B1BDB3AFB805 /* Pods-AUMediaPlayer-google-cast-sdk */;
+			targetProxy = 5F83E41C24EBF9243AA9F118 /* PBXContainerItemProxy */;
 		};
-		2D1B7E43517F1BD890994A9C /* PBXTargetDependency */ = {
+		17ED4C47569257344DA3C922 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-google-cast-sdk";
+			target = 6586A7EEB4133B8F5AAFEF35 /* Pods-Tests-google-cast-sdk */;
+			targetProxy = 3BEBCD58CD5020698191B827 /* PBXContainerItemProxy */;
+		};
+		2E225B032F5FFD0A6B093E31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-AUMediaPlayer-AUMediaPlayer";
-			target = EC01AD1F381D3A9DA1EA39F3 /* Pods-AUMediaPlayer-AUMediaPlayer */;
-			targetProxy = D38454D864FF7D917F084930 /* PBXContainerItemProxy */;
+			target = 45AAF7156620774A54545850 /* Pods-AUMediaPlayer-AUMediaPlayer */;
+			targetProxy = 6C053FD9D0190687A2C7480E /* PBXContainerItemProxy */;
 		};
-		304A05780A879EC9995DA00A /* PBXTargetDependency */ = {
+		73CFC099BC8A8C3DEE36D3B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-AUMediaPlayer-AFNetworking";
-			target = B80559F3FCB3749C6B81735C /* Pods-AUMediaPlayer-AFNetworking */;
-			targetProxy = 17DB7D4FC7B3843819FF721E /* PBXContainerItemProxy */;
+			name = "Pods-Tests-AFNetworking";
+			target = CB04B95B43E8A7D82DB024DF /* Pods-Tests-AFNetworking */;
+			targetProxy = 1F2A9759722518C4FCAAE14E /* PBXContainerItemProxy */;
 		};
-		C410840F81EE9F0B7E4548F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
-			target = 91122FA05D1E446414D9CFC4 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */;
-			targetProxy = F414E0E12735230F601FCBA6 /* PBXContainerItemProxy */;
-		};
-		DFFBAA2BE02FBE5C2C986C81 /* PBXTargetDependency */ = {
+		8524030F7BA440722C429D0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer";
-			target = 5E675DC85D7AB02D0A2AA6D5 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */;
-			targetProxy = 485E65897A63EAD17651A399 /* PBXContainerItemProxy */;
+			target = 679533E91750683DEDEAC1C7 /* Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer */;
+			targetProxy = 41F75ECF883B897FE62352C1 /* PBXContainerItemProxy */;
+		};
+		9123CD516D3EF5FFB9E88B03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-AFNetworking";
+			target = 79CF8F168BFE0A434F4AF3C0 /* Pods-AUMediaPlayer-AFNetworking */;
+			targetProxy = 4052CF9511A862F4125481F9 /* PBXContainerItemProxy */;
+		};
+		BC03CE9058380B863B66B495 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-AFNetworking";
+			target = CB04B95B43E8A7D82DB024DF /* Pods-Tests-AFNetworking */;
+			targetProxy = 58B86D82502B340765160C4A /* PBXContainerItemProxy */;
+		};
+		BD231B1D833D14F0F1D053E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-AFNetworking";
+			target = 79CF8F168BFE0A434F4AF3C0 /* Pods-AUMediaPlayer-AFNetworking */;
+			targetProxy = E188DB7E9C21D239CF67051C /* PBXContainerItemProxy */;
+		};
+		DCDDFE9EBEA524A3CE10299B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-google-cast-sdk";
+			target = D33B07C32792B1BDB3AFB805 /* Pods-AUMediaPlayer-google-cast-sdk */;
+			targetProxy = 87D8A569E0C5DCE0791628C5 /* PBXContainerItemProxy */;
+		};
+		DD5AD517B3E0D7216142DCB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-google-cast-sdk";
+			target = 6586A7EEB4133B8F5AAFEF35 /* Pods-Tests-google-cast-sdk */;
+			targetProxy = 9836011EF3ACA79ABCC7E6A9 /* PBXContainerItemProxy */;
+		};
+		E6CBE96F0848BB3F523FB6AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-AUMediaPlayer-AUMediaPlayer";
+			target = 9A2FF64B3A0128A87DF80039 /* Pods-Tests-AUMediaPlayer-AUMediaPlayer */;
+			targetProxy = 1981B362298FFA7985EB613C /* PBXContainerItemProxy */;
+		};
+		EE81A098B7CF856C2F89262D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets";
+			target = 182F905403E813E65C96E977 /* Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets */;
+			targetProxy = 4A4AA60CB2028D284D27769B /* PBXContainerItemProxy */;
+		};
+		F866AB7DD944191BA6A54628 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-AUMediaPlayer";
+			target = AF74F7319B76BD37C1FD6BD8 /* Pods-Tests-AUMediaPlayer */;
+			targetProxy = 262C740E43521D23994DF5FE /* PBXContainerItemProxy */;
+		};
+		FCC12AD1CA025FB532D63028 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-google-cast-sdk-CastFrameworkAssets";
+			target = B1B64C75E81C3B3F877F8276 /* Pods-Tests-google-cast-sdk-CastFrameworkAssets */;
+			targetProxy = 20593A4C7994984A7315D183 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B37E22E06E8BCDA2FD49066 /* Debug */ = {
+		0239F94D90C92044CECD9727 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CastFrameworkAssets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		0C36AA1DD4FE75FEAAC2EB15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CastFrameworkAssets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		0D596820BE22F044C0758807 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09736D0915C93761E0353256 /* Pods-AUMediaPlayer.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		13051D0327389B7242A857B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B23DA244E9FB745EA38FC2F /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		153B067859AB976EBBE7B082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CastFrameworkAssets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		2F3A05AF77B3C19DE91E5585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -900,41 +1634,23 @@
 			};
 			name = Debug;
 		};
-		16C62EFFA8B2187E7CED797D /* Release */ = {
+		311979702BD704BC3493F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82ED393125868F99260B45B1 /* Pods-AUMediaPlayer-google-cast-sdk-Private.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-google-cast-sdk/Pods-AUMediaPlayer-google-cast-sdk-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		202E5A65717DA63C04D794CB /* Debug */ = {
+		3F226F9763B19C894D8AE65E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -973,60 +1689,12 @@
 			};
 			name = Debug;
 		};
-		43D05174521B09FBACD2AEF1 /* Release */ = {
+		41365C3B23BAA895F189F386 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */;
+			baseConfigurationReference = 86DA9826661379D5F7B0A222 /* Pods-Tests-AFNetworking-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AFNetworking/Pods-AUMediaPlayer-AFNetworking-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		4ADA3310A11DF1076D68A52B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11EEBBE23048E44D441C862C /* Pods-AUMediaPlayer.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		4BF994112E8BCBA6C03C8E21 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6039658405C89ACB4B4ED670 /* Pods-AUMediaPlayer.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		879F863EA6C11CEED8C76CAE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AFNetworking/Pods-Tests-AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1037,23 +1705,7 @@
 			};
 			name = Debug;
 		};
-		AE8C9CD3E4CDE574CE728DB5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC2F4C4FB82470C811C627DC /* Pods-Tests.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		B26A22DE9D13E5977A00B4A7 /* Release */ = {
+		52B8409335ED9B6CDA365BA8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1064,12 +1716,12 @@
 			};
 			name = Release;
 		};
-		B6692D18852A26DBE8DA0BAA /* Debug */ = {
+		55CA50A242151A72FF82E900 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C48300787D341757676AEF9 /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */;
+			baseConfigurationReference = B26D8F6385B9E5256A08CBD3 /* Pods-Tests-google-cast-sdk-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AFNetworking/Pods-AUMediaPlayer-AFNetworking-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1080,9 +1732,25 @@
 			};
 			name = Debug;
 		};
-		C37C171784F6F170721ACF92 /* Debug */ = {
+		569EB8C3D182292FCB2FD6A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */;
+			baseConfigurationReference = B1CE3AD9AE84AF12F0E8F57C /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5DF154CB287D9BE4C9AE9AED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E4A40E9817C652656C3017 /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer/Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch";
@@ -1096,9 +1764,130 @@
 			};
 			name = Debug;
 		};
-		CC3175B35C20FE9A95051E6D /* Release */ = {
+		640ECC46D3605097589458AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA75882CC960BAF192E8E0AC /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */;
+			baseConfigurationReference = 86DA9826661379D5F7B0A222 /* Pods-Tests-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AFNetworking/Pods-Tests-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		66DC13059AAF92B49B867015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 487D8FC3DB467161A8520685 /* Pods-AUMediaPlayer.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6D1B5F848870C00DB2AA2614 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B26D8F6385B9E5256A08CBD3 /* Pods-Tests-google-cast-sdk-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6F3D3010B1D4F8FFE43D6CFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AUMediaPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		7F0CD7963EC3E1637DF22073 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CastFrameworkAssets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		80B850EBD090A02ABF4800AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF73DCD464E1FF401F3043AD /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AFNetworking/Pods-AUMediaPlayer-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8C8013CB41C4948C46A0EE53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFA9549879C6072B9D5EE1A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E4A40E9817C652656C3017 /* Pods-AUMediaPlayer-AUMediaPlayer-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AUMediaPlayer/Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch";
@@ -1112,7 +1901,7 @@
 			};
 			name = Release;
 		};
-		CFC3832E1B77847BC22F459A /* Release */ = {
+		E8306E0FDF2A040750DA98E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1121,11 +1910,11 @@
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
-		D611917DEC7F96E535BB7FF0 /* Release */ = {
+		E8EEB27CD4D4A1C9274004C8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A90FB22AEAC845B5965A7A3D /* Pods-Tests-AUMediaPlayer-Private.xcconfig */;
+			baseConfigurationReference = C9FE4AE80B19FEB52DF7DDA0 /* Pods-Tests-AUMediaPlayer-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch";
@@ -1139,109 +1928,175 @@
 			};
 			name = Release;
 		};
-		D8FE93AEFB4B5C11287A436C /* Debug */ = {
+		F096982CACFAB82F3023F91B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42B9D603B8A29AC16EC6FE98 /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = C9FE4AE80B19FEB52DF7DDA0 /* Pods-Tests-AUMediaPlayer-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		F90C5A1A730395E7E312AA59 /* Debug */ = {
+		F9DB5637A0C06F9C5CB54042 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF73DCD464E1FF401F3043AD /* Pods-AUMediaPlayer-AFNetworking-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = AUMediaPlayer;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-AFNetworking/Pods-AUMediaPlayer-AFNetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
+		};
+		FBC05D5FFF66B20CC24BEC5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82ED393125868F99260B45B1 /* Pods-AUMediaPlayer-google-cast-sdk-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AUMediaPlayer-google-cast-sdk/Pods-AUMediaPlayer-google-cast-sdk-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		005ADB3F73287FDB52977EC9 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		116469A769EE7733080E2A91 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AFNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D8FE93AEFB4B5C11287A436C /* Debug */,
-				AE8C9CD3E4CDE574CE728DB5 /* Release */,
+				F9DB5637A0C06F9C5CB54042 /* Debug */,
+				80B850EBD090A02ABF4800AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0071B2FB495CB5458962C03C /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer" */ = {
+		4ADD7B20214991CA6F020493 /* Build configuration list for PBXNativeTarget "Pods-Tests-google-cast-sdk-CastFrameworkAssets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				879F863EA6C11CEED8C76CAE /* Debug */,
-				D611917DEC7F96E535BB7FF0 /* Release */,
+				0C36AA1DD4FE75FEAAC2EB15 /* Debug */,
+				0239F94D90C92044CECD9727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		278CC10AE0878AC6230728DB /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer" */ = {
+		54177D4E59F73746F04A8CD8 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-google-cast-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F90C5A1A730395E7E312AA59 /* Debug */,
-				CFC3832E1B77847BC22F459A /* Release */,
+				311979702BD704BC3493F820 /* Debug */,
+				FBC05D5FFF66B20CC24BEC5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A5493D89A7F17AA16D1C6AD /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer-AUMediaPlayer" */ = {
+		615A792546B9AAE5A0F31588 /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer-AUMediaPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B37E22E06E8BCDA2FD49066 /* Debug */,
-				B26A22DE9D13E5977A00B4A7 /* Release */,
+				E8306E0FDF2A040750DA98E7 /* Debug */,
+				6F3D3010B1D4F8FFE43D6CFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A921FDB62DAE2B1E2B8B66D /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer" */ = {
+		6E37978CA57C7960AD16794F /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4BF994112E8BCBA6C03C8E21 /* Debug */,
-				4ADA3310A11DF1076D68A52B /* Release */,
+				3F226F9763B19C894D8AE65E /* Debug */,
+				8C8013CB41C4948C46A0EE53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B8C7063ED348FCA188FBE81 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer" */ = {
+		7BF66F6080A61B09D93FCCE1 /* Build configuration list for PBXNativeTarget "Pods-Tests-google-cast-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C37C171784F6F170721ACF92 /* Debug */,
-				CC3175B35C20FE9A95051E6D /* Release */,
+				55CA50A242151A72FF82E900 /* Debug */,
+				6D1B5F848870C00DB2AA2614 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CA06E98B94BAF625ECD1762 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AFNetworking" */ = {
+		7CF0D55728BC84C0664FD57F /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer-AUMediaPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6692D18852A26DBE8DA0BAA /* Debug */,
-				43D05174521B09FBACD2AEF1 /* Release */,
+				2F3A05AF77B3C19DE91E5585 /* Debug */,
+				52B8409335ED9B6CDA365BA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A72E648134E98B3E36F43200 /* Build configuration list for PBXProject "Pods" */ = {
+		A2CB69D94E49AA1A4EA165C2 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-google-cast-sdk-CastFrameworkAssets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				202E5A65717DA63C04D794CB /* Debug */,
-				16C62EFFA8B2187E7CED797D /* Release */,
+				7F0CD7963EC3E1637DF22073 /* Debug */,
+				153B067859AB976EBBE7B082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B68C4AC1075E6EFDD012B778 /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DF154CB287D9BE4C9AE9AED /* Debug */,
+				CFA9549879C6072B9D5EE1A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D87677028495A5B4559B9AE1 /* Build configuration list for PBXNativeTarget "Pods-Tests-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F096982CACFAB82F3023F91B /* Debug */,
+				E8EEB27CD4D4A1C9274004C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D915405D780557F5C18FA42E /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				569EB8C3D182292FCB2FD6A7 /* Debug */,
+				13051D0327389B7242A857B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB5CA60F985D35B4612A9DC /* Build configuration list for PBXNativeTarget "Pods-AUMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66DC13059AAF92B49B867015 /* Debug */,
+				0D596820BE22F044C0758807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC90E76669748DA12F4219F9 /* Build configuration list for PBXNativeTarget "Pods-Tests-AFNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41365C3B23BAA895F189F386 /* Debug */,
+				640ECC46D3605097589458AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B2DA6E71949AF05AD1336DFD /* Project object */;
+	rootObject = DF3F7149CD846E141C2EE527 /* Project object */;
 }

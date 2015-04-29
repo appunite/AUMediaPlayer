@@ -52,6 +52,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     self = [super init];
     if (self) {
         _library = [[AUMediaLibrary alloc] init];
+        _chromecastManager = [[AUCast alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleInterruption:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
         self.playbackIsResumedAfterInterruptions = YES;
@@ -241,6 +242,17 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)prepareForCurrentItemReplacementWithItem:(id<AUMediaItem>)item {
     // override
+}
+
+#pragma mark -
+#pragma mark Chromecast
+
+- (void)playItemWithChromecast:(id<AUMediaItem>)item {
+    
+}
+
+- (void)playCurrentItemWithChromecast {
+    
 }
 
 #pragma mark - Playback info

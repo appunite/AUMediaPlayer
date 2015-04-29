@@ -2,7 +2,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'AUMediaPlayer', :exclusive => true do
   pod "AUMediaPlayer", :path => "../"
-  pod "AFNetworking"
+  pod "AFNetworking", "~> 2.5"
+  pod "google-cast-sdk", "~> 2.6"
 end
 
 target 'Tests', :exclusive => true do
