@@ -16,7 +16,7 @@
 @interface AUMediaPlayer() {
     id _timeObserver;
     BOOL _shouldPlayWhenPlayerIsReady;
-    BOOL _playing;
+    BOOL _playing; // used to continue playback after buffer empties and loads again
 }
 @property (nonatomic, readwrite) BOOL playbackTimesAreValid;
 @property (nonatomic, readwrite) NSUInteger currentPlaybackTime;
@@ -93,6 +93,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)play {
+    if (self.playbackStatus == AUMediaPlaybackStatusPausedOnChromecast) {
+        [self.chromecastManager resume];
+        return;
+    }
     if (_player.status == AVPlayerStatusReadyToPlay) {
         [_player play];
     } else {
@@ -102,6 +106,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)pause {
+    if (self.playbackStatus == AUMediaPlaybackStatusPlayingOnChromecast) {
+        [self.chromecastManager pause];
+        return;
+    }
     [_player pause];
     _playing = NO;
     _shouldPlayWhenPlayerIsReady = NO;
@@ -247,12 +255,25 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark -
 #pragma mark Chromecast
 
-- (void)playItemWithChromecast:(id<AUMediaItem>)item {
-    
+
+- (void)playItemWithChromecast:(id<AUMediaItem>)item deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+    [self updatePlayerWithItem:item error:NULL];
+    [self.chromecastManager playItem:item fromMoment:0.0 deviceScannerBlock:scanBlock connectionCompletionBlock:completionBlock];
 }
 
-- (void)playCurrentItemWithChromecast {
-    
+- (void)playCurrentItemWithChromecastWithDeviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+    if (self.playbackStatus == AUMediaPlaybackStatusPlaying || self.playbackStatus == AUMediaPlaybackStatusPaused) {
+        [self pause];
+        
+        id<AUMediaItem>item = self.nowPlayingItem;
+        NSTimeInterval playbackMoment = (NSTimeInterval)self.currentPlaybackTime;
+        
+        [self.chromecastManager playItem:item fromMoment:playbackMoment deviceScannerBlock:scanBlock connectionCompletionBlock:completionBlock];
+    }
+}
+
+- (void)endChromecastPlayback {
+    [self.chromecastManager stop];
 }
 
 #pragma mark - Playback info
@@ -264,6 +285,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (AUMediaPlaybackStatus)playbackStatus {
     if ([self playerIsPlaying]) {
         return AUMediaPlaybackStatusPlaying;
+    } else if (self.chromecastManager.status == AUCastStatusPlaying || self.chromecastManager.status == AUCastStatusBuffering) {
+        return AUMediaPlaybackStatusPlayingOnChromecast;
+    } else if (self.chromecastManager.status == AUCastStatusPaused) {
+        return AUMediaPlaybackStatusPausedOnChromecast;
     } else if (_player.status == AVPlayerStatusReadyToPlay) {
         return AUMediaPlaybackStatusPaused;
     } else {

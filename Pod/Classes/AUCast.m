@@ -7,6 +7,7 @@
 //
 
 #import "AUCast.h"
+#import "AUMediaItem.h"
 
 @interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate>
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) GCKMediaControlChannel *mediaControlChannel;
 
 @property (nonatomic, strong) GCKMediaInformation *mediaToPlay;
+@property (nonatomic) NSTimeInterval momentToStartFrom;
 
 @property (nonatomic, copy) AUCastConnectCompletionBlock afterConnectBlock;
 
@@ -128,7 +130,21 @@
 //    [controller presentViewController:navigationController animated:YES completion:nil];
 //}
 
-
+- (AUCastStatus)status {
+    GCKMediaPlayerState status = self.mediaControlChannel.mediaStatus.playerState;
+    
+    if (status == GCKMediaPlayerStatePaused) {
+        return AUCastStatusPaused;
+    } else if (status == GCKMediaPlayerStatePlaying) {
+        return AUCastStatusPlaying;
+    } else if (status == GCKMediaPlayerStateBuffering) {
+        return AUCastStatusBuffering;
+    } else if ([self isSearchingDevices]) {
+        return AUCastStatusDeviceConnectionProcess;
+    } else {
+        return AUCastStatusOffline;
+    }
+}
 
 - (AUCastDeviceScannerStatus)deviceStatus {
     return self.devices.count > 0 ? AUCastDeviceScannerStatusDevicesAvailable : AUCastDeviceScannerStatusDevicesNotAvailable;
@@ -158,21 +174,49 @@
 #pragma mark -
 #pragma mark Playback
 
-- (void)playURL:(NSURL *)url contentType:(NSString *)contentType {
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+    NSString *path = [item remotePath];
     
-    _mediaToPlay = [[GCKMediaInformation alloc] initWithContentID:[url absoluteString]
+    self.devicesChangeBlock = scanBlock;
+    self.afterConnectBlock = completionBlock;
+    
+    GCKMediaMetadataType type = GCKMediaMetadataTypeGeneric;
+    if ([item itemType] == AUMediaTypeAudio) {
+        type = GCKMediaMetadataTypeMusicTrack;
+    } else if ([item itemType] == AUMediaTypeVideo) {
+        type = GCKMediaMetadataTypeMovie;
+    }
+    
+    GCKMediaMetadata *metadata = [[GCKMediaMetadata alloc] initWithMetadataType:type];
+    [metadata setString:[item author] forKey:kGCKMetadataKeyArtist];
+    [metadata setString:[item title] forKey:kGCKMetadataKeyTitle];
+    
+    _mediaToPlay = [[GCKMediaInformation alloc] initWithContentID:path
                                                        streamType:GCKMediaStreamTypeNone
-                                                      contentType:contentType
-                                                         metadata:nil
+                                                      contentType:@""
+                                                         metadata:metadata
                                                    streamDuration:0
                                                        customData:nil];
-    
+    _momentToStartFrom = moment;
     
     [self.deviceManager launchApplication:self.applicationID];
 }
 
+- (void)resume {
+    if (self.status == AUCastStatusPaused) {
+        [self.mediaControlChannel play];
+    }
+}
+
+- (void)pause {
+    if (self.status == AUCastStatusPlaying) {
+        [self.mediaControlChannel pause];
+    }
+}
+
 - (void)play {
-    [self.mediaControlChannel loadMedia:_mediaToPlay autoplay:YES playPosition:0];
+    [self.mediaControlChannel loadMedia:_mediaToPlay autoplay:YES playPosition:_momentToStartFrom];
+    _momentToStartFrom = 0.0;
 }
 
 - (void)stop {

@@ -164,6 +164,7 @@
 		C8C31A8AF24BBDBA1E1B6B5A /* GCKMediaStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8BF66473977F1BCB58FC67 /* GCKMediaStatus.h */; };
 		CABD35470288D68EF972E7C9 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDACC056BD288CF1121E8B /* AFURLSessionManager.m */; };
 		D3FD2CA61DD29496150D928D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4702A35F83B6D338D93607 /* SystemConfiguration.framework */; };
+		D76A4F301AF16E84004FCBC4 /* AUCastDevicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76A4F2F1AF16E84004FCBC4 /* AUCastDevicesTableViewController.m */; };
 		D7E329361F48C80664CC1E50 /* GCKLaunchOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = F59C894D847510BF62C2F02F /* GCKLaunchOptions.h */; };
 		D8DBA4200B9CC9AE7E007711 /* GCKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 31C4150005115D30B0BEAB1A /* GCKImage.h */; };
 		D925E48B302C69EE38CBCF4D /* GCKMediaInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9519E4EF52515192C33EB07A /* GCKMediaInformation.h */; };
@@ -414,6 +415,8 @@
 		C9FE4AE80B19FEB52DF7DDA0 /* Pods-Tests-AUMediaPlayer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer-Private.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer-Private.xcconfig"; sourceTree = "<group>"; };
 		CD4391565C349A2BABE9F798 /* GCKCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKCommon.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKCommon.h"; sourceTree = "<group>"; };
 		CE32A7B03E152B1D4A79544F /* Pods-AUMediaPlayer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AUMediaPlayer-resources.sh"; sourceTree = "<group>"; };
+		D76A4F2E1AF16E84004FCBC4 /* AUCastDevicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUCastDevicesTableViewController.h; sourceTree = "<group>"; };
+		D76A4F2F1AF16E84004FCBC4 /* AUCastDevicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUCastDevicesTableViewController.m; sourceTree = "<group>"; };
 		DA8BF66473977F1BCB58FC67 /* GCKMediaStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKMediaStatus.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaStatus.h"; sourceTree = "<group>"; };
 		DBF609CED977358B1176086F /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
 		DF34BCD2F18E17B386978B4D /* Pods-AUMediaPlayer-google-cast-sdk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-google-cast-sdk-dummy.m"; sourceTree = "<group>"; };
@@ -771,6 +774,8 @@
 			children = (
 				F8A4194CD55D57FD57E167A2 /* AUCast.h */,
 				EEEA92C353E4D0F1B84F9D84 /* AUCast.m */,
+				D76A4F2E1AF16E84004FCBC4 /* AUCastDevicesTableViewController.h */,
+				D76A4F2F1AF16E84004FCBC4 /* AUCastDevicesTableViewController.m */,
 				3C5FD6BC7C6F5575060286BA /* AUMediaConstants.h */,
 				9A6DA6885E7CA4E6E33F14D8 /* AUMediaConstants.m */,
 				9F3FE6363A2615B9757FE70E /* AUMediaItem.h */,
@@ -1448,6 +1453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D76A4F301AF16E84004FCBC4 /* AUCastDevicesTableViewController.m in Sources */,
 				2465BDB7038DC3AC858090DD /* Pods-AUMediaPlayer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,14 @@ typedef enum : NSUInteger {
     AUCastDeviceScannerStatusDevicesAvailable
 } AUCastDeviceScannerStatus;
 
+typedef NS_ENUM(NSUInteger, AUCastStatus) {
+    AUCastStatusPlaying,
+    AUCastStatusPaused,
+    AUCastStatusBuffering,
+    AUCastStatusDeviceConnectionProcess,
+    AUCastStatusOffline
+};
+
 typedef void (^AUCastDeviceScannerChangeBlock)(GCKDevice *inDevice, GCKDevice *outDevice, NSArray *allDevices);
 typedef void (^AUCastDeviceScannerStatusChangeBlock)(AUCastDeviceScannerStatus status);
 typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError *error);
@@ -23,6 +31,8 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 @interface AUCast : NSObject
 
 @property (nonatomic, strong) NSString *applicationID;
+
+@property (nonatomic, readonly) AUCastStatus status;
 
 #pragma mark - Scanning for devices
 
@@ -38,7 +48,10 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 
 #pragma mark - Playing Media
 
-- (void)playURL:(NSURL *)url contentType:(NSString *)contentType;
+- (void)resume;
+- (void)pause;
+
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)stop;
 
 @end

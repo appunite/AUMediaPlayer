@@ -76,7 +76,15 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
     /**
      *  Indicates that playback is paused and may be resumed by calling play method.
      */
-    AUMediaPlaybackStatusPaused
+    AUMediaPlaybackStatusPaused,
+    /**
+     *  Indicates that playback is happening on chromecast.
+     */
+    AUMediaPlaybackStatusPlayingOnChromecast,
+    /**
+     *  Indicates that playback is currently paused and resuming in will occur on chromecast
+     */
+    AUMediaPlaybackStatusPausedOnChromecast
 };
 
 /**
@@ -243,8 +251,12 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  */
 - (void)toggleRepeatMode;
 
-- (void)playItemWithChromecast:(id<AUMediaItem>)item;
-- (void)playCurrentItemWithChromecast;
+#pragma mark -
+#pragma mark Chromecast section
+
+- (void)playItemWithChromecast:(id<AUMediaItem>)item deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (void)playCurrentItemWithChromecastWithDeviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (void)endChromecastPlayback;
 
 
 /**
