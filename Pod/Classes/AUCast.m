@@ -8,6 +8,7 @@
 
 #import "AUCast.h"
 #import "AUMediaItem.h"
+#import "AUMediaConstants.h"
 
 NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName = @"kAUMediaCastDevicesBecomeAvailableNotificationName";
 NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMediaCastDevicesBecomeUnavailableNotificationName";
@@ -227,13 +228,11 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
             sessionID:(NSString *)sessionID
   launchedApplication:(BOOL)launchedApplication {
     
-    if (launchedApplication) {
-        self.mediaControlChannel = [[GCKMediaControlChannel alloc] init];
-        self.mediaControlChannel.delegate = self;
-        [self.deviceManager addChannel:self.mediaControlChannel];
-        
-        [self play];
-    }
+    self.mediaControlChannel = [[GCKMediaControlChannel alloc] init];
+    self.mediaControlChannel.delegate = self;
+    [self.deviceManager addChannel:self.mediaControlChannel];
+    
+    [self play];
 }
 
 #pragma mark -
@@ -241,6 +240,8 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
 
 - (void)mediaControlChannelDidUpdateStatus:(GCKMediaControlChannel *)mediaControlChannel {
     GCKMediaStatus *status = mediaControlChannel.mediaStatus;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackStateDidChangeNotification object:nil];
     
     if (status.idleReason == GCKMediaPlayerIdleReasonFinished) {
         [self stop];
