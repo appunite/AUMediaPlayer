@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "GoogleCastBridge.h"
 
+extern NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName;
+extern NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName;
+
 @protocol AUMediaItem;
 
-typedef enum : NSUInteger {
-    AUCastDeviceScannerStatusDevicesNotAvailable,
-    AUCastDeviceScannerStatusDevicesAvailable
-} AUCastDeviceScannerStatus;
+typedef NS_ENUM(NSUInteger, AUCastDevicesAvailability) {
+    AUCastDevicesAvailabilityAvailable,
+    AUCastDevicesAvailabilityUnavailable,
+};
 
 typedef NS_ENUM(NSUInteger, AUCastStatus) {
     AUCastStatusPlaying,
@@ -25,7 +28,6 @@ typedef NS_ENUM(NSUInteger, AUCastStatus) {
 };
 
 typedef void (^AUCastDeviceScannerChangeBlock)(GCKDevice *inDevice, GCKDevice *outDevice, NSArray *allDevices);
-typedef void (^AUCastDeviceScannerStatusChangeBlock)(AUCastDeviceScannerStatus status);
 typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError *error);
 
 @interface AUCast : NSObject
@@ -33,14 +35,12 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 @property (nonatomic, strong) NSString *applicationID;
 
 @property (nonatomic, readonly) AUCastStatus status;
+@property (nonatomic, readonly) AUCastDevicesAvailability deviceAvailabilityStatus;
 
 #pragma mark - Scanning for devices
 
 @property (nonatomic, assign, getter=isSearchingDevices) BOOL searchDevices;
 @property (nonatomic, copy) AUCastDeviceScannerChangeBlock devicesChangeBlock;
-@property (nonatomic, copy) AUCastDeviceScannerStatusChangeBlock observeDevicesStatusBlock;
-
-- (AUCastDeviceScannerStatus)deviceStatus;
 
 #pragma mark - Connecting
 
@@ -48,10 +48,9 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 
 #pragma mark - Playing Media
 
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)resume;
 - (void)pause;
-
-- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)stop;
 
 @end

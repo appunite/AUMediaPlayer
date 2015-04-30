@@ -9,15 +9,16 @@
 #import "AUCast.h"
 #import "AUMediaItem.h"
 
+NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName = @"kAUMediaCastDevicesBecomeAvailableNotificationName";
+NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMediaCastDevicesBecomeUnavailableNotificationName";
+
 @interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate>
 
 @property (nonatomic, strong) GCKDeviceScanner *deviceScanner;
-
 @property (nonatomic, strong) GCKDeviceManager *deviceManager;
+@property (nonatomic, strong) GCKMediaControlChannel *mediaControlChannel;
 
 @property (nonatomic, strong) NSMutableArray *devices;
-
-@property (nonatomic, strong) GCKMediaControlChannel *mediaControlChannel;
 
 @property (nonatomic, strong) GCKMediaInformation *mediaToPlay;
 @property (nonatomic) NSTimeInterval momentToStartFrom;
@@ -70,14 +71,6 @@
     }
 }
 
-- (void)setObserveDevicesStatusBlock:(AUCastDeviceScannerStatusChangeBlock)observeDevicesStatusBlock {
-    _observeDevicesStatusBlock = observeDevicesStatusBlock;
-    
-    if (_observeDevicesStatusBlock) {
-        _observeDevicesStatusBlock(self.deviceScanner.devices.count > 0 ? AUCastDeviceScannerStatusDevicesAvailable : AUCastDeviceScannerStatusDevicesNotAvailable);
-    }
-}
-
 - (void)startSearchingDevices {
     NSParameterAssert(self.applicationID);
     
@@ -99,13 +92,11 @@
         self.devicesChangeBlock(device, nil, self.devices);
     }
     
-    if (self.observeDevicesStatusBlock) {
-        self.observeDevicesStatusBlock(self.deviceStatus);
-    }
+    [self postDevicesAvailabilityStatusNotification];
 }
 
 - (void)deviceDidGoOffline:(GCKDevice *)device {
-
+    
     if ([self.devices containsObject:device]) {
         [self.devices removeObject:device];
     }
@@ -114,21 +105,8 @@
         self.devicesChangeBlock(nil, device, self.devices);
     }
     
-    if (self.observeDevicesStatusBlock) {
-        self.observeDevicesStatusBlock(self.deviceStatus);
-    }
+    [self postDevicesAvailabilityStatusNotification];
 }
-
-//- (void)showAvailableDevicesFromController:(UIViewController *)controller completionBlock:(AUCastConnectCompletionBlock)completion {
-//    
-//    _afterConnectBlock = completion;
-//    
-//    AUCastDevicesTableViewController *searchController = [[AUCastDevicesTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-//    
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:searchController];
-//    
-//    [controller presentViewController:navigationController animated:YES completion:nil];
-//}
 
 - (AUCastStatus)status {
     GCKMediaPlayerState status = self.mediaControlChannel.mediaStatus.playerState;
@@ -146,8 +124,8 @@
     }
 }
 
-- (AUCastDeviceScannerStatus)deviceStatus {
-    return self.devices.count > 0 ? AUCastDeviceScannerStatusDevicesAvailable : AUCastDeviceScannerStatusDevicesNotAvailable;
+- (AUCastDevicesAvailability)deviceAvailabilityStatus {
+    return self.devices.count > 0 ? AUCastDevicesAvailabilityAvailable : AUCastDevicesAvailabilityUnavailable;
 }
 
 - (NSMutableArray *)devices {
@@ -200,37 +178,7 @@
                                                    streamDuration:0
                                                        customData:nil];
     _momentToStartFrom = moment;
-    
-    [self.deviceManager launchApplication:self.applicationID];
 }
-
-//- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
-//    NSString *path = [item remotePath];
-//    
-//    self.devicesChangeBlock = scanBlock;
-//    self.afterConnectBlock = completionBlock;
-//    
-//    GCKMediaMetadataType type = GCKMediaMetadataTypeGeneric;
-//    if ([item itemType] == AUMediaTypeAudio) {
-//        type = GCKMediaMetadataTypeMusicTrack;
-//    } else if ([item itemType] == AUMediaTypeVideo) {
-//        type = GCKMediaMetadataTypeMovie;
-//    }
-//    
-//    GCKMediaMetadata *metadata = [[GCKMediaMetadata alloc] initWithMetadataType:type];
-//    [metadata setString:[item author] forKey:kGCKMetadataKeyArtist];
-//    [metadata setString:[item title] forKey:kGCKMetadataKeyTitle];
-//    
-//    _mediaToPlay = [[GCKMediaInformation alloc] initWithContentID:path
-//                                                       streamType:GCKMediaStreamTypeNone
-//                                                      contentType:@""
-//                                                         metadata:metadata
-//                                                   streamDuration:0
-//                                                       customData:nil];
-//    _momentToStartFrom = moment;
-//    
-//    [self.deviceManager launchApplication:self.applicationID];
-//}
 
 - (void)resume {
     if (self.status == AUCastStatusPaused) {
@@ -266,6 +214,7 @@
         _afterConnectBlock(deviceManager.device, nil);
     }
     
+    [self.deviceManager launchApplication:self.applicationID];
 }
 
 - (void)deviceManager:(GCKDeviceManager *)deviceManager didFailToConnectWithError:(NSError *)error {
@@ -295,6 +244,17 @@
     
     if (status.idleReason == GCKMediaPlayerIdleReasonFinished) {
         [self stop];
+    }
+}
+
+#pragma mark -
+#pragma mark Helpers
+
+- (void)postDevicesAvailabilityStatusNotification {
+    if (self.deviceAvailabilityStatus == AUCastDevicesAvailabilityAvailable) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesBecomeAvailableNotificationName object:nil];
+    } else if (self.deviceAvailabilityStatus == AUCastDevicesAvailabilityUnavailable) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesBecomeUnavailableNotificationName object:nil];
     }
 }
 
