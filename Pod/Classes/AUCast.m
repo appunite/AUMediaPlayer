@@ -22,6 +22,7 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
 @property (nonatomic, strong) NSMutableArray *devices;
 
 @property (nonatomic, strong) GCKMediaInformation *mediaToPlay;
+@property (nonatomic, strong) NSString *currentMediaUid;
 @property (nonatomic) NSTimeInterval momentToStartFrom;
 
 @property (nonatomic, copy) AUCastConnectCompletionBlock afterConnectBlock;
@@ -179,6 +180,7 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
                                                    streamDuration:0
                                                        customData:nil];
     _momentToStartFrom = moment;
+    _currentMediaUid = [item uid];
 }
 
 - (void)resume {
@@ -208,7 +210,7 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
 
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
     NSString *currentItemPath = _mediaToPlay.contentID;
-    if ([[item remotePath] isEqualToString:currentItemPath]) {
+    if ([[item uid] isEqualToString:]) {
         return YES;
     }
     
