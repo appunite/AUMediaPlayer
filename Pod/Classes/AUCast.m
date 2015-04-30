@@ -209,8 +209,7 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
 }
 
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
-    NSString *currentItemPath = _mediaToPlay.contentID;
-    if ([[item uid] isEqualToString:]) {
+    if ([[item uid] isEqualToString:_currentMediaUid]) {
         return YES;
     }
     
