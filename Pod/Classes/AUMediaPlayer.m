@@ -79,12 +79,20 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark - Player actions
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
+    if ([self isUsingChromecast]) {
+        [self.chromecastManager stop];
+    }
+    
     self.queue = @[item];
     [self updatePlayerWithItem:item error:error];
     [self play];
 }
 
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError *__autoreleasing *)error {
+    if ([self isUsingChromecast]) {
+        [self.chromecastManager stop];
+    }
+    
     self.queue = collection.mediaItems;
     id<AUMediaItem>item = _shuffle ? [self.shuffledQueue objectAtIndex:0] : [self.queue objectAtIndex:0];
     
@@ -121,6 +129,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     _shouldPlayWhenPlayerIsReady = NO;
     [self replaceCurrentItemWithNewPlayerItem:nil];
     self.queue = @[];
+    
+    if ([self isUsingChromecast]) {
+        [self.chromecastManager stop];
+    }
 }
 
 - (void)playItemFromCurrentQueueAtIndex:(NSUInteger)index {
@@ -162,6 +174,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playNext {
+    if ([self isUsingChromecast]) {
+        return;
+    }
+    
     NSError *error = nil;
     
     NSUInteger nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
@@ -181,6 +197,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playPrevious {
+    if ([self isUsingChromecast]) {
+        return;
+    }
+    
     if (_currentPlaybackTime > 2) {
         [_player seekToTime:kCMTimeZero];
         return;
@@ -254,6 +274,13 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 #pragma mark -
 #pragma mark Chromecast
+
+- (void)resumePlaybackOcurringBeforeChromecast {
+    if ([self isUsingChromecast]) {
+        [self.chromecastManager stop];
+        [self play];
+    }
+}
 
 - (void)playItemWithChromecast:(id<AUMediaItem>)item
         demandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock
@@ -627,6 +654,13 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:info];
+}
+
+- (BOOL)isUsingChromecast {
+    if (self.playbackStatus == AUMediaPlaybackStatusPausedOnChromecast || self.playbackStatus == AUMediaPlaybackStatusPlayingOnChromecast) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Lock screen
