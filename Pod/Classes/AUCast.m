@@ -86,7 +86,7 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
 
 - (void)deviceDidComeOnline:(GCKDevice *)device {
     
-    if (![self.devices containsObject:device]) {
+    if (![self devicesContainsDevice:device]) {
         [self.devices addObject:device];
     }
     
@@ -99,7 +99,7 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
 
 - (void)deviceDidGoOffline:(GCKDevice *)device {
     
-    if ([self.devices containsObject:device]) {
+    if ([self devicesContainsDevice:device]) {
         [self.devices removeObject:device];
     }
     
@@ -267,6 +267,16 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
     } else if (self.deviceAvailabilityStatus == AUCastDevicesAvailabilityUnavailable) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesBecomeUnavailableNotificationName object:nil];
     }
+}
+
+- (BOOL)devicesContainsDevice:(GCKDevice *)device {
+    for (GCKDevice *d in self.devices) {
+        if ([device.deviceID isEqualToString:d.deviceID]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end
