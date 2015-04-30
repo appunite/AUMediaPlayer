@@ -206,6 +206,15 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
     [self.deviceManager disconnect];
 }
 
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
+    NSString *currentItemPath = _mediaToPlay.contentID;
+    if ([[item remotePath] isEqualToString:currentItemPath]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 #pragma mark -
 #pragma mark Device Manager Delegate
 

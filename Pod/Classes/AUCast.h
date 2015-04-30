@@ -49,6 +49,7 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 #pragma mark - Playing Media
 
 - (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
 - (void)resume;
 - (void)pause;
 - (void)stop;

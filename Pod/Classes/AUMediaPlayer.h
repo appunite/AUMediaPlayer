@@ -255,6 +255,7 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
 #pragma mark Chromecast section
 
 - (void)playItemWithChromecast:(id<AUMediaItem>)item demandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
 - (void)playCurrentItemWithChromecastWithDemandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)resumePlaybackOcurringBeforeChromecast;
 - (void)endChromecastPlayback;

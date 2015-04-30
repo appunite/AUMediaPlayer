@@ -282,6 +282,13 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
 }
 
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
+    if ([self isUsingChromecast]) {
+        return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
+    }
+    return NO;
+}
+
 - (void)playItemWithChromecast:(id<AUMediaItem>)item
         demandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock
      connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
