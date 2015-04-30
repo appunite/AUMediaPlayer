@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoogleCast.h"
+#import "GoogleCastBridge.h"
 
 @protocol AUMediaItem;
 

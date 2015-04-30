@@ -31,9 +31,7 @@ PODS:
   - google-cast-sdk/Core (2.6.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
   - AUMediaPlayer (from `../`)
-  - google-cast-sdk (~> 2.6)
 
 EXTERNAL SOURCES:
   AUMediaPlayer:
@@ -41,7 +39,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  AUMediaPlayer: 3e4ef87aa52585f45b9110694a352fb364583675
+  AUMediaPlayer: 1eee5361ea8784fd62303960db7ed7e5a85b797e
   google-cast-sdk: 850015a592ee713e511e6ad1b75d3087760657c1
 
 COCOAPODS: 0.36.4
