@@ -174,10 +174,12 @@
 #pragma mark -
 #pragma mark Playback
 
-- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+    
+    waitingBlock(YES);
+    
     NSString *path = [item remotePath];
     
-    self.devicesChangeBlock = scanBlock;
     self.afterConnectBlock = completionBlock;
     
     GCKMediaMetadataType type = GCKMediaMetadataTypeGeneric;
@@ -201,6 +203,34 @@
     
     [self.deviceManager launchApplication:self.applicationID];
 }
+
+//- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+//    NSString *path = [item remotePath];
+//    
+//    self.devicesChangeBlock = scanBlock;
+//    self.afterConnectBlock = completionBlock;
+//    
+//    GCKMediaMetadataType type = GCKMediaMetadataTypeGeneric;
+//    if ([item itemType] == AUMediaTypeAudio) {
+//        type = GCKMediaMetadataTypeMusicTrack;
+//    } else if ([item itemType] == AUMediaTypeVideo) {
+//        type = GCKMediaMetadataTypeMovie;
+//    }
+//    
+//    GCKMediaMetadata *metadata = [[GCKMediaMetadata alloc] initWithMetadataType:type];
+//    [metadata setString:[item author] forKey:kGCKMetadataKeyArtist];
+//    [metadata setString:[item title] forKey:kGCKMetadataKeyTitle];
+//    
+//    _mediaToPlay = [[GCKMediaInformation alloc] initWithContentID:path
+//                                                       streamType:GCKMediaStreamTypeNone
+//                                                      contentType:@""
+//                                                         metadata:metadata
+//                                                   streamDuration:0
+//                                                       customData:nil];
+//    _momentToStartFrom = moment;
+//    
+//    [self.deviceManager launchApplication:self.applicationID];
+//}
 
 - (void)resume {
     if (self.status == AUCastStatusPaused) {

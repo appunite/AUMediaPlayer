@@ -51,7 +51,7 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 - (void)resume;
 - (void)pause;
 
-- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment deviceScannerBlock:(AUCastDeviceScannerChangeBlock)scanBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)stop;
 
 @end
