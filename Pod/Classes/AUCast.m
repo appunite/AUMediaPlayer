@@ -225,6 +225,17 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
     [self.deviceManager disconnect];
 }
 
+- (void)seekToMoment:(double)moment {
+    
+    double momentToSeek = moment > 1.0 ? 1.0 : moment;
+
+    double duration = [self getCurrentItemDuration];
+    if (duration > 0.0) {
+        NSTimeInterval timeToSeekTo = momentToSeek * duration;
+        [self.mediaControlChannel seekToTimeInterval:timeToSeekTo];
+    }
+}
+
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
     if ([[item uid] isEqualToString:_currentMediaUid]) {
         return YES;
@@ -235,7 +246,7 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 
 - (NSTimeInterval)getCurrentPlaybackProgressTime {
     if (self.mediaControlChannel.mediaStatus) {
-        return self.mediaControlChannel.mediaStatus.streamPosition;
+        return self.mediaControlChannel.approximateStreamPosition;
     }
     return -1.0;
 }

@@ -245,6 +245,12 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)seekToMoment:(double)moment {
+    if (_receiver == AUMediaReceiverChromecast) {
+        
+        [self.chromecastManager seekToMoment:moment];
+        return;
+    }
+    
     if (_player.status != AVPlayerStatusReadyToPlay) {
         return;
     }
@@ -457,6 +463,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
             [self resetPlaybackTimes];
             return;
         }
+        
+        self.playbackTimesAreValid = YES;
         
         if ((NSUInteger)progressTime != _currentPlaybackTime) {
             self.currentPlaybackTime = (NSUInteger)progressTime;
@@ -780,7 +788,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)initChromecastTimeObserver {
-    _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
+    _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
 }
 
 #pragma mark -
