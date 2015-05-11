@@ -229,10 +229,16 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 }
 
 - (NSTimeInterval)getCurrentPlaybackProgressTime {
-    if (self.mediaControlChannel && self.mediaControlChannel.mediaStatus) {
+    if (self.mediaControlChannel.mediaStatus) {
         return self.mediaControlChannel.mediaStatus.streamPosition;
     }
-    
+    return -1.0;
+}
+
+- (NSTimeInterval)getCurrentItemDuration {
+    if (self.mediaControlChannel.mediaStatus.mediaInformation) {
+        return self.mediaControlChannel.mediaStatus.mediaInformation.streamDuration;
+    }
     return -1.0;
 }
 

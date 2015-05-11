@@ -59,5 +59,6 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 - (void)stop;
 
 - (NSTimeInterval)getCurrentPlaybackProgressTime;
+- (NSTimeInterval)getCurrentItemDuration;
 
 @end

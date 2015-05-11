@@ -407,23 +407,47 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
 }
 
-- (void)observePlaybackTime
-{
-    CMTime playerDuration = [self playerItemDuration];
-    if (CMTIME_IS_INVALID(playerDuration))
-    {
-        [self resetPlaybackTimes];
-        return;
+- (void)observePlaybackTime {
+    
+    // Local player
+    if (_receiver == AUMediaReceiverNone) {
+        
+        CMTime playerDuration = [self playerItemDuration];
+        if (CMTIME_IS_INVALID(playerDuration))
+        {
+            [self resetPlaybackTimes];
+            return;
+        }
+        
+        _playbackTimesAreValid = YES;
+        
+        double duration = CMTimeGetSeconds(playerDuration);
+        
+        if (isfinite(duration))
+        {
+            double time = CMTimeGetSeconds([self.player currentTime]);
+            if ((NSUInteger)time != _currentPlaybackTime) {
+                self.currentPlaybackTime = (NSUInteger)time;
+            }
+            if ((NSUInteger)duration != _duration) {
+                self.duration = (NSUInteger)duration;
+            }
+        }
     }
     
-    _playbackTimesAreValid = YES;
-    
-    double duration = CMTimeGetSeconds(playerDuration);
-    if (isfinite(duration))
-    {
-        double time = CMTimeGetSeconds([self.player currentTime]);
-        if ((NSUInteger)time != _currentPlaybackTime) {
-            self.currentPlaybackTime = (NSUInteger)time;
+    // Chromecast
+    else if (_receiver == AUMediaReceiverChromecast) {
+        
+        double progressTime = [self.chromecastManager getCurrentPlaybackProgressTime];
+        double duration = [self.chromecastManager getCurrentItemDuration];
+        
+        if (progressTime < 0.0 || duration < 0.0) {
+            [self resetPlaybackTimes];
+            return;
+        }
+        
+        if ((NSUInteger)progressTime != _currentPlaybackTime) {
+            self.currentPlaybackTime = (NSUInteger)progressTime;
         }
         if ((NSUInteger)duration != _duration) {
             self.duration = (NSUInteger)duration;
