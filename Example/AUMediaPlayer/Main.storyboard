@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fed-r7-rhP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fed-r7-rhP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -81,7 +81,7 @@
         <!--Playback View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="PlaybackViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlaybackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -123,7 +123,7 @@
                                     <action selector="didSlide:" destination="BYZ-38-t0r" eventType="valueChanged" id="5JE-2i-Niz"/>
                                 </connections>
                             </slider>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP1-22-Rat" userLabel="Player view" customClass="VideoView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xP1-22-Rat" userLabel="Player view" customClass="VideoView">
                                 <rect key="frame" x="16" y="20" width="568" height="235"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -244,6 +244,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="Jg6-CA-iHQ">
+                        <barButtonItem key="rightBarButtonItem" title="No receiver" id="rrt-fW-VOa">
+                            <connections>
+                                <action selector="selectReceiver:" destination="BYZ-38-t0r" id="2mV-nA-6Gh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="vPk-jA-inT" id="w1g-cW-SSn"/>
                         <outlet property="leftTimeLabel" destination="ubX-e6-QlL" id="KpM-Kc-Gyo"/>
@@ -251,6 +258,7 @@
                         <outlet property="playPauseButton" destination="enV-nC-Xao" id="s0v-Yv-WRE"/>
                         <outlet property="playbackView" destination="xP1-22-Rat" id="JB2-Jl-d7z"/>
                         <outlet property="prevButton" destination="Rme-YI-Gix" id="PlJ-Sh-6wE"/>
+                        <outlet property="receiverItem" destination="rrt-fW-VOa" id="cJS-bg-HGi"/>
                         <outlet property="repeatButton" destination="TV0-wq-rAo" id="gUa-9f-7My"/>
                         <outlet property="rightTimeLabel" destination="39L-In-Vtn" id="TIz-ge-g3I"/>
                         <outlet property="shuffleButton" destination="eE5-wW-TFx" id="OfM-Sh-o3B"/>
@@ -260,6 +268,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="6Nv-NU-RDa" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="470"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KFf-8B-44i">
+            <objects>
+                <navigationController storyboardIdentifier="viewController" automaticallyAdjustsScrollViewInsets="NO" id="deA-Le-lQ3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kjx-eW-ohZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xOI-Q1-fhB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KR8-sy-Ngz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="900" y="470"/>
         </scene>

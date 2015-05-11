@@ -55,7 +55,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PlaybackViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+    PlaybackViewController *controller = [navigationController visibleViewController];
     if (indexPath.row == 0) {
         controller.item = nil;
         controller.collection = [[self mockMedia] objectAtIndex:indexPath.row];
@@ -64,7 +65,7 @@
         controller.item = [[self mockMedia] objectAtIndex:indexPath.row];
     }
     
-    [self presentViewController:controller animated:YES completion:nil];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Example cell delegate

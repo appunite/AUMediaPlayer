@@ -9,11 +9,13 @@
 #import "AUCast.h"
 #import "AUMediaItem.h"
 #import "AUMediaConstants.h"
+#import "AUMediaPlayerChromecastDevicesTableViewController.h"
 
 NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName = @"kAUMediaCastDevicesBecomeAvailableNotificationName";
 NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMediaCastDevicesBecomeUnavailableNotificationName";
+NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyChanged";
 
-@interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate>
+@interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) GCKDeviceScanner *deviceScanner;
 @property (nonatomic, strong) GCKDeviceManager *deviceManager;
@@ -183,6 +185,8 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
     _currentMediaUid = [item uid];
 }
 
+
+
 - (void)resume {
     if (self.status == AUCastStatusPaused) {
         [self.mediaControlChannel play];
@@ -267,6 +271,8 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
     } else if (self.deviceAvailabilityStatus == AUCastDevicesAvailabilityUnavailable) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesBecomeUnavailableNotificationName object:nil];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesNearbyChanged object:nil userInfo:@{@"devices": self.devices}];
 }
 
 - (BOOL)devicesContainsDevice:(GCKDevice *)device {
@@ -277,6 +283,17 @@ NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMedi
     }
     
     return NO;
+}
+
+- (NSArray *)availableDevices {
+    return [self.devices copy];
+}
+
+#pragma mark -
+#pragma mark -
+
+- (UITableViewController *)availableDevicesViewController {
+    return [[AUMediaPlayerChromecastDevicesTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 }
 
 @end

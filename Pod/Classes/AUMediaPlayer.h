@@ -76,15 +76,7 @@ typedef NS_ENUM(NSUInteger, AUMediaPlaybackStatus){
     /**
      *  Indicates that playback is paused and may be resumed by calling play method.
      */
-    AUMediaPlaybackStatusPaused,
-    /**
-     *  Indicates that playback is happening on chromecast.
-     */
-    AUMediaPlaybackStatusPlayingOnChromecast,
-    /**
-     *  Indicates that playback is currently paused and resuming in will occur on chromecast
-     */
-    AUMediaPlaybackStatusPausedOnChromecast
+    AUMediaPlaybackStatusPaused
 };
 
 /**
@@ -103,6 +95,20 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
      *  When playback of the track finishes, same track is started from the beginning.
      */
     AUMediaRepeatModeOneSong
+};
+
+/**
+ *  Receiver enumartion type
+ */
+typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
+    /**
+     *  Indicates that all media are playing locally
+     */
+    AUMediaReceiverNone,
+    /**
+     *  Indicates that chromecast streaming is active
+     */
+    AUMediaReceiverChromecast
 };
 
 @interface AUMediaPlayer : NSObject
@@ -172,6 +178,10 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  *  Current playback status.
  */
 @property (nonatomic, readonly) AUMediaPlaybackStatus playbackStatus;
+/**
+ *  It informs on which device is playing.
+ */
+@property (nonatomic, readonly) AUMediaReceiverType receiver;
 /**
  *  If thos flag is set to YES, after interruptions like phone calls, the playback will be resumed.
  *  Defaults to YES.
@@ -260,7 +270,6 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
 - (void)resumePlaybackOcurringBeforeChromecast;
 - (void)endChromecastPlayback;
 
-
 /**
  * Gets called before item replacement. Enables interaction with items and queues being played before new item appers.
  * Doesn't need to call super, since it's abstract method.
@@ -285,6 +294,13 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  *  @param receivedEvent
  */
 - (void)handleLockScreenEvent:(UIEvent *)receivedEvent;
+
+/**
+ * Use this method to change receiver type. If change is possible it returns YES.
+ *
+ * @param receiver New receiver type
+ */
+- (BOOL)setReceiver:(AUMediaReceiverType)receiver;
 
 @end
 

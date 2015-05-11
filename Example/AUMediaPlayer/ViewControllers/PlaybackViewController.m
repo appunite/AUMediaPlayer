@@ -15,7 +15,7 @@ static void *AUMediaPlaybackCurrentTimeObservationContext = &AUMediaPlaybackCurr
 static void *AUMediaPlaybackDurationObservationContext = &AUMediaPlaybackDurationObservationContext;
 static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTimeValidityObservationContext;
 
-@interface PlaybackViewController () {
+@interface PlaybackViewController ()<UIActionSheetDelegate> {
     NSUInteger _currentItemDuration;
     BOOL _playbackTimesAreValid;
 }
@@ -36,6 +36,8 @@ static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTim
 @property (weak, nonatomic) IBOutlet VideoView *playbackView;
 
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *receiverItem;
 @end
 
 @implementation PlaybackViewController
@@ -199,6 +201,19 @@ static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTim
             break;
         default:
             break;
+    }
+}
+
+- (IBAction)selectReceiver:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select Receiver", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:@"No receiver", @"Chromecast", nil];
+    [actionSheet showFromBarButtonItem:sender animated:YES];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    BOOL wasChanged = [[AUMediaPlayer sharedInstance] setReceiver:buttonIndex == 0 ? AUMediaReceiverNone : AUMediaReceiverChromecast];
+    
+    if (wasChanged) {
+        [_receiverItem setTitle: buttonIndex == 0 ? @"No receiver" : @"Chromecast"];
     }
 }
 

@@ -101,10 +101,12 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)play {
-    if (self.playbackStatus == AUMediaPlaybackStatusPausedOnChromecast) {
+    
+    if (self.receiver == AUMediaReceiverChromecast) {
         [self.chromecastManager resume];
         return;
     }
+    
     if (_player.status == AVPlayerStatusReadyToPlay) {
         [_player play];
     } else {
@@ -114,7 +116,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)pause {
-    if (self.playbackStatus == AUMediaPlaybackStatusPlayingOnChromecast) {
+    if (self.receiver == AUMediaReceiverChromecast) {
         [self.chromecastManager pause];
         return;
     }
@@ -124,6 +126,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)stop {
+    if (self.receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager stop];
+        return;
+    }
+    
     [_player pause];
     _playing = NO;
     _shouldPlayWhenPlayerIsReady = NO;
@@ -322,10 +329,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (AUMediaPlaybackStatus)playbackStatus {
     if ([self playerIsPlaying]) {
         return AUMediaPlaybackStatusPlaying;
-    } else if (self.chromecastManager.status == AUCastStatusPlaying || self.chromecastManager.status == AUCastStatusBuffering) {
-        return AUMediaPlaybackStatusPlayingOnChromecast;
-    } else if (self.chromecastManager.status == AUCastStatusPaused) {
-        return AUMediaPlaybackStatusPausedOnChromecast;
+    } else if (self.receiver ==  AUMediaReceiverChromecast && (self.chromecastManager.status == AUCastStatusPlaying || self.chromecastManager.status == AUCastStatusBuffering)) {
+        return AUMediaPlaybackStatusPlaying;
+    } else if (self.receiver ==  AUMediaReceiverChromecast && self.chromecastManager.status == AUCastStatusPaused) {
+        return AUMediaPlaybackStatusPaused;
     } else if (_player.status == AVPlayerStatusReadyToPlay) {
         return AUMediaPlaybackStatusPaused;
     } else {
@@ -664,10 +671,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (BOOL)isUsingChromecast {
-    if (self.playbackStatus == AUMediaPlaybackStatusPausedOnChromecast || self.playbackStatus == AUMediaPlaybackStatusPlayingOnChromecast) {
-        return YES;
-    }
-    return NO;
+    return self.receiver == AUMediaReceiverChromecast;
 }
 
 #pragma mark - Lock screen
@@ -712,6 +716,35 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
                 break;
         }
     }
+}
+
+- (BOOL)setReceiver:(AUMediaReceiverType)receiver {
+    if (_receiver == receiver) {
+        return NO;
+    }
+    
+    _receiver = receiver;
+    
+    if (_receiver == AUMediaReceiverChromecast && [self.chromecastManager deviceAvailabilityStatus] == AUCastDevicesAvailabilityUnavailable) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Chromecast connection error", nil) message:NSLocalizedString(@"There is no chromecast available right now. Please check your connection and try again.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil] show];
+        return NO;
+    }
+    
+    if (_receiver == AUMediaReceiverChromecast) {
+        NSArray *devices = [self.chromecastManager availableDevices];
+        // check if is connected to chromecast if not show available devices controller
+        
+        UITableViewController *controller = [self.chromecastManager availableDevicesViewController];
+    }
+    
+    if (_receiver == AUMediaReceiverNone) {
+        // fetch progress from chromecast
+        // back to local player
+    }
+    
+    
+    return YES;
+
 }
 
 @end

@@ -11,6 +11,7 @@
 
 extern NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName;
 extern NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName;
+extern NSString *const kAUMediaCastDevicesNearbyChanged;
 
 @protocol AUMediaItem;
 
@@ -42,6 +43,8 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 @property (nonatomic, assign, getter=isSearchingDevices) BOOL searchDevices;
 @property (nonatomic, copy) AUCastDeviceScannerChangeBlock devicesChangeBlock;
 
+- (NSArray *)availableDevices;
+
 #pragma mark - Connecting
 
 - (void)connectToDevice:(GCKDevice *)device;
@@ -53,5 +56,7 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 - (void)resume;
 - (void)pause;
 - (void)stop;
+
+- (UITableViewController *)availableDevicesViewController;
 
 @end
