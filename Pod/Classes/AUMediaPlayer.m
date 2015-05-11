@@ -780,7 +780,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)initChromecastTimeObserver {
-    _chromecastObserverTimer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
+    _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
 }
 
 #pragma mark -
