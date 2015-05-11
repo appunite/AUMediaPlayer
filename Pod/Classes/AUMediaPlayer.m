@@ -720,13 +720,13 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)setLocalPlayback {
     
+    NSTimeInterval playbackTime = [self.chromecastManager getCurrentPlaybackProgressTime];
+    
     if (_receiver == AUMediaReceiverNone) {
         return;
     } else if (_receiver == AUMediaReceiverChromecast) {
         [self.chromecastManager stop];
     }
-    
-    NSTimeInterval playbackTime = [self.chromecastManager getCurrentPlaybackProgressTime];
     
     if (playbackTime < 0.0) {
         playbackTime = 0.0;
@@ -741,16 +741,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
             [weakSelf updateNowPlayingInfoCenterData];
         }];
         
-        [self play];
-        
-    } else if(self.nowPlayingItem) {
-        
-        BOOL success = [self tryPlayingItemFromCurrentQueue:self.nowPlayingItem];
-        
-        if (!success) {
-            [self playItem:self.nowPlayingItem error:nil];
-        }
-        
     }
 }
 
@@ -761,6 +751,20 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         id<AUMediaItem>item = self.nowPlayingItem;
         
         [self.chromecastManager playItem:item fromMoment:playbackMoment];
+    } else if (_receiver == AUMediaReceiverNone) {
+        
+        if (_player.status == AVPlayerStatusReadyToPlay) {
+            
+            [self play];
+            
+        } else if(self.nowPlayingItem) {
+            
+            BOOL success = [self tryPlayingItemFromCurrentQueue:self.nowPlayingItem];
+            
+            if (!success) {
+                [self playItem:self.nowPlayingItem error:nil];
+            }
+        }
     }
 }
 
