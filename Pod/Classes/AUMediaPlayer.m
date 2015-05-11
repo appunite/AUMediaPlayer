@@ -201,7 +201,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         if (_receiver == AUMediaReceiverNone) {
             [self play];
         } else if (_receiver == AUMediaReceiverChromecast) {
-            [self startItemPlaybackOnChromecast:item];
+            [self startItemPlaybackOnChromecast:nextItem];
         }
     } else {
         [self pause];
