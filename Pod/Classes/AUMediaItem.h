@@ -62,9 +62,16 @@ typedef NS_ENUM(NSInteger, AUMediaType){
 /**
  *  File type extension, that will be appended to path
  *
- *  @return filet type extension
+ *  @return file type extension
  */
 - (NSString *)fileTypeExtension;
+/**
+ *  Path to artwork cover image
+ *  Used to display media artwork on chromecast
+ *
+ *  @return file type extension
+ */
+- (NSString *)coverImagePath;
 
 @end
 

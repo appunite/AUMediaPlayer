@@ -179,6 +179,11 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
     [metadata setString:[item author] forKey:kGCKMetadataKeyArtist];
     [metadata setString:[item title] forKey:kGCKMetadataKeyTitle];
     
+    if ([item coverImagePath]) {
+        NSURL *imageURL = [NSURL URLWithString:[item coverImagePath]];
+        [metadata addImage:[[GCKImage alloc] initWithURL:imageURL width:200 height:200]];
+    }
+    
     _mediaToPlay = [[GCKMediaInformation alloc] initWithContentID:path
                                                        streamType:GCKMediaStreamTypeNone
                                                       contentType:@""
