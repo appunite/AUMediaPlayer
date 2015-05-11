@@ -253,13 +253,6 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
  */
 - (void)toggleRepeatMode;
 
-#pragma mark -
-#pragma mark Chromecast section
-
-- (void)playItemWithChromecast:(id<AUMediaItem>)item;
-- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
-- (void)playCurrentItemWithChromecastFromCurrentProgressTime:(BOOL)fromCurrentProgressTime;
-
 /**
  * Gets called before item replacement. Enables interaction with items and queues being played before new item appers.
  * Doesn't need to call super, since it's abstract method.
@@ -281,8 +274,18 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
  *
  * @param receiver New receiver type
  */
+
+#pragma mark -
+#pragma mark Switching receivers
+
 - (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController currentlyVisibleViewController:(UIViewController *)visibleViewController error:(NSError * __autoreleasing *)error;
 - (void)setLocalPlayback;
+- (void)switchPlaybackToCurrentReceiver;
+
+#pragma mark -
+#pragma mark Chromecast section
+
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
 
 @end
 

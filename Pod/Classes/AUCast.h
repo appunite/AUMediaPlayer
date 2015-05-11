@@ -15,6 +15,12 @@ extern NSString *const kAUMediaCastDevicesNearbyChanged;
 
 @protocol AUMediaItem;
 
+@protocol AUCastDelegate <NSObject>
+
+- (void)playbackDidReachEnd;
+
+@end
+
 typedef NS_ENUM(NSUInteger, AUCastDevicesAvailability) {
     AUCastDevicesAvailabilityAvailable,
     AUCastDevicesAvailabilityUnavailable,
@@ -34,6 +40,7 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 @interface AUCast : NSObject
 
 @property (nonatomic, strong) NSString *applicationID;
+@property (nonatomic, weak) id<AUCastDelegate> delegate;
 
 @property (nonatomic, readonly) BOOL isDeviceConnected;
 @property (nonatomic, readonly) AUCastStatus status;

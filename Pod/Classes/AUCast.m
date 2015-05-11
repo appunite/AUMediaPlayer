@@ -281,7 +281,7 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
     [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackStateDidChangeNotification object:nil];
     
     if (status.idleReason == GCKMediaPlayerIdleReasonFinished) {
-        [self stop];
+        [self.delegate playbackDidReachEnd];
     }
 }
 

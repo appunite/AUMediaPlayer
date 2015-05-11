@@ -13,7 +13,7 @@
 #import <objc/runtime.h>
 #import "NSError+AUMedia.h"
 
-@interface AUMediaPlayer() {
+@interface AUMediaPlayer() <AUCastDelegate> {
     id _timeObserver;
     BOOL _shouldPlayWhenPlayerIsReady;
     BOOL _playing; // used to continue playback after buffer empties and loads again
@@ -53,6 +53,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     if (self) {
         _library = [[AUMediaLibrary alloc] init];
         _chromecastManager = [[AUCast alloc] init];
+        _chromecastManager.delegate = self;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleInterruption:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
         self.playbackIsResumedAfterInterruptions = YES;
@@ -81,24 +82,28 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark Player actions
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
-    if ([self isUsingChromecast]) {
-        [self.chromecastManager stop];
-    }
     
     self.queue = @[item];
     [self updatePlayerWithItem:item error:error];
+    
+    if (_receiver == AUMediaReceiverChromecast) {
+        [self startItemPlaybackOnChromecast:item];
+    }
+    
     [self play];
 }
 
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError *__autoreleasing *)error {
-    if ([self isUsingChromecast]) {
-        [self.chromecastManager stop];
-    }
     
     self.queue = collection.mediaItems;
     id<AUMediaItem>item = _shuffle ? [self.shuffledQueue objectAtIndex:0] : [self.queue objectAtIndex:0];
     
     [self updatePlayerWithItem:item error:error];
+    
+    if (_receiver == AUMediaReceiverChromecast) {
+        [self startItemPlaybackOnChromecast:item];
+    }
+    
     [self play];
 }
 
@@ -179,9 +184,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playNext {
-    if ([self isUsingChromecast]) {
-        return;
-    }
     
     NSError *error = nil;
     
@@ -195,16 +197,18 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
     
     if (_repeat == AUMediaRepeatModeOn || nextTrackIndex > 0) {
-        [self play];
+        
+        if (_receiver == AUMediaReceiverNone) {
+            [self play];
+        } else if (_receiver == AUMediaReceiverChromecast) {
+            [self startItemPlaybackOnChromecast:item];
+        }
     } else {
         [self pause];
     }
 }
 
 - (void)playPrevious {
-    if ([self isUsingChromecast]) {
-        return;
-    }
     
     if (_currentPlaybackTime > 2) {
         [_player seekToTime:kCMTimeZero];
@@ -231,7 +235,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     if (nextTrackIndex == 0 && currentTrackIndex == 0) {
         [self pause];
     } else {
-        [self play];
+        if (_receiver == AUMediaReceiverNone) {
+            [self play];
+        } else if (_receiver == AUMediaReceiverChromecast) {
+            [self startItemPlaybackOnChromecast:nextItem];
+        }
     }
 }
 
@@ -658,36 +666,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark Chromecast
 
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
-    if ([self isUsingChromecast]) {
+    if (_receiver == AUMediaReceiverChromecast) {
         return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
     }
     return NO;
-}
-
-- (void)playItemWithChromecast:(id<AUMediaItem>)item {
-    
-    [self updatePlayerWithItem:item error:NULL];
-    [self.chromecastManager playItem:item fromMoment:0.0];
-}
-
-- (void)playCurrentItemWithChromecastFromCurrentProgressTime:(BOOL)fromCurrentProgressTime {
-    
-    if (self.playbackStatus == AUMediaPlaybackStatusPlaying || self.playbackStatus == AUMediaPlaybackStatusPaused) {
-        [self pause];
-        
-        NSTimeInterval playbackMoment = 0.0;
-        id<AUMediaItem>item = self.nowPlayingItem;
-        
-        if (fromCurrentProgressTime) {
-            playbackMoment = (NSTimeInterval)self.currentPlaybackTime;
-        }
-        
-        [self.chromecastManager playItem:item fromMoment:playbackMoment];
-    }
-}
-
-- (BOOL)isUsingChromecast {
-    return self.receiver == AUMediaReceiverChromecast;
 }
 
 #pragma mark -
@@ -715,6 +697,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
                                             currentlyVisibleViewController:(UIViewController *)visibleViewController
                                                                      error:(NSError * __autoreleasing *)error {
+    
+    [_player pause];
     
     if (_receiver == AUMediaReceiverChromecast) {
         return;
@@ -768,6 +752,31 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         }
         
     }
+}
+
+- (void)switchPlaybackToCurrentReceiver {
+    if (_receiver == AUMediaReceiverChromecast) {
+        
+        NSTimeInterval playbackMoment = (NSTimeInterval)self.currentPlaybackTime;
+        id<AUMediaItem>item = self.nowPlayingItem;
+        
+        [self.chromecastManager playItem:item fromMoment:playbackMoment];
+    }
+}
+
+#pragma mark -
+#pragma mark Chromecast
+
+- (void)startItemPlaybackOnChromecast:(id<AUMediaItem>)item {
+    [self.chromecastManager playItem:item fromMoment:0.0];
+    [self initPlaybackTimeObserver];
+}
+
+#pragma mark -
+#pragma mark AUCastDelegate
+
+- (void)playbackDidReachEnd {
+    [self playNext];
 }
 
 @end
