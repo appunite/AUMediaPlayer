@@ -35,6 +35,7 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 
 @property (nonatomic, strong) NSString *applicationID;
 
+@property (nonatomic, readonly) BOOL isDeviceConnected;
 @property (nonatomic, readonly) AUCastStatus status;
 @property (nonatomic, readonly) AUCastDevicesAvailability deviceAvailabilityStatus;
 
@@ -47,16 +48,16 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 
 #pragma mark - Connecting
 
-- (void)connectToDevice:(GCKDevice *)device;
+- (void)connectToDevice:(GCKDevice *)device connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 
 #pragma mark - Playing Media
 
-- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment;
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
 - (void)resume;
 - (void)pause;
 - (void)stop;
 
-- (UITableViewController *)availableDevicesViewController;
+- (NSTimeInterval)getCurrentPlaybackProgressTime;
 
 @end

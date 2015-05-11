@@ -23,4 +23,10 @@
     return error;
 }
 
++ (NSError *)au_chromecastDeviceUnavailable {
+    NSDictionary * userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"There is no chromecast device available right now. Please check your connection and try again.", nil)};
+    NSError * error = [NSError errorWithDomain:AUMediaErrorDomain code:kAUMediaChromecastDeviceUnavailableErrorCode userInfo:userInfo];
+    return error;
+}
+
 @end

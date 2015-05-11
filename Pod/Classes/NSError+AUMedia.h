@@ -12,5 +12,6 @@
 
 + (NSError *)au_itemNotFoundInLibrary;
 + (NSError *)au_itemNotAvailableToPlayError;
++ (NSError *)au_chromecastDeviceUnavailable;
 
 @end

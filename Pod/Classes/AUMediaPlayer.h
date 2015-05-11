@@ -17,14 +17,6 @@
 Add this to application:didFinishLaunchingWithOptions: method to enable background playback
 
 [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-
-Add this code to AppDelegate in order to be able to receive remote control events
-
-- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
-    if (receivedEvent.type == UIEventTypeRemoteControl) {
-        [[AUMedia sharedInstance] handleLockScreenEvent:receivedEvent];
-    }
-}
  
  *********************************************************************/
 
@@ -264,11 +256,9 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
 #pragma mark -
 #pragma mark Chromecast section
 
-- (void)playItemWithChromecast:(id<AUMediaItem>)item demandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (void)playItemWithChromecast:(id<AUMediaItem>)item;
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
-- (void)playCurrentItemWithChromecastWithDemandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
-- (void)resumePlaybackOcurringBeforeChromecast;
-- (void)endChromecastPlayback;
+- (void)playCurrentItemWithChromecastFromCurrentProgressTime:(BOOL)fromCurrentProgressTime;
 
 /**
  * Gets called before item replacement. Enables interaction with items and queues being played before new item appers.
@@ -287,20 +277,12 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
 - (void)restorePlayerStateWithItem:(id<AUMediaItem>)item queue:(NSArray *)queue playbackTime:(CMTime)time error:(NSError *__autoreleasing *)error;
 
 /**
- *  Method handling remote control events regarding playback when app is in background.
- *  @warning You DO NOT call it by yourself. Suitable method should be added to AppDelegate.
- *  Just copy-paste it from the top of this file.
- *
- *  @param receivedEvent
- */
-- (void)handleLockScreenEvent:(UIEvent *)receivedEvent;
-
-/**
  * Use this method to change receiver type. If change is possible it returns YES.
  *
  * @param receiver New receiver type
  */
-- (BOOL)setReceiver:(AUMediaReceiverType)receiver;
+- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController currentlyVisibleViewController:(UIViewController *)visibleViewController error:(NSError * __autoreleasing *)error;
+- (void)setLocalPlayback;
 
 @end
 

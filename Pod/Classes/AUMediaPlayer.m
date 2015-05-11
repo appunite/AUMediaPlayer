@@ -64,7 +64,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Getters/setters
+#pragma mark -
+#pragma mark Getters/setters
 
 - (void)setQueue:(NSArray *)queue {
     _queue = queue;
@@ -76,7 +77,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [self updateNowPlayingInfoCenterData];
 }
 
-#pragma mark - Player actions
+#pragma mark -
+#pragma mark Player actions
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
     if ([self isUsingChromecast]) {
@@ -136,10 +138,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     _shouldPlayWhenPlayerIsReady = NO;
     [self replaceCurrentItemWithNewPlayerItem:nil];
     self.queue = @[];
-    
-    if ([self isUsingChromecast]) {
-        [self.chromecastManager stop];
-    }
 }
 
 - (void)playItemFromCurrentQueueAtIndex:(NSUInteger)index {
@@ -280,47 +278,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 #pragma mark -
-#pragma mark Chromecast
-
-- (void)resumePlaybackOcurringBeforeChromecast {
-    if ([self isUsingChromecast]) {
-        [self.chromecastManager stop];
-        [self play];
-    }
-}
-
-- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
-    if ([self isUsingChromecast]) {
-        return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
-    }
-    return NO;
-}
-
-- (void)playItemWithChromecast:(id<AUMediaItem>)item
-        demandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock
-     connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
-    
-    [self updatePlayerWithItem:item error:NULL];
-    [self.chromecastManager playItem:item fromMoment:0.0 waitingForDevice:waitingBlock connectionCompletionBlock:completionBlock];
-}
-- (void)playCurrentItemWithChromecastWithDemandsCastDeviceBlock:(void(^)(BOOL demands))waitingBlock
-                                      connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
-    
-    if (self.playbackStatus == AUMediaPlaybackStatusPlaying || self.playbackStatus == AUMediaPlaybackStatusPaused) {
-        [self pause];
-        
-        id<AUMediaItem>item = self.nowPlayingItem;
-        NSTimeInterval playbackMoment = (NSTimeInterval)self.currentPlaybackTime;
-        
-        [self.chromecastManager playItem:item fromMoment:playbackMoment waitingForDevice:waitingBlock connectionCompletionBlock:completionBlock];
-    }
-}
-
-- (void)endChromecastPlayback {
-    [self.chromecastManager stop];
-}
-
-#pragma mark - Playback info
+#pragma mark Playback info
 
 - (id<AUMediaItem>)nowPlayingItem {
     return objc_getAssociatedObject(_player.currentItem, AVPlayerItemAssociatedItem);
@@ -352,7 +310,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     return self.queue.count;
 }
 
-#pragma mark - Internal player methods
+#pragma mark -
+#pragma mark Internal player methods
 
 - (void)updatePlayerWithItem:(id<AUMediaItem>)item error:(NSError * __autoreleasing*)error {
     NSParameterAssert([item uid]);
@@ -581,7 +540,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
 }
 
-#pragma mark - Helper methods
+#pragma mark -
+#pragma mark Helper methods
 
 - (void)shuffleQueue {
     NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.queue];
@@ -670,37 +630,44 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:info];
 }
 
+#pragma mark -
+#pragma mark Chromecast
+
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
+    if ([self isUsingChromecast]) {
+        return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
+    }
+    return NO;
+}
+
+- (void)playItemWithChromecast:(id<AUMediaItem>)item {
+    
+    [self updatePlayerWithItem:item error:NULL];
+    [self.chromecastManager playItem:item fromMoment:0.0];
+}
+
+- (void)playCurrentItemWithChromecastFromCurrentProgressTime:(BOOL)fromCurrentProgressTime {
+    
+    if (self.playbackStatus == AUMediaPlaybackStatusPlaying || self.playbackStatus == AUMediaPlaybackStatusPaused) {
+        [self pause];
+        
+        NSTimeInterval playbackMoment = 0.0;
+        id<AUMediaItem>item = self.nowPlayingItem;
+        
+        if (fromCurrentProgressTime) {
+            playbackMoment = (NSTimeInterval)self.currentPlaybackTime;
+        }
+        
+        [self.chromecastManager playItem:item fromMoment:playbackMoment];
+    }
+}
+
 - (BOOL)isUsingChromecast {
     return self.receiver == AUMediaReceiverChromecast;
 }
 
-#pragma mark - Lock screen
-
-- (void)handleLockScreenEvent:(UIEvent *)receivedEvent {
-    switch (receivedEvent.subtype) {
-        case UIEventSubtypeRemoteControlPause:
-            [self pause];
-            break;
-            
-        case UIEventSubtypeRemoteControlPlay:
-            [self play];
-            break;
-            
-        case UIEventSubtypeRemoteControlPreviousTrack:
-            [self playPrevious];
-            break;
-            
-        case UIEventSubtypeRemoteControlNextTrack:
-            [self playNext];
-            break;
-            
-        default:
-            break;
-    }
-    
-}
-
-#pragma mark - Interruptions
+#pragma mark -
+#pragma mark Interruptions
 
 - (void)handleInterruption:(NSNotification *)notification {
     if (notification.name == AVAudioSessionInterruptionNotification) {
@@ -718,33 +685,65 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
 }
 
-- (BOOL)setReceiver:(AUMediaReceiverType)receiver {
-    if (_receiver == receiver) {
-        return NO;
-    }
-    
-    _receiver = receiver;
-    
-    if (_receiver == AUMediaReceiverChromecast && [self.chromecastManager deviceAvailabilityStatus] == AUCastDevicesAvailabilityUnavailable) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Chromecast connection error", nil) message:NSLocalizedString(@"There is no chromecast available right now. Please check your connection and try again.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil] show];
-        return NO;
-    }
+#pragma mark -
+#pragma mark Receiver changes
+
+- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
+                                            currentlyVisibleViewController:(UIViewController *)visibleViewController
+                                                                     error:(NSError * __autoreleasing *)error {
     
     if (_receiver == AUMediaReceiverChromecast) {
-        NSArray *devices = [self.chromecastManager availableDevices];
-        // check if is connected to chromecast if not show available devices controller
-        
-        UITableViewController *controller = [self.chromecastManager availableDevicesViewController];
+        return;
     }
+    
+    if ([self.chromecastManager deviceAvailabilityStatus] == AUCastDevicesAvailabilityUnavailable) {
+        *error = [NSError au_chromecastDeviceUnavailable];
+        return;
+    }
+    
+    _receiver = AUMediaReceiverChromecast;
+    
+    if ([self.chromecastManager isDeviceConnected]) {
+        return;
+    }
+    
+    [visibleViewController presentViewController:devicesController animated:YES completion:nil];
+}
+
+- (void)setLocalPlayback {
     
     if (_receiver == AUMediaReceiverNone) {
-        // fetch progress from chromecast
-        // back to local player
+        return;
+    } else if (_receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager stop];
     }
     
+    NSTimeInterval playbackTime = [self.chromecastManager getCurrentPlaybackProgressTime];
     
-    return YES;
-
+    if (playbackTime < 0.0) {
+        playbackTime = 0.0;
+    }
+    
+    if (_player.status == AVPlayerStatusReadyToPlay) {
+        
+        CMTime timeToSeek = CMTimeMakeWithSeconds(playbackTime, NSEC_PER_SEC);
+        
+        __weak __typeof__(self) weakSelf = self;
+        [_player seekToTime:timeToSeek completionHandler:^(BOOL finished) {
+            [weakSelf updateNowPlayingInfoCenterData];
+        }];
+        
+        [self play];
+        
+    } else if(self.nowPlayingItem) {
+        
+        BOOL success = [self tryPlayingItemFromCurrentQueue:self.nowPlayingItem];
+        
+        if (!success) {
+            [self playItem:self.nowPlayingItem error:nil];
+        }
+        
+    }
 }
 
 @end

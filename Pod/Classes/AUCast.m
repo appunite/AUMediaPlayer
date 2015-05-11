@@ -9,13 +9,12 @@
 #import "AUCast.h"
 #import "AUMediaItem.h"
 #import "AUMediaConstants.h"
-#import "AUMediaPlayerChromecastDevicesTableViewController.h"
 
 NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName = @"kAUMediaCastDevicesBecomeAvailableNotificationName";
 NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMediaCastDevicesBecomeUnavailableNotificationName";
 NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyChanged";
 
-@interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate>
 
 @property (nonatomic, strong) GCKDeviceScanner *deviceScanner;
 @property (nonatomic, strong) GCKDeviceManager *deviceManager;
@@ -143,26 +142,31 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 #pragma mark -
 #pragma mark Connection
 
-- (void)connectToDevice:(GCKDevice *)device {
+- (void)connectToDevice:(GCKDevice *)device connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
     if ([self.deviceManager connectionState] == GCKConnectionStateConnected || [self.deviceManager connectionState] == GCKConnectionStateConnecting) {
         [self.deviceManager disconnect];
     }
+    
+    self.afterConnectBlock = completionBlock;
     
     self.deviceManager = [[GCKDeviceManager alloc] initWithDevice:device clientPackageName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]];
     [self.deviceManager setDelegate:self];
     [self.deviceManager connect];
 }
 
+- (BOOL)isDeviceConnected {
+    if ([self.deviceManager connectionState] == GCKConnectionStateConnected || [self.deviceManager connectionState] == GCKConnectionStateConnecting) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark -
 #pragma mark Playback
 
-- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment waitingForDevice:(void (^)(BOOL waiting))waitingBlock connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
-    
-    waitingBlock(YES);
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(NSTimeInterval)moment {
     
     NSString *path = [item remotePath];
-    
-    self.afterConnectBlock = completionBlock;
     
     GCKMediaMetadataType type = GCKMediaMetadataTypeGeneric;
     if ([item itemType] == AUMediaTypeAudio) {
@@ -183,6 +187,10 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
                                                        customData:nil];
     _momentToStartFrom = moment;
     _currentMediaUid = [item uid];
+    
+    if ([self.deviceManager applicationConnectionState] == GCKConnectionStateConnected) {
+        [self play];
+    }
 }
 
 
@@ -220,6 +228,14 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
     return NO;
 }
 
+- (NSTimeInterval)getCurrentPlaybackProgressTime {
+    if (self.mediaControlChannel && self.mediaControlChannel.mediaStatus) {
+        return self.mediaControlChannel.mediaStatus.streamPosition;
+    }
+    
+    return -1.0;
+}
+
 #pragma mark -
 #pragma mark Device Manager Delegate
 
@@ -253,6 +269,7 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 #pragma mark Media control cahnnel delegate
 
 - (void)mediaControlChannelDidUpdateStatus:(GCKMediaControlChannel *)mediaControlChannel {
+    
     GCKMediaStatus *status = mediaControlChannel.mediaStatus;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackStateDidChangeNotification object:nil];
@@ -287,13 +304,6 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 
 - (NSArray *)availableDevices {
     return [self.devices copy];
-}
-
-#pragma mark -
-#pragma mark -
-
-- (UITableViewController *)availableDevicesViewController {
-    return [[AUMediaPlayerChromecastDevicesTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 }
 
 @end

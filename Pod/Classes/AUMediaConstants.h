@@ -11,6 +11,7 @@
 //Errors
 #define kAUMediaItemNotFoundInLibraryErrorCode 1
 #define kAUMediaItemPathNotFoundError 2
+#define kAUMediaChromecastDeviceUnavailableErrorCode 3
 
 extern NSString *const AUMediaErrorDomain;
 
