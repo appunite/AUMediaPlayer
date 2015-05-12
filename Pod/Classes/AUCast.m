@@ -140,7 +140,7 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 #pragma mark -
 #pragma mark Connection
 
-- (void)connectToDevice:(GCKDevice *)device connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+- (void)connectToDevice:(GCKDevice *)device {
     if ([self.deviceManager connectionState] == GCKConnectionStateConnected || [self.deviceManager connectionState] == GCKConnectionStateConnecting) {
         [self.deviceManager disconnect];
     }
