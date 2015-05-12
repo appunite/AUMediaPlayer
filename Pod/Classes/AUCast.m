@@ -26,8 +26,6 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 @property (nonatomic, strong) NSString *currentMediaUid;
 @property (nonatomic) NSTimeInterval momentToStartFrom;
 
-@property (nonatomic, copy) AUCastConnectCompletionBlock afterConnectBlock;
-
 @end
 
 @implementation AUCast
@@ -147,8 +145,6 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
         [self.deviceManager disconnect];
     }
     
-    self.afterConnectBlock = completionBlock;
-    
     self.deviceManager = [[GCKDeviceManager alloc] initWithDevice:device clientPackageName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]];
     [self.deviceManager setDelegate:self];
     [self.deviceManager connect];
@@ -159,6 +155,10 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
         return YES;
     }
     return NO;
+}
+
+- (GCKDevice *)connectedDevice {
+    return self.deviceManager.device;
 }
 
 #pragma mark -

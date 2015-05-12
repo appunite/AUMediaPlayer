@@ -45,17 +45,19 @@ typedef void (^AUCastConnectCompletionBlock)(GCKDevice *connectedDevice, NSError
 @property (nonatomic, readonly) BOOL isDeviceConnected;
 @property (nonatomic, readonly) AUCastStatus status;
 @property (nonatomic, readonly) AUCastDevicesAvailability deviceAvailabilityStatus;
+@property (nonatomic, readonly) GCKDevice *connectedDevice;
 
 #pragma mark - Scanning for devices
 
 @property (nonatomic, assign, getter=isSearchingDevices) BOOL searchDevices;
 @property (nonatomic, copy) AUCastDeviceScannerChangeBlock devicesChangeBlock;
+@property (nonatomic, copy) AUCastConnectCompletionBlock afterConnectBlock;
 
 - (NSArray *)availableDevices;
 
 #pragma mark - Connecting
 
-- (void)connectToDevice:(GCKDevice *)device connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+- (void)connectToDevice:(GCKDevice *)device;
 
 #pragma mark - Playing Media
 

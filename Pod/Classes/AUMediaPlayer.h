@@ -278,7 +278,9 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
 #pragma mark -
 #pragma mark Switching receivers
 
-- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController currentlyVisibleViewController:(UIViewController *)visibleViewController error:(NSError * __autoreleasing *)error;
+- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
+                                            currentlyVisibleViewController:(UIViewController *)visibleViewController
+                                                 connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)setLocalPlayback;
 - (void)switchPlaybackToCurrentReceiver;
 

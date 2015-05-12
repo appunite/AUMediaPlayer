@@ -36,7 +36,6 @@
 		1EF14AE324E4543E4B5D0552 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D41B79FE1AC6863C831BDF /* SystemConfiguration.framework */; };
 		1FB9053FB09FF309841087E8 /* GCKCastContext.h in Headers */ = {isa = PBXBuildFile; fileRef = BE933A8882A87CC25C8309A0 /* GCKCastContext.h */; };
 		1FBE286A8EA749C73D5E4B86 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = B50EC53D0682FF4C9B05C79E /* AFURLResponseSerialization.h */; };
-		208D6B33356036D6F1732668 /* AUCastDevicesTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D721885E99113C9FBBABC6 /* AUCastDevicesTableViewController.h */; };
 		22BC31BC95252B13D6347F26 /* GCKCastChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E26F003B7AEAC7FD059719C /* GCKCastChannel.h */; };
 		23995C1EC946CBA279EB5B7B /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E462D68404E827CF6187CA54 /* AFURLResponseSerialization.m */; };
 		2647A5A1AF6D182FF281A05D /* AUMediaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C9A906F1F6F9E2A113ADD13B /* AUMediaLibrary.h */; };
@@ -149,12 +148,10 @@
 		BD99C1CDC6E13F3533E01B1F /* AUMediaConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = B7E159DAB1BFC97658667ABF /* AUMediaConstants.h */; };
 		BDB1F1DC9DB2CC7DD06D9B04 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF4AB6E2AD8053589655E5C /* Security.framework */; };
 		BEA0AB5B1276B79F5F6FBF6D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A55F4C97CCFA7BC24ACA168E /* AFHTTPSessionManager.m */; };
-		BFCBB7C9E47327CE28652AEE /* AUCastDevicesTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D721885E99113C9FBBABC6 /* AUCastDevicesTableViewController.h */; };
 		C03DB64EA6576B450FB36A90 /* GCKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB8DB88DE16792DFDF9B3A2 /* GCKImage.h */; };
 		C0B49D26BD838C213FFB2301 /* GCKNSDictionary+TypedValueLookup.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FA5F34A0C3B6993B0491A1 /* GCKNSDictionary+TypedValueLookup.h */; };
 		C176BF61505B4C287D0A299E /* GCKMediaTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = A0656CEB171D403C13BD9834 /* GCKMediaTrack.h */; };
 		C1CA98498E4360F56C43BCF2 /* Pods-Tests-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D190DA95445C3A4D02C383 /* Pods-Tests-AFNetworking-dummy.m */; };
-		C1D572A222C1AAAA40F3D7F8 /* AUCastDevicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D645B6A46AA9EDA8FCECAC /* AUCastDevicesTableViewController.m */; };
 		C21F868E71FB0198CB6BE9CA /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E1377DF5191DD7F8CC3FA02B /* UIRefreshControl+AFNetworking.m */; };
 		C3A8204FAA7BC9B50741F912 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 44D6810D6EE0DB3574CBAE9D /* UIAlertView+AFNetworking.h */; };
 		C40904CF25B1AC663A6F3887 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 84EB132F0D1110D3F7C62AB4 /* UIKit+AFNetworking.h */; };
@@ -191,7 +188,6 @@
 		F2E99634FF0B976E1428FF94 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BE73C3B82CFA2437A0523766 /* AFHTTPSessionManager.h */; };
 		F7074BA365728552AA26C764 /* GCKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = BF92FE241A4E3627C0AC0F52 /* GCKCommon.h */; };
 		F8EB2AB454CC43812DF59CBF /* GCKDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = D73E77D2743F589268B4E59C /* GCKDevice.h */; };
-		F982E1E4DBE00E7326818081 /* AUCastDevicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D645B6A46AA9EDA8FCECAC /* AUCastDevicesTableViewController.m */; };
 		F9D9791B1294307E8EEEFF80 /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D46088981F571C39080C67 /* NSError+AUMedia.m */; };
 		FBDFD55FAE68014EA8490F68 /* GCKApplicationMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 26B7D9834EF8ED72DC12BC6C /* GCKApplicationMetadata.h */; };
 		FDA547C2DDC5DE48ABC83E92 /* GoogleCast.h in Headers */ = {isa = PBXBuildFile; fileRef = F487E78FFF4373743B477459 /* GoogleCast.h */; };
@@ -354,7 +350,6 @@
 		68B4170B321F67FF600DC562 /* AUCast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUCast.h; sourceTree = "<group>"; };
 		6908BDF23132D5FFCB8DD12D /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
 		6E05CD07DD55DDD547E91B84 /* Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AUMediaPlayer-AUMediaPlayer-prefix.pch"; sourceTree = "<group>"; };
-		73D645B6A46AA9EDA8FCECAC /* AUCastDevicesTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AUCastDevicesTableViewController.m; sourceTree = "<group>"; };
 		7614813A764C048E6D005294 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
 		787E46F8BC79CEC9919CFD14 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		7BB63E1A9B3D14A19ECCD3E9 /* Pods-Tests-AUMediaPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-AUMediaPlayer.xcconfig"; path = "../Pods-Tests-AUMediaPlayer/Pods-Tests-AUMediaPlayer.xcconfig"; sourceTree = "<group>"; };
@@ -428,7 +423,6 @@
 		DD118400EE267F117D26A387 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1C32CB1F46F167C309694F /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		E1377DF5191DD7F8CC3FA02B /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		E1D721885E99113C9FBBABC6 /* AUCastDevicesTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUCastDevicesTableViewController.h; sourceTree = "<group>"; };
 		E3BEC1B4C373500AAA6264E6 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		E462D68404E827CF6187CA54 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		E8F169B4E3C6FCCD007AA4B0 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
@@ -734,8 +728,6 @@
 			children = (
 				68B4170B321F67FF600DC562 /* AUCast.h */,
 				C2F7EDF13E2EFC541C900223 /* AUCast.m */,
-				E1D721885E99113C9FBBABC6 /* AUCastDevicesTableViewController.h */,
-				73D645B6A46AA9EDA8FCECAC /* AUCastDevicesTableViewController.m */,
 				B7E159DAB1BFC97658667ABF /* AUMediaConstants.h */,
 				5DE6862B2EA4F6E73190218F /* AUMediaConstants.m */,
 				23D712BE1C3C0335D0C05CD8 /* AUMediaItem.h */,
@@ -912,7 +904,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40CEFBF3DFECCEA7EED6EFDA /* AUCast.h in Headers */,
-				BFCBB7C9E47327CE28652AEE /* AUCastDevicesTableViewController.h in Headers */,
 				C6E9B1AE44999C271A6E967E /* AUMediaConstants.h in Headers */,
 				8D321E3232C7299EC9AE8C63 /* AUMediaItem.h in Headers */,
 				2647A5A1AF6D182FF281A05D /* AUMediaLibrary.h in Headers */,
@@ -1014,7 +1005,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				149F31996B9863EAC2A0FAFB /* AUCast.h in Headers */,
-				208D6B33356036D6F1732668 /* AUCastDevicesTableViewController.h in Headers */,
 				BD99C1CDC6E13F3533E01B1F /* AUMediaConstants.h in Headers */,
 				76955D8DFD14C98A2677D30D /* AUMediaItem.h in Headers */,
 				7EF7A1409A388B704144DBE1 /* AUMediaLibrary.h in Headers */,
@@ -1386,7 +1376,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				134216BA9202AF7D30A4760B /* AUCast.m in Sources */,
-				C1D572A222C1AAAA40F3D7F8 /* AUCastDevicesTableViewController.m in Sources */,
 				7714342A6066B3BC6616D2BC /* AUMediaConstants.m in Sources */,
 				329933B9035138F185B81EE1 /* AUMediaLibrary.m in Sources */,
 				53D0D73595AAC89F3F6AC04F /* AUMediaPlayer.m in Sources */,
@@ -1480,7 +1469,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				12947FDD5E28AC470FE8F9C6 /* AUCast.m in Sources */,
-				F982E1E4DBE00E7326818081 /* AUCastDevicesTableViewController.m in Sources */,
 				058E343A0F9B1E533713912E /* AUMediaConstants.m in Sources */,
 				694516C5862CDFC99DA95587 /* AUMediaLibrary.m in Sources */,
 				896FCC23C876DDBB56E7C9C9 /* AUMediaPlayer.m in Sources */,

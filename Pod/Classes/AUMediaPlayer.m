@@ -706,6 +706,28 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
                                             currentlyVisibleViewController:(UIViewController *)visibleViewController
+                                                 connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+    
+    [_player pause];
+    
+    _receiver = AUMediaReceiverChromecast;
+    
+    [self initChromecastTimeObserver];
+    
+    if ([self.chromecastManager isDeviceConnected]) {
+        completionBlock(self.chromecastManager.connectedDevice, nil);
+        return;
+    }
+    
+    self.chromecastManager.afterConnectBlock = completionBlock;
+    
+    self.chromecastManager.searchDevices = YES;
+    
+    [visibleViewController presentViewController:devicesController animated:YES completion:nil];
+}
+
+- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
+                                            currentlyVisibleViewController:(UIViewController *)visibleViewController
                                                                      error:(NSError * __autoreleasing *)error {
     
     [_player pause];
