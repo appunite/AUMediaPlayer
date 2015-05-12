@@ -136,6 +136,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (void)stop {
     if (self.receiver == AUMediaReceiverChromecast) {
         [self.chromecastManager stop];
+        [self setLocalPlayback];
         return;
     }
     
@@ -709,10 +710,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     
     [_player pause];
     
-    if (_receiver == AUMediaReceiverChromecast) {
-        return;
-    }
-    
     _receiver = AUMediaReceiverChromecast;
     
     [self initChromecastTimeObserver];
@@ -788,7 +785,9 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)initChromecastTimeObserver {
-    _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
+    if (_chromecastManager == nil) {
+        _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
+    }
 }
 
 #pragma mark -
