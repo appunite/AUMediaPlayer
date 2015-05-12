@@ -284,7 +284,9 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
     self.mediaControlChannel.delegate = self;
     [self.deviceManager addChannel:self.mediaControlChannel];
     
-    [self play];
+    if (_mediaToPlay) {
+        [self play];
+    }
 }
 
 #pragma mark -

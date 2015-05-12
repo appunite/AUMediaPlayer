@@ -741,6 +741,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         playbackTime = 0.0;
     }
     
+    _receiver = AUMediaReceiverNone;
+    
     if (_player.status == AVPlayerStatusReadyToPlay) {
         
         CMTime timeToSeek = CMTimeMakeWithSeconds(playbackTime, NSEC_PER_SEC);
@@ -785,7 +787,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)initChromecastTimeObserver {
-    if (_chromecastManager == nil) {
+    if (_chromecastObserverTimer == nil) {
         _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
     }
 }
