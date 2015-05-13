@@ -10,8 +10,8 @@
 #import "AUMediaItem.h"
 #import "AUMediaConstants.h"
 
-NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName = @"kAUMediaCastDevicesBecomeAvailableNotificationName";
-NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName = @"kAUMediaCastDevicesBecomeUnavailableNotificationName";
+NSString *const kAUMediaCastDevicesAvailabilityStatusChangeNotificationName = @"kAUMediaCastDevicesAvailabilityStatusChangeNotificationName";
+NSString *const kAUMediaCastDevicesAvailabilityStatusChangeNotificationUserInfoKey = @"kAUMediaCastDevicesAvailabilityStatusChangeNotificationUserInfoKey";
 NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyChanged";
 
 @interface AUCast() <GCKDeviceScannerListener, GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate>
@@ -37,6 +37,7 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
     _applicationID = applicationID;
     
     [self initializeDeviceScanner];
+    self.searchDevices = YES;
 }
 
 #pragma mark -
@@ -307,16 +308,12 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 #pragma mark Helpers
 
 - (void)postDevicesAvailabilityStatusNotification {
-    if (self.deviceAvailabilityStatus == AUCastDevicesAvailabilityAvailable) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesBecomeAvailableNotificationName object:nil];
-    } else if (self.deviceAvailabilityStatus == AUCastDevicesAvailabilityUnavailable) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesBecomeUnavailableNotificationName object:nil];
-    }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesNearbyChanged object:nil userInfo:@{@"devices": self.devices}];
+    NSDictionary *userInfo = @{kAUMediaCastDevicesAvailabilityStatusChangeNotificationUserInfoKey : [NSNumber numberWithBool:self.deviceAvailabilityStatus == AUCastDevicesAvailabilityAvailable]};
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaCastDevicesAvailabilityStatusChangeNotificationName object:nil userInfo:userInfo];
 }
 
 - (BOOL)devicesContainsDevice:(GCKDevice *)device {
+    
     for (GCKDevice *d in self.devices) {
         if ([device.deviceID isEqualToString:d.deviceID]) {
             return YES;

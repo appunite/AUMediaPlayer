@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GoogleCastBridge.h"
 
-extern NSString *const kAUMediaCastDevicesBecomeAvailableNotificationName;
-extern NSString *const kAUMediaCastDevicesBecomeUnavailableNotificationName;
-extern NSString *const kAUMediaCastDevicesNearbyChanged;
+extern NSString *const kAUMediaCastDevicesAvailabilityStatusChangeNotificationName;
+extern NSString *const kAUMediaCastDevicesAvailabilityStatusChangeNotificationUserInfoKey;
 
 @protocol AUMediaItem;
 
