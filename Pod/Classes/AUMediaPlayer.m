@@ -18,6 +18,7 @@
     NSTimer *_chromecastObserverTimer;
     BOOL _shouldPlayWhenPlayerIsReady;
     BOOL _playing; // used to continue playback after buffer empties and loads again
+    NSTimeInterval _localPlayerPlaybackTime; // used when pausing local player and resuming playback on chromecast
 }
 @property (nonatomic, readwrite) BOOL playbackTimesAreValid;
 @property (nonatomic, readwrite) NSUInteger currentPlaybackTime;
@@ -710,6 +711,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     
     [_player pause];
     
+    _localPlayerPlaybackTime = (NSTimeInterval)self.currentPlaybackTime;
+    
     _receiver = AUMediaReceiverChromecast;
     
     [self initChromecastTimeObserver];
@@ -720,25 +723,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
     
     self.chromecastManager.afterConnectBlock = completionBlock;
-    
-    self.chromecastManager.searchDevices = YES;
-    
-    [visibleViewController presentViewController:devicesController animated:YES completion:nil];
-}
-
-- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
-                                            currentlyVisibleViewController:(UIViewController *)visibleViewController
-                                                                     error:(NSError * __autoreleasing *)error {
-    
-    [_player pause];
-    
-    _receiver = AUMediaReceiverChromecast;
-    
-    [self initChromecastTimeObserver];
-    
-    if ([self.chromecastManager isDeviceConnected]) {
-        return;
-    }
     
     self.chromecastManager.searchDevices = YES;
     
@@ -780,7 +764,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (void)switchPlaybackToCurrentReceiver {
     if (_receiver == AUMediaReceiverChromecast) {
         
-        NSTimeInterval playbackMoment = (NSTimeInterval)self.currentPlaybackTime;
+        NSTimeInterval playbackMoment = _localPlayerPlaybackTime;
         id<AUMediaItem>item = self.nowPlayingItem;
         
         [self.chromecastManager playItem:item fromMoment:playbackMoment];
