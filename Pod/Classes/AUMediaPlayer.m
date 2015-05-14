@@ -709,7 +709,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
                                             currentlyVisibleViewController:(UIViewController *)visibleViewController
                                                  connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
     
-    [_player pause];
+    [self pause];
     
     _localPlayerPlaybackTime = (NSTimeInterval)self.currentPlaybackTime;
     
