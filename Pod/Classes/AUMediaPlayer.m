@@ -757,8 +757,9 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         [_player seekToTime:timeToSeek completionHandler:^(BOOL finished) {
             [weakSelf updateNowPlayingInfoCenterData];
         }];
-        
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackStateDidChangeNotification object:nil];
 }
 
 - (void)switchPlaybackToCurrentReceiver {
