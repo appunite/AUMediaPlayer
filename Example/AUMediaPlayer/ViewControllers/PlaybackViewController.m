@@ -210,11 +210,15 @@ static void *AUMediaPlaybackTimeValidityObservationContext = &AUMediaPlaybackTim
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    BOOL wasChanged = [[AUMediaPlayer sharedInstance] setReceiver:buttonIndex == 0 ? AUMediaReceiverNone : AUMediaReceiverChromecast];
-    
-    if (wasChanged) {
-        [_receiverItem setTitle: buttonIndex == 0 ? @"No receiver" : @"Chromecast"];
-    }
+//    if (buttonIndex == 0) {
+//        [[AUMediaPLayer sharedInstance] setLocalPlayback];
+//    } else {
+//    }
+//    BOOL wasChanged = [[AUMediaPlayer sharedInstance] setReceiver:buttonIndex == 0 ? AUMediaReceiverNone : AUMediaReceiverChromecast];
+//    
+//    if (wasChanged) {
+//        [_receiverItem setTitle: buttonIndex == 0 ? @"No receiver" : @"Chromecast"];
+//    }
 }
 
 @end
