@@ -138,7 +138,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     if (self.receiver == AUMediaReceiverChromecast) {
         [self.chromecastManager stop];
         [self setLocalPlayback];
-        return;
     }
     
     [_player pause];
@@ -146,6 +145,14 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     _shouldPlayWhenPlayerIsReady = NO;
     [self replaceCurrentItemWithNewPlayerItem:nil];
     self.queue = @[];
+}
+
+- (void)stopChromecast {
+    
+    if (self.receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager stop];
+        [self setLocalPlayback];
+    }
 }
 
 - (void)playItemFromCurrentQueueAtIndex:(NSUInteger)index {
@@ -803,7 +810,24 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark AUCastDelegate
 
 - (void)playbackDidReachEnd {
-    [self playNext];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackDidReachEndNotification object:nil];
+    
+    if (_repeat == AUMediaRepeatModeOneSong) {
+        
+        [self.chromecastManager seekToMoment:0.0];
+        [self play];
+        return;
+    }
+    
+    NSUInteger nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
+    
+    if (_repeat == AUMediaRepeatModeOn || nextTrackIndex > 0) {
+        [self playNext];
+        return;
+    }
+    
+    [self stopChromecast];
 }
 
 @end

@@ -283,6 +283,7 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
                                                  connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
 - (void)setLocalPlayback;
 - (void)switchPlaybackToCurrentReceiver;
+- (void)stopChromecast;
 
 #pragma mark -
 #pragma mark Chromecast section
