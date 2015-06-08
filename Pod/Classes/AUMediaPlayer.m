@@ -12,6 +12,7 @@
 #import "AUMediaPlayer.h"
 #import <objc/runtime.h>
 #import "NSError+AUMedia.h"
+#import "NSArray+AUMedia.h"
 
 @interface AUMediaPlayer() <AUCastDelegate> {
     id _timeObserver;
@@ -85,8 +86,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
     
-    self.queue = @[item];
     [self updatePlayerWithItem:item error:error];
+    self.queue = @[item];
     
     if (_receiver == AUMediaReceiverChromecast) {
         [self startItemPlaybackOnChromecast:item];
@@ -97,10 +98,14 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError *__autoreleasing *)error {
     
-    self.queue = collection.mediaItems;
-    id<AUMediaItem>item = _shuffle ? [self.shuffledQueue objectAtIndex:0] : [self.queue objectAtIndex:0];
-    
+    NSArray *items = collection.mediaItems;
+    NSArray *shuffledItems = [collection.mediaItems shuffle];
+    id<AUMediaItem>item = _shuffle ? [shuffledItems objectAtIndex:0] : [items objectAtIndex:0];
+
     [self updatePlayerWithItem:item error:error];
+    
+    _queue = items;
+    _shuffledQueue = shuffledItems;
     
     if (_receiver == AUMediaReceiverChromecast) {
         [self startItemPlaybackOnChromecast:item];
@@ -195,6 +200,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)playNext {
     
+    if (!self.queue || self.queue.count < 1) {
+        return;
+    }
+    
     NSError *error = nil;
     
     NSUInteger nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
@@ -219,6 +228,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playPrevious {
+    
+    if (!self.queue || self.queue.count < 1) {
+        return;
+    }
     
     if (_currentPlaybackTime > 2) {
         [_player seekToTime:kCMTimeZero];
@@ -594,14 +607,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark Helper methods
 
 - (void)shuffleQueue {
-    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.queue];
-    NSMutableArray *shuffledArray = [NSMutableArray array];
-    while ([tempArray count] > 0) {
-        NSUInteger idx = arc4random() % [tempArray count];
-        [shuffledArray addObject:[tempArray objectAtIndex:idx]];
-        [tempArray removeObjectAtIndex:idx];
-    }
-    self.shuffledQueue = shuffledArray;
+    self.shuffledQueue = [self.queue shuffle];
 }
 
 - (BOOL)playerIsPlaying {
@@ -678,16 +684,6 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:info];
-}
-
-#pragma mark -
-#pragma mark Chromecast
-
-- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
-    if (_receiver == AUMediaReceiverChromecast) {
-        return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
-    }
-    return NO;
 }
 
 #pragma mark -
@@ -795,6 +791,13 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 #pragma mark -
 #pragma mark Chromecast
+
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
+    if (_receiver == AUMediaReceiverChromecast) {
+        return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
+    }
+    return NO;
+}
 
 - (void)startItemPlaybackOnChromecast:(id<AUMediaItem>)item {
     [self.chromecastManager playItem:item fromMoment:0.0];

@@ -166,6 +166,7 @@
 		D0B09A80655E282A39B6C647 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FBD216FED295EB955ABF6E /* UIActivityIndicatorView+AFNetworking.h */; };
 		D6828262E3C3F8826163D606 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 3519C72CD42FAE5B72C4D759 /* UIImageView+AFNetworking.h */; };
 		D71DB87063CDEA4C66C98DC1 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E3BEC1B4C373500AAA6264E6 /* AFNetworking.h */; };
+		D7DE2A401B25E52800E92747 /* NSArray+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DE2A3F1B25E52800E92747 /* NSArray+AUMedia.m */; };
 		D7F4BCAE1B00DD4B00CE8100 /* AUMediaPlayer+LockScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BCAD1B00DD4B00CE8100 /* AUMediaPlayer+LockScreen.m */; };
 		DA00C251DA0F9263CF00F95C /* GCKMediaControlChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 960CF825D7ADEC3DEDBAB676 /* GCKMediaControlChannel.h */; };
 		DC6D3E1457175C5487B1CA91 /* NSError+AUMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D46088981F571C39080C67 /* NSError+AUMedia.m */; };
@@ -416,6 +417,8 @@
 		D2A4084CAF386BCB9EAAC68F /* GCKLaunchOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKLaunchOptions.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKLaunchOptions.h"; sourceTree = "<group>"; };
 		D4A645DCDB6D54D47E59F387 /* Pods-Tests-google-cast-sdk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-google-cast-sdk-prefix.pch"; path = "../Pods-Tests-google-cast-sdk/Pods-Tests-google-cast-sdk-prefix.pch"; sourceTree = "<group>"; };
 		D73E77D2743F589268B4E59C /* GCKDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCKDevice.h; path = "GoogleCastSDK-2.6.0-Release/GoogleCast.framework/Versions/A/Headers/GCKDevice.h"; sourceTree = "<group>"; };
+		D7DE2A3E1B25E52800E92747 /* NSArray+AUMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AUMedia.h"; sourceTree = "<group>"; };
+		D7DE2A3F1B25E52800E92747 /* NSArray+AUMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AUMedia.m"; sourceTree = "<group>"; };
 		D7F4BCAC1B00DD4B00CE8100 /* AUMediaPlayer+LockScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AUMediaPlayer+LockScreen.h"; sourceTree = "<group>"; };
 		D7F4BCAD1B00DD4B00CE8100 /* AUMediaPlayer+LockScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AUMediaPlayer+LockScreen.m"; sourceTree = "<group>"; };
 		D9DC5DBA68C27E0D740B9B36 /* Pods-AUMediaPlayer-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AUMediaPlayer-AFNetworking-dummy.m"; sourceTree = "<group>"; };
@@ -736,6 +739,8 @@
 				AC4DBDC8EDFCD2050B3148C1 /* AUMediaPlayer.h */,
 				2CF2B512ECA1851668E424BE /* AUMediaPlayer.m */,
 				D21BDD978E8CD93F4A89D6FF /* GoogleCastBridge.h */,
+				D7DE2A3E1B25E52800E92747 /* NSArray+AUMedia.h */,
+				D7DE2A3F1B25E52800E92747 /* NSArray+AUMedia.m */,
 				2AFA675C2E6CB2A398E724C1 /* NSError+AUMedia.h */,
 				C4D46088981F571C39080C67 /* NSError+AUMedia.m */,
 				3A6A03936E8D5291685BE06E /* NSString+AUMedia.h */,
@@ -1423,6 +1428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DE2A401B25E52800E92747 /* NSArray+AUMedia.m in Sources */,
 				D7F4BCAE1B00DD4B00CE8100 /* AUMediaPlayer+LockScreen.m in Sources */,
 				F2D3BAF78F829BA5343B0E23 /* Pods-AUMediaPlayer-dummy.m in Sources */,
 			);
