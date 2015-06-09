@@ -459,7 +459,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
             return;
         }
         
-        _playbackTimesAreValid = YES;
+        self.playbackTimesAreValid = YES;
         
         double duration = CMTimeGetSeconds(playerDuration);
         
