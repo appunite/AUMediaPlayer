@@ -8,7 +8,6 @@
 
 #import "AUMediaLibrary.h"
 #import "NSString+AUMedia.h"
-#import "NSURL+AUMedia.h"
 #import "AUMediaConstants.h"
 #import "NSError+AUMedia.h"
 
