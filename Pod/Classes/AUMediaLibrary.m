@@ -49,16 +49,30 @@
     }
 }
 
-- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes {
+- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes error:(NSError *__autoreleasing*)error {
     NSParameterAssert([item uid]);
     if ([item uid] == nil) {
         return;
     }
     
     NSString *path = [self generateLocalPathForItem:item];
-    [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:attributes];
-    [self saveItemToFileRegister:item];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
+    
+    if ([[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:attributes]) {
+        [self saveItemToFileRegister:item];
+        
+        if (!self.backupToiCloud) {
+            
+            NSError *skipError = nil;
+            [self addSkipBackupAttributeToFileAtPath:path error:&skipError];
+            
+            if (skipError) {
+                NSLog(@"Error while marking file as skipped: %@", skipError);
+            }
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
+    } else {
+        *error = [NSError au_failedToWriteItemToLibraryError];
+    }
 }
 
 - (NSProgress *)downloadItem:(id<AUMediaItem>)item {
@@ -78,10 +92,22 @@
     __weak __typeof__(self) wSelf = self;
     
     NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:request progress:&progress destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        
         return [NSURL fileURLWithPath:[wSelf generateLocalPathForItem:item]];
+        
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         if (!error) {
             [wSelf saveItemToFileRegister:item];
+            
+            if (!wSelf.backupToiCloud) {
+                NSError *skipError = nil;
+                [filePath setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey
+                                     error:&skipError];
+                if (skipError) {
+                    NSLog(@"Error while marking file as skipped: %@", skipError);
+                }
+            }
+            
             NSLog(@"Completed download of item %@ by %@", [item title], [item author]);
             [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
         }
@@ -236,7 +262,16 @@
     
     [writeDictionary setObject:item forKey:[item uid]];
     
-    __unused BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
+    BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
+    
+    if (writeSuccess && !self.backupToiCloud) {
+        
+        NSError *error = nil;
+        [self addSkipBackupAttributeToFileAtPath:writePath error:&error];
+        if (error) {
+            NSLog(@"Error ocurred: %@", error);
+        }
+    }
     
     NSAssert(writeSuccess, @"There was an error while saving item");
 }
@@ -285,6 +320,14 @@
         }
     }
     return nil;
+}
+
+- (BOOL)addSkipBackupAttributeToFileAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
+    
+    NSURL *url = [NSURL fileURLWithPath:path];
+    
+    return [url setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:error];
+    
 }
 
 @end

@@ -15,6 +15,9 @@ static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
 
 @interface AUMediaLibrary : AFURLSessionManager
 
+
+@property (nonatomic, assign) BOOL backupToiCloud; // defaults to NO
+
 /**
  *  Downloads given item.
  *
@@ -62,7 +65,7 @@ static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
  *  @param data       File data.
  *  @param attributes Write attributes such as modification date.
  */
-- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes;
+- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes error:(NSError *__autoreleasing*)error;
 
 - (BOOL)itemIsDownloaded:(id<AUMediaItem>)item;
 - (BOOL)itemCollectionIsDownloaded:(id<AUMediaItemCollection>)collection;
