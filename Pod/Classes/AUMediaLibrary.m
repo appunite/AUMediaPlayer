@@ -20,7 +20,9 @@
 @implementation AUMediaLibrary
 
 - (instancetype)init {
-    self = [super init];
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[@"com.AUBackgroundDownloadSession." stringByAppendingString:bundleID]];
+    self = [super initWithSessionConfiguration:config];
     if (self) {
         _currentlyDownloadingItems = [[NSMutableArray alloc] init];
     }
