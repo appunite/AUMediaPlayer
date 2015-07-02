@@ -15,7 +15,7 @@ static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
 
 @interface AUMediaLibrary : AFURLSessionManager
 
-
+@property (nonatomic, copy) void (^savedCompletionHandler)(void);
 @property (nonatomic, assign) BOOL backupToiCloud; // defaults to NO
 
 /**
