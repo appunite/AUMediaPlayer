@@ -86,6 +86,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
     
+    if (!item) {
+        NSAssert(NO, @"You must provide an item to play");
+        return;
+    }
+    
     [self updatePlayerWithItem:item error:error];
     self.queue = @[item];
     
@@ -97,6 +102,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError *__autoreleasing *)error {
+    
+    if (!collection.mediaItems || collection.mediaItems.count == 0) {
+        NSAssert(NO, @"Media collection must contain at least one item");
+        return;
+    }
     
     NSArray *items = collection.mediaItems;
     NSArray *shuffledItems = [collection.mediaItems shuffle];
