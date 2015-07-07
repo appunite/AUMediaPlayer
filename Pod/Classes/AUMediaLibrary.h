@@ -22,10 +22,8 @@ static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
  *  Downloads given item.
  *
  *  @param item Item object conforming to AUMediaItem protocol.
- *
- *  @return NSProgress class object indicating download progress state.
  */
-- (NSProgress *)downloadItem:(id<AUMediaItem>)item;
+- (void)downloadItem:(id<AUMediaItem>)item;
 /**
  *  Gets NSProgress class object for item that is already downloading.
  *

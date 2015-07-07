@@ -22,8 +22,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDownloadProgress) name:kAUMediaDownloadingItemsListDidChangeNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDownloadedItems) name:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDownloadProgress) name:kAUMediaDownloadDidStartNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDownloadedItems) name:kAUMediaDownloadDidFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDownloadedItems) name:kAUMediaDownloadDidFailToFinishNotification object:nil];  
 }
 
 - (void)viewWillAppear:(BOOL)animated {

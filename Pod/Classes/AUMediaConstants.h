@@ -17,8 +17,10 @@
 extern NSString *const AUMediaErrorDomain;
 
 // Library notifications
-extern NSString *const kAUMediaDownloadingItemsListDidChangeNotification;
-extern NSString *const kAUMediaDownloadedItemsListDidChangeNotification;
+extern NSString *const kAUMediaDownloadDidStartNotification;
+extern NSString *const kAUMediaDownloadDidFinishNotification;
+extern NSString *const kAUMediaDownloadDidFailToFinishNotification;
+extern NSString *const kAUMediaDidFinishLocallyWritingItemToLibrary;
 
 // Player notifications
 extern NSString *const kAUMediaPlaybackStateDidChangeNotification;

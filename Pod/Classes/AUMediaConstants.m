@@ -13,8 +13,10 @@
 NSString *const AUMediaErrorDomain = @"com.AUMedia";
 
 // Library notofocations
-NSString *const kAUMediaDownloadingItemsListDidChangeNotification = @"kAUMediaDownloadingItemsListDidChangeNotification";
-NSString *const kAUMediaDownloadedItemsListDidChangeNotification = @"kAUMediaDownloadedItemsListDidChangeNotification";
+NSString *const kAUMediaDownloadDidStartNotification = @"kAUMediaDownloadDidStartNotification";
+NSString *const kAUMediaDownloadDidFinishNotification = @"kAUMediaDownloadDidFinishNotification";
+NSString *const kAUMediaDownloadDidFailToFinishNotification = @"kAUMediaDownloadDidFailToFinishNotification";
+NSString *const kAUMediaDidFinishLocallyWritingItemToLibrary = @"kAUMediaDidFinishLocallyWritingItemToLibrary";
 
 // Player notifications
 NSString *const kAUMediaPlaybackStateDidChangeNotification = @"kAUMediaPlaybackStateDidChangeNotification";

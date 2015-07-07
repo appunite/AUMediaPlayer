@@ -7,6 +7,7 @@
 //
 
 #import "AUAppDelegate.h"
+#import <AUMediaPlayer/AUMediaPlayer.h>
 
 @implementation AUAppDelegate
 
@@ -14,6 +15,11 @@
 {
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler {
+    NSAssert([[AUMediaPlayer sharedInstance].library.session.configuration.identifier isEqualToString:identifier], @"Restored download session identifier is invalid");
+    [AUMediaPlayer sharedInstance].library.savedCompletionHandler = completionHandler;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
