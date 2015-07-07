@@ -9,6 +9,16 @@
 #import "AFURLSessionManager.h"
 #import "AUMediaItem.h"
 
+/**
+ *  !!! IMPORTANT !!!
+ *
+ *  In order to enable background downloads file prtection mode in your app entitlements must not be
+ *  set to NSFileProtectionComplete.
+ *  Read Apple Documentetion to find file prtection mode suitable for your app.
+ *
+ *  !!! IMPORTANT !!!
+ */
+
 static NSString *kAUMediaAudioDocuments = @"AUMediaPersisatnceStoreAudio";
 static NSString *kAUMediaVideoDocuments = @"AUMediaPersisatnceStoreVideo";
 static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
