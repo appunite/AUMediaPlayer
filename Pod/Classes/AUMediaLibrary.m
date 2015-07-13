@@ -13,7 +13,7 @@
 
 @interface AUMediaLibrary()
 
-@property (atomic, strong, readonly) NSMutableArray *currentlyDownloadingItems;
+@property (nonatomic, strong) NSMutableArray *currentlyDownloadingItems;
 
 @end
 
@@ -33,7 +33,6 @@
     config.sessionSendsLaunchEvents = YES;
     self = [super initWithSessionConfiguration:config];
     if (self) {
-        _currentlyDownloadingItems = [[NSMutableArray alloc] init];
         [self configureDownloadFinished];
         [self configureBackgroundSessionFinished];
     }
@@ -74,8 +73,8 @@
             NSLog(@"Completed download of item %@ by %@", [item title], [item author]);
             
             @synchronized(strongSelf) {
-                if (item && [strongSelf.currentlyDownloadingItems containsObject:item]) {
-                    [strongSelf.currentlyDownloadingItems removeObject:item];
+                if (item && [strongSelf isItemInDownloading:item]) {
+                    [strongSelf removeDownloadingItem:item];
                 }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -99,8 +98,8 @@
                 id <AUMediaItem> item = [strongSelf itemForUid:task.taskDescription];
                 
                 @synchronized(strongSelf) {
-                    if (item && [strongSelf.currentlyDownloadingItems containsObject:item]) {
-                        [strongSelf.currentlyDownloadingItems removeObject:item];
+                    if (item && [strongSelf isItemInDownloading:item]) {
+                        [strongSelf removeDownloadingItem:item];
                     }
                 }
                 
@@ -129,7 +128,7 @@
 
 - (NSArray *)downloadingItems {
     @synchronized(self) {
-        return _currentlyDownloadingItems;
+        return [NSArray arrayWithArray:self.currentlyDownloadingItems];
     }
 }
 
@@ -180,7 +179,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[item remotePath]]];
     
     @synchronized(self) {
-        [_currentlyDownloadingItems addObject:item];
+        [self addItemToDownloadingItems:item];
     }
     
     NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:request progress:nil destination:nil completionHandler:nil];
@@ -355,6 +354,69 @@
     
     NSAssert(writeSuccess, @"There was an error while saving item");
 }
+
+#pragma mark -
+#pragma mark Downloading items
+
+- (void)addItemToDownloadingItems:(id<AUMediaItem>)item {
+    
+    NSMutableArray *downloadingItems = self.currentlyDownloadingItems;
+    
+    [downloadingItems addObject:item];
+    
+    [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+}
+
+- (void)removeDownloadingItem:(id<AUMediaItem>)item {
+    
+    NSMutableArray *downloadingItems = self.currentlyDownloadingItems;
+    
+    [downloadingItems removeObject:item];
+    
+    [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+}
+
+- (id<AUMediaItem>)downloadingItemForUid:(NSString *)uid {
+    
+    NSArray *items = [NSArray arrayWithArray:self.currentlyDownloadingItems];
+    
+    for (id<AUMediaItem> item in items) {
+        
+        if ([[item uid] isEqualToString:uid]) {
+            return item;
+        }
+    }
+    
+    return nil;
+}
+
+- (BOOL)isItemInDownloading:(id<AUMediaItem>)item {
+    
+    return [self.currentlyDownloadingItems containsObject:item];
+}
+
+- (NSMutableArray *)currentlyDownloadingItems {
+    
+    if (!_currentlyDownloadingItems) {
+        
+        NSString *directory = [NSString au_tempDownloadingDirectory];
+        NSError *error = nil;
+        NSString *path = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&error] firstObject];
+        
+        if (path) {
+            _currentlyDownloadingItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        }
+    }
+    
+    if (!_currentlyDownloadingItems) {
+        _currentlyDownloadingItems = [NSMutableArray array];
+    }
+    
+    return _currentlyDownloadingItems;
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 - (NSString *)persistancePathForType:(AUMediaType)type {
     

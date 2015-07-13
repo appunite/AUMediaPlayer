@@ -13,5 +13,6 @@
 
 + (NSString *)au_lastPathComponentForItem:(id<AUMediaItem>)item;
 + (NSString *)au_filePathWithLastPathComponent:(NSString *)lastPath;
++ (NSString *)au_tempDownloadingDirectory;
 
 @end
