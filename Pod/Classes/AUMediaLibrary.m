@@ -13,7 +13,7 @@
 
 @interface AUMediaLibrary()
 
-@property (nonatomic, strong) NSMutableArray *currentlyDownloadingItems;
+@property (nonatomic, strong) NSMutableDictionary *currentlyDownloadingItems;
 
 @end
 
@@ -58,7 +58,7 @@
         
         if (strongSelf) {
             
-            id <AUMediaItem> item = [strongSelf itemForUid:downloadTask.taskDescription];
+            id <AUMediaItem> item = [strongSelf downloadingItemForTaskIdentifier:downloadTask.taskIdentifier];
             [strongSelf saveItemToFileRegister:item];
             
             if (!strongSelf.backupToiCloud) {
@@ -74,7 +74,7 @@
             
             @synchronized(strongSelf) {
                 if (item && [strongSelf isItemInDownloading:item]) {
-                    [strongSelf removeDownloadingItem:item];
+                    [strongSelf removeDownloadingItemForID:downloadTask.taskIdentifier];
                 }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -95,11 +95,11 @@
             
             if (strongSelf) {
                 
-                id <AUMediaItem> item = [strongSelf itemForUid:task.taskDescription];
+                id <AUMediaItem> item = [strongSelf downloadingItemForTaskIdentifier:task.taskIdentifier];
                 
                 @synchronized(strongSelf) {
                     if (item && [strongSelf isItemInDownloading:item]) {
-                        [strongSelf removeDownloadingItem:item];
+                        [strongSelf removeDownloadingItemForID:task.taskIdentifier];
                     }
                 }
                 
@@ -128,7 +128,7 @@
 
 - (NSArray *)downloadingItems {
     @synchronized(self) {
-        return [NSArray arrayWithArray:self.currentlyDownloadingItems];
+        return [self.currentlyDownloadingItems allValues];
     }
 }
 
@@ -178,13 +178,9 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[item remotePath]]];
     
-    @synchronized(self) {
-        [self addItemToDownloadingItems:item];
-    }
-    
     NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:request progress:nil destination:nil completionHandler:nil];
     
-    [downloadTask setTaskDescription:[item uid]];
+    [self addItemToDownloadingItems:item forTaskID:downloadTask.taskIdentifier];
     
     [downloadTask resume];
     
@@ -358,33 +354,28 @@
 #pragma mark -
 #pragma mark Downloading items
 
-- (void)addItemToDownloadingItems:(id<AUMediaItem>)item {
+- (void)addItemToDownloadingItems:(id<AUMediaItem>)item forTaskID:(NSUInteger)uid {
     
-    NSMutableArray *downloadingItems = self.currentlyDownloadingItems;
-    
-    [downloadingItems addObject:item];
-    
-    [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+    @synchronized(self) {
+        NSMutableDictionary *downloadingItems = self.currentlyDownloadingItems;
+        downloadingItems[@(uid)] = item;
+        [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+    }
 }
 
-- (void)removeDownloadingItem:(id<AUMediaItem>)item {
+- (void)removeDownloadingItemForID:(NSUInteger)uid {
     
-    NSMutableArray *downloadingItems = self.currentlyDownloadingItems;
-    
-    [downloadingItems removeObject:item];
-    
-    [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+    @synchronized(self) {
+        NSMutableDictionary *downloadingItems = self.currentlyDownloadingItems;
+        [downloadingItems removeObjectForKey:@(uid)];
+        [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+    }
 }
 
-- (id<AUMediaItem>)downloadingItemForUid:(NSString *)uid {
+- (id<AUMediaItem>)downloadingItemForTaskIdentifier:(NSUInteger)uid {
     
-    NSArray *items = [NSArray arrayWithArray:self.currentlyDownloadingItems];
-    
-    for (id<AUMediaItem> item in items) {
-        
-        if ([[item uid] isEqualToString:uid]) {
-            return item;
-        }
+    if ([self.currentlyDownloadingItems objectForKey:@(uid)]) {
+        return [self.currentlyDownloadingItems objectForKey:@(uid)];
     }
     
     return nil;
@@ -392,24 +383,29 @@
 
 - (BOOL)isItemInDownloading:(id<AUMediaItem>)item {
     
-    return [self.currentlyDownloadingItems containsObject:item];
+    __block BOOL contains = NO;
+    
+    [self.currentlyDownloadingItems enumerateKeysAndObjectsUsingBlock:^(NSNumber* key, id<AUMediaItem> obj, BOOL *stop) {
+        
+        if ([[obj uid] isEqualToString:[item uid]]) {
+            contains = YES;
+            *stop = YES;
+        }
+    }];
+    
+    return contains;
 }
 
-- (NSMutableArray *)currentlyDownloadingItems {
+- (NSMutableDictionary *)currentlyDownloadingItems {
     
     if (!_currentlyDownloadingItems) {
         
-        NSString *directory = [NSString au_tempDownloadingDirectory];
-        NSError *error = nil;
-        NSString *path = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&error] firstObject];
+        NSString *path = [NSString au_tempDownloadingDirectory];
+        _currentlyDownloadingItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         
-        if (path) {
-            _currentlyDownloadingItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (!_currentlyDownloadingItems) {
+            _currentlyDownloadingItems = [NSMutableDictionary dictionary];
         }
-    }
-    
-    if (!_currentlyDownloadingItems) {
-        _currentlyDownloadingItems = [NSMutableArray array];
     }
     
     return _currentlyDownloadingItems;
@@ -443,7 +439,9 @@
 
 - (NSURLSessionDownloadTask *)downloadTaskForItem:(id<AUMediaItem>)item {
     for (NSURLSessionDownloadTask *task in self.downloadTasks) {
-        if ([task.taskDescription isEqualToString:[item uid]]) {
+        
+        id<AUMediaItem> temp = [self downloadingItemForTaskIdentifier:task.taskIdentifier];
+        if ([[temp uid] isEqualToString:[item uid]]) {
             return task;
         }
     }
@@ -455,19 +453,6 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     
     return [url setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:error];
-}
-
-- (id<AUMediaItem>)itemForUid:(NSString *)uid {
-    
-    if ([self.allExistingItems objectForKey:uid]) {
-        return [self.allExistingItems objectForKey:uid];
-    }
-    for (id<AUMediaItem> item in self.downloadingItems) {
-        if ([[item uid] isEqualToString:uid]) {
-            return item;
-        }
-    }
-    return nil;
 }
 
 @end
