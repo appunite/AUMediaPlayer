@@ -30,4 +30,6 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer'
   s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'google-cast-sdk', '~> 2.6'
+  spec.public_header_files = "Headers/Public/*.h"
+  
 end
