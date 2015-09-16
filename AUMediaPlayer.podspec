@@ -22,14 +22,15 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
-  s.public_header_files = 'Headers/Public/*.h'
   s.resource_bundles = {
     'AUMediaPlayer' => ['Pod/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer'
+  s.vendored_frameworks = 'Frameworks/GoogleCastSDK-2.7.1-Release/GoogleCast.framework'
+
   s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'google-cast-sdk', '~>2.7.1'
+  #s.dependency 'google-cast-sdk', '~>2.7.1'
   
 end
