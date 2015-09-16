@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, AUMediaType){
 
 @optional
 
-- (bool)isLocalItem;
+- (BOOL)isLocalItem;
 - (NSString *)localPath;
 
 @required
