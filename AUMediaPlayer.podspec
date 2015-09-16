@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer'
   s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'google-cast-sdk', :podspec => 'https://github.com/lukkas/Specs/blob/b334e25da98101c473c12606afc7b4dcc83c7411/Specs/google-cast-sdk/2.7.1/google-cast-sdk.podspec'
+  s.dependency 'google-cast-sdk', '~>2.7.1'
   
 end
