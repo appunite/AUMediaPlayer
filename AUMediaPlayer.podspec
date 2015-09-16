@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
+  s.public_header_files = 'Headers/Public/*.h'
   s.resource_bundles = {
     'AUMediaPlayer' => ['Pod/Assets/*.png']
   }
@@ -30,6 +31,5 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer'
   s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'google-cast-sdk', '~> 2.6'
-  spec.public_header_files = "Headers/Public/*.h"
   
 end
