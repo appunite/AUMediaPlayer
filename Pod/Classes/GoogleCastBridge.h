@@ -9,6 +9,7 @@
 #ifndef Pods_GoogleCastBridge_h
 #define Pods_GoogleCastBridge_h
 
+
 #import "GCKApplicationMetadata.h"
 #import "GCKCastChannel.h"
 #import "GCKCastContext.h"

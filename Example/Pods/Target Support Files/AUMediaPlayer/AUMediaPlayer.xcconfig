@@ -1,0 +1,2 @@
+AUMEDIAPLAYER_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/../../Frameworks/GoogleCastSDK-2.7.1-Release"
+AUMEDIAPLAYER_OTHER_LDFLAGS = -framework "GoogleCast"

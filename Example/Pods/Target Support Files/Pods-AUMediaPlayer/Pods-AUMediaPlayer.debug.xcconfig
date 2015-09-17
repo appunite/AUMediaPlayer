@@ -1,7 +1,0 @@
-FRAMEWORK_SEARCH_PATHS = $(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-2.6.0-Release
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AUMediaPlayer" "${PODS_ROOT}/Headers/Public/google-cast-sdk"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/AUMediaPlayer" -isystem "${PODS_ROOT}/Headers/Public/google-cast-sdk"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-AUMediaPlayer-AFNetworking" -l"Pods-AUMediaPlayer-AUMediaPlayer" -framework "CoreGraphics" -framework "GoogleCast" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration"
-OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
-PODS_ROOT = ${SRCROOT}/Pods

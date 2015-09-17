@@ -17,18 +17,17 @@
     "ios": "7.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes",
+  "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
     "AUMediaPlayer": [
       "Pod/Assets/*.png"
     ]
   },
+  "public_header_files": "Pod/Classes/**/*.h",
+  "vendored_frameworks": "Frameworks/GoogleCastSDK-2.7.1-Release/GoogleCast.framework",
   "dependencies": {
     "AFNetworking": [
       "~> 2.3"
-    ],
-    "google-cast-sdk": [
-      "~> 2.6"
     ]
   }
 }
