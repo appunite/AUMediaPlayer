@@ -371,7 +371,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         if (url)
             NSLog(@"Playback will occur from local file with url: %@", url);
     }
-    if (!url) {
+    if (!url && [item respondsToSelector:@selector(localPath)]) {
         url = [NSURL fileURLWithPath:[item localPath]];
         if (url)
             NSLog(@"Playback will occur from external disk file with url: %@", url);
@@ -689,7 +689,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         [info setObject:[self.nowPlayingItem title] forKey:MPMediaItemPropertyTitle];
     }
     
-    if ([self.nowPlayingItem author]) {
+    if ([self.nowPlayingCover respondsToSelector:@selector(author)] && [self.nowPlayingItem author]) {
         [info setObject:[self.nowPlayingItem author] forKey:MPMediaItemPropertyArtist];
     }
     

@@ -70,7 +70,7 @@
                 }
             }
             
-            NSLog(@"Completed download of item %@ by %@", [item title], [item author]);
+            NSLog(@"Completed download of item %@", [item title]);
             
             @synchronized(strongSelf) {
                 if (item && [strongSelf isItemInDownloading:item]) {
