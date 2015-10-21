@@ -249,6 +249,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				4C6E3CBBF8A7FB2AC1F6C602 /* Copy Pods Resources */,
+				ACC75C2685CB7CD5171426A6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,6 +269,7 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				E84F2CB42390779856393480 /* Copy Pods Resources */,
+				F1E5304C4AFF6707DCB21C88 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -365,6 +367,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		ACC75C2685CB7CD5171426A6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AUMediaPlayer_Example/Pods-AUMediaPlayer_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E3488A79F59DD6D796982AF6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,6 +410,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AUMediaPlayer_Tests/Pods-AUMediaPlayer_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1E5304C4AFF6707DCB21C88 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AUMediaPlayer_Tests/Pods-AUMediaPlayer_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

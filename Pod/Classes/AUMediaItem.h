@@ -52,13 +52,18 @@ typedef NS_ENUM(NSInteger, AUMediaType){
  *  @return AUMediaType enum case
  */
 - (AUMediaType)itemType;
-
 /**
  *  Remote path getter, item can be stream or downloaded from.
  *
  *  @return remote path
  */
 - (NSString *)remotePath;
+/**
+ *  Local path getter. Item can be streamed from disk, even if it's not sotred by AUMediaPlayer itself
+ *
+ *  @return external to AUMediaLibrary local path
+ */
+- (NSString *)localPath;
 /**
  *  File type extension, that will be appended to path
  *

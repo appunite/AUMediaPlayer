@@ -368,11 +368,18 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     NSURL *url = nil;
     if ([_library itemIsDownloaded:item]) {
         url = [NSURL fileURLWithPath:[_library localPathForItem:item]];
-        NSLog(@"Playback will occur from local file with url: %@", url);
+        if (url)
+            NSLog(@"Playback will occur from local file with url: %@", url);
+    }
+    if (!url) {
+        url = [NSURL fileURLWithPath:[item localPath]];
+        if (url)
+            NSLog(@"Playback will occur from external disk file with url: %@", url);
     }
     if (!url) {
         url = [NSURL URLWithString:[item remotePath]];
-        NSLog(@"Playback will occur from remote stream with url: %@", url);
+        if (url)
+            NSLog(@"Playback will occur from remote stream with url: %@", url);
     }
     if (!url) {
         *error = [NSError au_itemNotAvailableToPlayError];
