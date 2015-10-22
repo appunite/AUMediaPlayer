@@ -371,12 +371,12 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         if (url)
             NSLog(@"Playback will occur from local file with url: %@", url);
     }
-    if (!url && [item respondsToSelector:@selector(localPath)]) {
+    if (!url && [item respondsToSelector:@selector(localPath)] && [item localPath]) {
         url = [NSURL fileURLWithPath:[item localPath]];
         if (url)
             NSLog(@"Playback will occur from external disk file with url: %@", url);
     }
-    if (!url) {
+    if (!url && [item remotePath]) {
         url = [NSURL URLWithString:[item remotePath]];
         if (url)
             NSLog(@"Playback will occur from remote stream with url: %@", url);
