@@ -22,19 +22,26 @@
 #pragma mark -
 #pragma mark Initialization
 
-- (instancetype)init {
+- (instancetype)initWithiCloudBackup:(BOOL)backupToiCloud saveItemPersistently:(BOOL)persistently {
+    
     NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
     NSURLSessionConfiguration *config = nil;
+    NSString *sessionConfigurationIdentifierLastParth = @".AUDownloadBackgroundSession";
+    
     if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0f) {
-        config = [NSURLSessionConfiguration backgroundSessionConfiguration:[bundleID stringByAppendingString:@".AUDownloadBackgroundSession"]];
+        config = [NSURLSessionConfiguration backgroundSessionConfiguration:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
     } else {
-        config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[bundleID stringByAppendingString:@".AUDownloadBackgroundSession"]];
+        config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
     }
     config.sessionSendsLaunchEvents = YES;
+    
     self = [super initWithSessionConfiguration:config];
+    
     if (self) {
         [self configureDownloadFinished];
         [self configureBackgroundSessionFinished];
+        _saveItemsPersistently = persistently;
+        _backupToiCloud = backupToiCloud && persistently;
     }
     
     return self;
@@ -238,7 +245,7 @@
         }
     }];
     
-    NSString *entireDirectoryPath = [NSString au_filePathWithLastPathComponent:@""];
+    NSString *entireDirectoryPath = [NSString au_filePathWithLastPathComponent:@"" persistent:self.saveItemsPersistently];
     if ([[NSFileManager defaultManager] fileExistsAtPath:entireDirectoryPath]) {
         [[NSFileManager defaultManager] removeItemAtPath:entireDirectoryPath error:error];
     }
@@ -251,7 +258,14 @@
     
     NSDictionary *items = [self allExistingItems];
     if ([items objectForKey:[item uid]]) {
-        return YES;
+        NSString *localPath = [self generateLocalPathForItem:item];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:localPath]) {
+            return YES;
+        }
+        
+        // If no item was found, it must have been deleted by system due to system - is should be also removed from downloaded files register
+        NSAssert(self.saveItemsPersistently == NO, @"Oops. Item wasn't found in file system manager, even though it is saved in library.");
+        [self removeItemFromFileRegister:item];
     }
     return NO;
 }
@@ -304,10 +318,11 @@
     return [[NSDictionary alloc] init];
 }
 
-#pragma mark - Private methods
+#pragma mark -
+#pragma mark Private methods
 
 - (NSString *)generateLocalPathForItem:(id<AUMediaItem>)item {
-    return [NSString au_filePathWithLastPathComponent:[NSString au_lastPathComponentForItem:item]];
+    return [NSString au_filePathWithLastPathComponent:[NSString au_lastPathComponentForItem:item] persistent:self.saveItemsPersistently];
 }
 
 - (void)saveItemToFileRegister:(id<AUMediaItem>)item {

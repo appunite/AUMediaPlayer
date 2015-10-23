@@ -19,14 +19,17 @@
  *  !!! IMPORTANT !!!
  */
 
-static NSString *kAUMediaAudioDocuments = @"AUMediaPersisatnceStoreAudio";
-static NSString *kAUMediaVideoDocuments = @"AUMediaPersisatnceStoreVideo";
-static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
+static NSString *const kAUMediaAudioDocuments = @"AUMediaPersisatnceStoreAudio";
+static NSString *const kAUMediaVideoDocuments = @"AUMediaPersisatnceStoreVideo";
+static NSString *const kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
 
 @interface AUMediaLibrary : AFURLSessionManager
 
 @property (nonatomic, copy) void (^savedCompletionHandler)(void);
-@property (nonatomic, assign) BOOL backupToiCloud; // defaults to NO
+@property (nonatomic, assign, readonly) BOOL backupToiCloud; // defaults to NO
+@property (nonatomic, assign, readonly) BOOL saveItemsPersistently; // defaults to YES. Change to know if you want to use NSCachesDirectory
+
+- (instancetype)initWithiCloudBackup:(BOOL)backupToiCloud saveItemPersistently:(BOOL)persistently;
 
 /**
  *  Downloads given item.

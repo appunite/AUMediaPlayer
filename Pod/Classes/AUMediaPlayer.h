@@ -182,6 +182,14 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
 
 + (instancetype)sharedInstance;
 
+
+/**
+ * This methods are called than AUMediaLibrary is instantiated.
+ * Override them in your AUMediaPlayer sublcass in order to modify persistance characteristics.
+ */
+- (BOOL)backupToiCloud; // defaults to NO. If YES, stored files will be backed up to iCloud (use when stored user files can't be easily recreated). Requires saveItemsPersistently set to YES.
+- (BOOL)saveItemsPersistently; // defaults to YES. If no uses NSCaches directory to store files.
+
 /**
  *  Plays given item.
  *

@@ -54,7 +54,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _library = [[AUMediaLibrary alloc] init];
+        _library = [[AUMediaLibrary alloc] initWithiCloudBackup:[self backupToiCloud] saveItemPersistently:[self saveItemsPersistently]];
         _chromecastManager = [[AUCast alloc] init];
         _chromecastManager.delegate = self;
         
@@ -66,6 +66,17 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark -
+#pragma mark AUMediaLibrary persistnace characteristics
+
+- (BOOL)backupToiCloud {
+    return NO;
+}
+
+- (BOOL)saveItemsPersistently {
+    return YES;
 }
 
 #pragma mark -
