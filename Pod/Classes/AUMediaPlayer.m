@@ -171,6 +171,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     _shouldPlayWhenPlayerIsReady = NO;
     [self replaceCurrentItemWithNewPlayerItem:nil];
     self.queue = @[];
+    [self resetPlaybackTimes];
 }
 
 - (void)stopChromecast {
