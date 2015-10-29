@@ -410,7 +410,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
             NSLog(@"Playback will occur from remote stream with url: %@", url);
     }
     if (!url) {
-        *error = [NSError au_itemNotAvailableToPlayError];
+        if (error != NULL) *error = [NSError au_itemNotAvailableToPlayError];
         return;
     }
     

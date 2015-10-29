@@ -137,7 +137,7 @@
         NSData *data = [NSData dataWithContentsOfFile:localPath options:0 error:error];
         return data;
     } else {
-        *error = [NSError au_itemNotFoundInLibrary];
+        if (error != NULL) *error = [NSError au_itemNotFoundInLibrary];
         return nil;
     }
 }
@@ -164,7 +164,7 @@
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDidFinishLocallyWritingItemToLibrary object:nil];
     } else {
-        *error = [NSError au_failedToWriteItemToLibraryError];
+        if (error != NULL) *error = [NSError au_failedToWriteItemToLibraryError];
     }
 }
 
@@ -209,7 +209,7 @@
 
 - (void)removeItemFromLibrary:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
     if (![self itemIsDownloaded:item]) {
-        *error = [NSError au_itemNotFoundInLibrary];
+        if (error != NULL) *error = [NSError au_itemNotFoundInLibrary];
         return;
     }
     
