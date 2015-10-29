@@ -255,7 +255,6 @@
         }
         
         // If no item was found, it must have been deleted by system due to system - is should be also removed from downloaded files register
-        NSAssert(self.saveItemsPersistently == NO, @"Oops. Item wasn't found in file system manager, even though it is saved in library.");
         [self removeItemFromFileRegister:item];
     }
     return NO;
