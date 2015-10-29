@@ -54,7 +54,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _library = [[AUMediaLibrary alloc] initWithiCloudBackup:[self backupToiCloud] saveItemPersistently:[self saveItemsPersistently]];
+        _library = [[AUMediaLibrary alloc] initWithNSURLSessionConfiguration:self.downloadURLSessionConfiguration iCloudBackup:self.backupToiCloud saveItemPersistently:self.saveItemsPersistently];
         _chromecastManager = [[AUCast alloc] init];
         _chromecastManager.delegate = self;
         
@@ -69,7 +69,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 #pragma mark -
-#pragma mark AUMediaLibrary persistnace characteristics
+#pragma mark AUMediaLibrary Config
 
 - (BOOL)backupToiCloud {
     return NO;
@@ -77,6 +77,22 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 
 - (BOOL)saveItemsPersistently {
     return YES;
+}
+
+- (NSURLSessionConfiguration *)downloadURLSessionConfiguration {
+    
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSURLSessionConfiguration *config = nil;
+    NSString *sessionConfigurationIdentifierLastParth = @".AUDownloadBackgroundSession";
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0f) {
+        config = [NSURLSessionConfiguration backgroundSessionConfiguration:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
+    } else {
+        config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
+    }
+    config.sessionSendsLaunchEvents = YES;
+    
+    return config;
 }
 
 #pragma mark -

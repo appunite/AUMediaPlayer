@@ -22,20 +22,11 @@
 #pragma mark -
 #pragma mark Initialization
 
-- (instancetype)initWithiCloudBackup:(BOOL)backupToiCloud saveItemPersistently:(BOOL)persistently {
+- (instancetype)initWithNSURLSessionConfiguration:(NSURLSessionConfiguration *)configuration
+                                     iCloudBackup:(BOOL)backupToiCloud
+                             saveItemPersistently:(BOOL)persistently {
     
-    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-    NSURLSessionConfiguration *config = nil;
-    NSString *sessionConfigurationIdentifierLastParth = @".AUDownloadBackgroundSession";
-    
-    if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0f) {
-        config = [NSURLSessionConfiguration backgroundSessionConfiguration:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
-    } else {
-        config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
-    }
-    config.sessionSendsLaunchEvents = YES;
-    
-    self = [super initWithSessionConfiguration:config];
+    self = [super initWithSessionConfiguration:configuration];
     
     if (self) {
         [self configureDownloadFinished];

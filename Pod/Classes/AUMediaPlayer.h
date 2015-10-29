@@ -182,13 +182,31 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
 
 + (instancetype)sharedInstance;
 
-
 /**
- * This methods are called than AUMediaLibrary is instantiated.
- * Override them in your AUMediaPlayer sublcass in order to modify persistance characteristics.
+ *  AUMediaLibrary config method
+ *  Override to provide your preferred setting.
+ *  Defaults to NO. If YES, stored files will be backed up to iCloud (use when stored user files can't be easily recreated).
+ *  Requires saveItemsPersistently set to YES.
+ *
+ *  @return Your prefferrd icloud setting
  */
-- (BOOL)backupToiCloud; // defaults to NO. If YES, stored files will be backed up to iCloud (use when stored user files can't be easily recreated). Requires saveItemsPersistently set to YES.
-- (BOOL)saveItemsPersistently; // defaults to YES. If no uses NSCaches directory to store files.
+- (BOOL)backupToiCloud;
+/**
+ *  AUMediaLibrary config method
+ *  Override to provide your preferred setting.
+ *  Defaults to YES. If no uses NSCaches directory to store files.
+ *
+ *  @return Your preferred persistance seeting.
+ */
+- (BOOL)saveItemsPersistently;
+/**
+ *  AUMediaLibrary config method
+ *  By overriding this method you can provide custom NSURLSessionConfiguration for AUMediaLibrary in your subclass.
+ *  You can i.e. call super to get default session configuration and then add HTTP additional headers
+ *
+ *  @return NSURLSessionConfiguration which will be used for AUMediaLibrary init
+ */
+- (NSURLSessionConfiguration *)downloadURLSessionConfiguration;
 
 /**
  *  Plays given item.

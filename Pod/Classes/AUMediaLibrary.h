@@ -29,7 +29,9 @@ static NSString *const kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers"
 @property (nonatomic, assign, readonly) BOOL backupToiCloud; // defaults to NO
 @property (nonatomic, assign, readonly) BOOL saveItemsPersistently; // defaults to YES. Change to know if you want to use NSCachesDirectory
 
-- (instancetype)initWithiCloudBackup:(BOOL)backupToiCloud saveItemPersistently:(BOOL)persistently;
+- (instancetype)initWithNSURLSessionConfiguration:(NSURLSessionConfiguration *)configuration
+                                     iCloudBackup:(BOOL)backupToiCloud
+                             saveItemPersistently:(BOOL)persistently;
 
 /**
  *  Downloads given item.
