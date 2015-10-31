@@ -26,9 +26,9 @@ Pod::Spec.new do |s|
   }
 
   s.public_header_files = 'Pod/Classes/**/*.h'
-  s.vendored_frameworks = 'Frameworks/GoogleCastSDK-2.7.1-Release/GoogleCast.framework'
+  #s.vendored_frameworks = 'Frameworks/GoogleCastSDK-2.7.1-Release/GoogleCast.framework'
 
   s.dependency 'AFNetworking', '~> 2.3'
-  #s.dependency 'google-cast-sdk', '~>2.7.1'
+  s.dependency 'google-cast-sdk', '~>2.7.1'
   
 end
