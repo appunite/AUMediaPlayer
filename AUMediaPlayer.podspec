@@ -27,6 +27,8 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.vendored_frameworks = 'Frameworks/GoogleCastSDK-2.7.1-Release/GoogleCast.framework'
+  s.framework = 'GoogleCast'
+  #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dropbox-OSX-SDK/dropbox-osx-sdk-1.3.10"' }
 
   s.dependency 'AFNetworking', '~> 2.3'
   #s.dependency 'google-cast-sdk', '~>2.7.1'
