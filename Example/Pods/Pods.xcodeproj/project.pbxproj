@@ -151,7 +151,6 @@
 		DB2E92A71137AD2E6993E8B0CE682C89 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = BC659676426BC06C2DFD2A6A2CF6C543 /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB42C604EF2F39D542F805AC6A05E090 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE12A5CA3995629A54BBB25770B89AA /* MobileCoreServices.framework */; };
 		DD32B297DF41C671528BE8D5A1A4C6FB /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = 59EBBD64FA4255F10B9ABF5C28EFCD05 /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD544E342D4DA659E693362E4AC6D251 /* GoogleCastBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = C12DA8F2F84394F6D4AD3082643FC97F /* GoogleCastBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEB4C0F6E1EBFA75E694A073FACDD0D6 /* NSString+AUMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 42B5237C1062E3B92D81FCEE34525A3E /* NSString+AUMedia.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DECD5915774351B8473476B041DD87D7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5217838A1C138E0105BB53D5431B9F /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFF580AE359407E841BA8D8DDCE6E299 /* EXPMatchers+beLessThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 587BC84BC4991254076A27528887FB0B /* EXPMatchers+beLessThan.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -373,7 +372,6 @@
 		BC659676426BC06C2DFD2A6A2CF6C543 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
 		C04A724273B88EFBD848D22DF025DCD1 /* Pods-AUMediaPlayer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AUMediaPlayer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C129B6328543395119538240E14D3261 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		C12DA8F2F84394F6D4AD3082643FC97F /* GoogleCastBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GoogleCastBridge.h; sourceTree = "<group>"; };
 		C17766508FE7152869AEDAB586AA87B4 /* libPods-AUMediaPlayer_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AUMediaPlayer_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C212765B1693AB4CFA435AB0A4E8F1B4 /* AUMediaItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AUMediaItem.h; sourceTree = "<group>"; };
 		C3679C1260A29F25EBF2B59D5955B065 /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
@@ -832,7 +830,6 @@
 				26D878420475A11DE65141703872A39A /* AUMediaPlayer.m */,
 				27B6EA60CD9A79437379DB3F5CD51933 /* AUMediaPlayer+LockScreen.h */,
 				CB69B08E4912213FAB9CB3305916D873 /* AUMediaPlayer+LockScreen.m */,
-				C12DA8F2F84394F6D4AD3082643FC97F /* GoogleCastBridge.h */,
 				FBC8CBEF42A652F3CEB4A66BDCE7C87D /* NSArray+AUMedia.h */,
 				13EC84839192E56DC744D2DD871A7C54 /* NSArray+AUMedia.m */,
 				DC3681E7CE8D89FE7B3364102271A1E6 /* NSError+AUMedia.h */,
@@ -921,7 +918,6 @@
 				9202499AAE4048D60E808C539DB5ECF0 /* AUMediaLibrary.h in Headers */,
 				18036C8C6B166A0F10474FD207E9EF22 /* AUMediaPlayer+LockScreen.h in Headers */,
 				4376A015A41A9AE29050039DFEA95E4D /* AUMediaPlayer.h in Headers */,
-				DD544E342D4DA659E693362E4AC6D251 /* GoogleCastBridge.h in Headers */,
 				AA112EBBFE8798D48A698DB2D8DE72AA /* NSArray+AUMedia.h in Headers */,
 				EA149B83A3DC148BB4F577FFD27C920A /* NSError+AUMedia.h in Headers */,
 				DEB4C0F6E1EBFA75E694A073FACDD0D6 /* NSString+AUMedia.h in Headers */,
