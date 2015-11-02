@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GoogleCast/GoogleCast.h>
+
+@class GCKDevice;
 
 extern NSString *const kAUMediaCastDevicesAvailabilityStatusChangeNotificationName;
 extern NSString *const kAUMediaCastDevicesAvailabilityStatusChangeNotificationUserInfoKey;

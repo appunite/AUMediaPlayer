@@ -7,6 +7,11 @@
 //
 
 #import "AUCast.h"
+
+// Framework
+#import <GoogleCast/GoogleCast.h>
+
+// AUMedia
 #import "AUMediaItem.h"
 #import "AUMediaConstants.h"
 
