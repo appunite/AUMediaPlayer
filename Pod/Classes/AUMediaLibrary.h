@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 AppUnite. All rights reserved.
 //
 
-#import "AFURLSessionManager.h"
+#import <AFNetworking/AFURLSessionManager.h>
 #import "AUMediaItem.h"
 
 /**
