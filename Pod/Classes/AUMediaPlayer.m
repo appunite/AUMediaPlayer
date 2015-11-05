@@ -366,7 +366,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         return AUMediaPlaybackStatusPlaying;
     } else if (self.receiver ==  AUMediaReceiverChromecast && self.chromecastManager.status == AUCastStatusPaused) {
         return AUMediaPlaybackStatusPaused;
-    } else if (_player.status == AVPlayerStatusReadyToPlay) {
+    } else if (_player.status == AVPlayerStatusReadyToPlay && self.player.currentItem != nil) {
         return AUMediaPlaybackStatusPaused;
     } else {
         return AUMediaPlaybackStatusPlayerInactive;
