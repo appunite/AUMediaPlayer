@@ -22,6 +22,9 @@ extern NSString *const kAUMediaDownloadDidFinishNotification;
 extern NSString *const kAUMediaDownloadDidFailToFinishNotification;
 extern NSString *const kAUMediaDidFinishLocallyWritingItemToLibrary;
 
+// User info keys
+extern NSString *const kAUMediaItemIdentifierUserInfoKey;
+
 // Player notifications
 extern NSString *const kAUMediaPlaybackStateDidChangeNotification;
 extern NSString *const kAUMediaPlaybackDidReachEndNotification;

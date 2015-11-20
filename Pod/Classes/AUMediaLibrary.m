@@ -61,7 +61,8 @@
             
             if (!strongSelf.backupToiCloud) {
                 NSError *skipError = nil;
-                [filePath setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey
+                [filePath setResourceValue:@(YES)
+                                    forKey:NSURLIsExcludedFromBackupKey
                                      error:&skipError];
                 if (skipError) {
                     NSLog(@"Error while marking file as skipped: %@", skipError);
@@ -76,7 +77,7 @@
                 }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidFinishNotification object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidFinishNotification object:nil userInfo:[strongSelf notificationUserInfoWithItemID:item.uid]];
             });
             
             return [NSURL fileURLWithPath:[strongSelf generateLocalPathForItem:item]];
@@ -102,7 +103,7 @@
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidFailToFinishNotification object:nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidFailToFinishNotification object:nil userInfo:[strongSelf notificationUserInfoWithItemID:item.uid]];
                 });
             }
         }
@@ -162,7 +163,7 @@
                 NSLog(@"Error while marking file as skipped: %@", skipError);
             }
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDidFinishLocallyWritingItemToLibrary object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDidFinishLocallyWritingItemToLibrary object:nil userInfo:[self notificationUserInfoWithItemID:item.uid]];
     } else {
         if (error != NULL) *error = [NSError au_failedToWriteItemToLibraryError];
     }
@@ -182,7 +183,7 @@
     
     [downloadTask resume];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidStartNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidStartNotification object:nil userInfo:[self notificationUserInfoWithItemID:item.uid]];
 }
 
 - (NSProgress *)progressObjectForItem:(id<AUMediaItem>)item {
@@ -458,6 +459,10 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     
     return [url setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:error];
+}
+
+- (NSDictionary *)notificationUserInfoWithItemID:(NSString *)uid {
+    return @{kAUMediaItemIdentifierUserInfoKey : uid};
 }
 
 @end

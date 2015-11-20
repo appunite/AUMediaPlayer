@@ -18,6 +18,9 @@ NSString *const kAUMediaDownloadDidFinishNotification = @"kAUMediaDownloadDidFin
 NSString *const kAUMediaDownloadDidFailToFinishNotification = @"kAUMediaDownloadDidFailToFinishNotification";
 NSString *const kAUMediaDidFinishLocallyWritingItemToLibrary = @"kAUMediaDidFinishLocallyWritingItemToLibrary";
 
+// User info keys
+NSString *const kAUMediaItemIdentifierUserInfoKey = @"kAUMediaItemIdentifierUserInfoKey";
+
 // Player notifications
 NSString *const kAUMediaPlaybackStateDidChangeNotification = @"kAUMediaPlaybackStateDidChangeNotification";
 NSString *const kAUMediaPlaybackDidReachEndNotification = @"kAUMediaPlaybackDidReachEndNotification";
