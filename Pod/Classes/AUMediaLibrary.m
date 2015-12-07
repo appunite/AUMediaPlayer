@@ -48,7 +48,7 @@
         
         if ([downloadTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSUInteger statusCode = [(NSHTTPURLResponse *)downloadTask.response statusCode];
-            if (statusCode != 200) {
+            if (!(statusCode >= 200 && statusCode < 300)) {
                 NSLog(@"%@ failed (statusCode = %ld)", [downloadTask.originalRequest.URL lastPathComponent], statusCode);
                 return nil;
             }
