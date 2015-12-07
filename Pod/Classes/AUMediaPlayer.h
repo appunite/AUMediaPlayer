@@ -304,16 +304,42 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
 #pragma mark -
 #pragma mark Switching receivers
 
+/**
+ *  Call this method in order to change mode from on-device-playback to chromecast. Chromecast device must be selected at this stage.
+ *
+ *  @param devicesController     Controller to be presented in order to choose chromecast device. Its construction is left entirely to library user in order to provide full customization. In order to fetch available devices set block on chromecastManager with method setDevicesChangeBlock:. It will be called each time new device is discovered or one that was available earlier - lost. When device is selected, method connectToDevice: on chromecastManager has to be called.
+ *  @param visibleViewController Controller to present devicesController from.
+ *  @param completionBlock       Connection completion block. Contains connected device and error parameters.
+ */
 - (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
                                             currentlyVisibleViewController:(UIViewController *)visibleViewController
                                                  connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+
+/**
+ *  Call this method if you want to switch playback back to on-device.
+ */
 - (void)setLocalPlayback;
+
+/**
+ *  If this method gets called after switching receivers, playback will smoothly switch to the new one, starting from moment the previous receiver ended.
+ */
 - (void)switchPlaybackToCurrentReceiver;
+
+/**
+ *  Quits chromecast service. Sets reciver back to local.
+ */
 - (void)stopChromecast;
 
 #pragma mark -
 #pragma mark Chromecast section
 
+/**
+ *  Returns YES if chromecast is playing at the moment and given item is played.
+ *
+ *  @param item item to check
+ *
+ *  @return YES if item is played on chromecast at the moment
+ */
 - (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
 
 @end
