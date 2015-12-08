@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "lukasz.kasperek" => "lukasz.kasperek@appunite.com" }
   s.source           = { :git => "https://github.com/appunite/AUMediaPlayer.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://appunite.medium.com'
+  s.social_media_url = 'https://medium.com/@appunite'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
