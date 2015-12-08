@@ -20,13 +20,13 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		72D263F3C35B99FABDBD6DAC /* libPods-AUMediaPlayer_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9223DE6940DA23CF9AA98B84 /* libPods-AUMediaPlayer_Tests.a */; };
 		D0139E4A51187FA164BA14EB /* libPods-AUMediaPlayer_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A530779F2F804DA9D272D64C /* libPods-AUMediaPlayer_Example.a */; };
-		D7D2A7BE1BAAC8C000E583A6 /* AUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7BD1BAAC8C000E583A6 /* AUAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		D7D2A7C61BAAC8EF00E583A6 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7C31BAAC8EF00E583A6 /* VideoView.m */; settings = {ASSET_TAGS = (); }; };
-		D7D2A7C71BAAC8EF00E583A6 /* ExampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7C51BAAC8EF00E583A6 /* ExampleCell.m */; settings = {ASSET_TAGS = (); }; };
-		D7D2A7CA1BAAC8FD00E583A6 /* ExampleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7C91BAAC8FD00E583A6 /* ExampleItem.m */; settings = {ASSET_TAGS = (); }; };
-		D7D2A7CF1BAAC90B00E583A6 /* PlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7CC1BAAC90B00E583A6 /* PlaybackViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D7D2A7D01BAAC90B00E583A6 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7CE1BAAC90B00E583A6 /* ItemsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D7D2A7D21BAAC91400E583A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D2A7D11BAAC91400E583A6 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		D7D2A7BE1BAAC8C000E583A6 /* AUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7BD1BAAC8C000E583A6 /* AUAppDelegate.m */; };
+		D7D2A7C61BAAC8EF00E583A6 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7C31BAAC8EF00E583A6 /* VideoView.m */; };
+		D7D2A7C71BAAC8EF00E583A6 /* ExampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7C51BAAC8EF00E583A6 /* ExampleCell.m */; };
+		D7D2A7CA1BAAC8FD00E583A6 /* ExampleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7C91BAAC8FD00E583A6 /* ExampleItem.m */; };
+		D7D2A7CF1BAAC90B00E583A6 /* PlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7CC1BAAC90B00E583A6 /* PlaybackViewController.m */; };
+		D7D2A7D01BAAC90B00E583A6 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D2A7CE1BAAC90B00E583A6 /* ItemsTableViewController.m */; };
+		D7D2A7D21BAAC91400E583A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D2A7D11BAAC91400E583A6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,7 +288,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AU;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = lukasz.kasperek;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -500,6 +500,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -564,6 +565,7 @@
 				GCC_PREFIX_HEADER = "AUMediaPlayer/AUMediaPlayer-Prefix.pch";
 				INFOPLIST_FILE = "AUMediaPlayer/AUMediaPlayer-Info.plist";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -579,6 +581,7 @@
 				GCC_PREFIX_HEADER = "AUMediaPlayer/AUMediaPlayer-Prefix.pch";
 				INFOPLIST_FILE = "AUMediaPlayer/AUMediaPlayer-Info.plist";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -601,6 +604,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AUMediaPlayer_Example.app/AUMediaPlayer_Example";
 				WRAPPER_EXTENSION = xctest;
@@ -620,6 +624,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AUMediaPlayer_Example.app/AUMediaPlayer_Example";
 				WRAPPER_EXTENSION = xctest;

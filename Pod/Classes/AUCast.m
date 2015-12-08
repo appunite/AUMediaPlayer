@@ -41,18 +41,17 @@ NSString *const kAUMediaCastDevicesNearbyChanged = @"kAUMediaCastDevicesNearbyCh
 - (void)setApplicationID:(NSString *)applicationID {
     _applicationID = applicationID;
     
-    [self initializeDeviceScanner];
+    [self initializeDeviceScannerWithApplicationID:applicationID];
     self.searchDevices = YES;
 }
 
 #pragma mark -
 #pragma mark Scanning
 
-- (void)initializeDeviceScanner {
-    GCKFilterCriteria *filterCriteria = [GCKFilterCriteria criteriaForAvailableApplicationWithID:self.applicationID];
+- (void)initializeDeviceScannerWithApplicationID:(NSString *)applicationID {
     
-    self.deviceScanner = [[GCKDeviceScanner alloc] init];
-    [self.deviceScanner setFilterCriteria:filterCriteria];
+    GCKFilterCriteria *filterCriteria = [GCKFilterCriteria criteriaForAvailableApplicationWithID:applicationID];
+    self.deviceScanner = [[GCKDeviceScanner alloc] initWithFilterCriteria:filterCriteria];
 }
 
 - (void)setSearchDevices:(BOOL)searchDevices {
