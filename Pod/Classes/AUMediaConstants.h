@@ -11,12 +11,19 @@
 //Errors
 #define kAUMediaItemNotFoundInLibraryErrorCode 1
 #define kAUMediaItemPathNotFoundError 2
+#define kAUMediaChromecastDeviceUnavailableErrorCode 3
+#define kAUMediaLibraryFailedToWriteItemToDiskErrorCode 4
 
 extern NSString *const AUMediaErrorDomain;
 
 // Library notifications
-extern NSString *const kAUMediaDownloadingItemsListDidChangeNotification;
-extern NSString *const kAUMediaDownloadedItemsListDidChangeNotification;
+extern NSString *const kAUMediaDownloadDidStartNotification;
+extern NSString *const kAUMediaDownloadDidFinishNotification;
+extern NSString *const kAUMediaDownloadDidFailToFinishNotification;
+extern NSString *const kAUMediaDidFinishLocallyWritingItemToLibrary;
+
+// User info keys
+extern NSString *const kAUMediaItemIdentifierUserInfoKey;
 
 // Player notifications
 extern NSString *const kAUMediaPlaybackStateDidChangeNotification;

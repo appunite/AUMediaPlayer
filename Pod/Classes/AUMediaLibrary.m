@@ -8,34 +8,128 @@
 
 #import "AUMediaLibrary.h"
 #import "NSString+AUMedia.h"
-#import "NSURL+AUMedia.h"
 #import "AUMediaConstants.h"
 #import "NSError+AUMedia.h"
 
 @interface AUMediaLibrary()
 
-@property (atomic, strong, readonly) NSMutableArray *currentlyDownloadingItems;
+@property (nonatomic, strong) NSMutableDictionary *currentlyDownloadingItems;
 
 @end
 
 @implementation AUMediaLibrary
 
-- (instancetype)init {
-    self = [super init];
+#pragma mark -
+#pragma mark Initialization
+
+- (instancetype)initWithNSURLSessionConfiguration:(NSURLSessionConfiguration *)configuration
+                                     iCloudBackup:(BOOL)backupToiCloud
+                             saveItemPersistently:(BOOL)persistently {
+    
+    self = [super initWithSessionConfiguration:configuration];
+    
     if (self) {
-        _currentlyDownloadingItems = [[NSMutableArray alloc] init];
+        [self configureDownloadFinished];
+        [self configureBackgroundSessionFinished];
+        _saveItemsPersistently = persistently;
+        _backupToiCloud = backupToiCloud && persistently;
     }
     
     return self;
 }
 
-- (NSArray *)downloadingItems {
-    @synchronized(self) {
-        return _currentlyDownloadingItems;
-    }
+- (void)configureDownloadFinished {
+    
+    __weak __typeof__(self) wSelf = self;
+    
+    [self setDownloadTaskDidFinishDownloadingBlock:^NSURL *(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *filePath) {
+        
+        __strong __typeof__(wSelf) strongSelf = wSelf;
+        
+        if ([downloadTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+            NSUInteger statusCode = [(NSHTTPURLResponse *)downloadTask.response statusCode];
+            if (!(statusCode >= 200 && statusCode < 300)) {
+                NSLog(@"%@ failed (statusCode = %ld)", [downloadTask.originalRequest.URL lastPathComponent], statusCode);
+                return nil;
+            }
+        }
+        
+        if (strongSelf) {
+            
+            id <AUMediaItem> item = [strongSelf downloadingItemForTaskIdentifier:downloadTask.taskIdentifier];
+            [strongSelf saveItemToFileRegister:item];
+            
+            if (!strongSelf.backupToiCloud) {
+                NSError *skipError = nil;
+                [filePath setResourceValue:@(YES)
+                                    forKey:NSURLIsExcludedFromBackupKey
+                                     error:&skipError];
+                if (skipError) {
+                    NSLog(@"Error while marking file as skipped: %@", skipError);
+                }
+            }
+            
+            NSLog(@"Completed download of item %@", [item title]);
+            
+            @synchronized(strongSelf) {
+                if (item && [strongSelf isItemInDownloading:item]) {
+                    [strongSelf removeDownloadingItemForID:downloadTask.taskIdentifier];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidFinishNotification object:nil userInfo:[strongSelf notificationUserInfoWithItemID:item.uid]];
+            });
+            
+            return [NSURL fileURLWithPath:[strongSelf generateLocalPathForItem:item]];
+        }
+        
+        return nil;
+    }];
+    
+    [self setTaskDidCompleteBlock:^(NSURLSession *session, NSURLSessionTask *task, NSError *error) {
+        if (error) {
+            NSLog(@"%@: %@", [task.originalRequest.URL lastPathComponent], error);
+            
+            __strong __typeof__(wSelf) strongSelf = wSelf;
+            
+            if (strongSelf) {
+                
+                id <AUMediaItem> item = [strongSelf downloadingItemForTaskIdentifier:task.taskIdentifier];
+                
+                @synchronized(strongSelf) {
+                    if (item && [strongSelf isItemInDownloading:item]) {
+                        [strongSelf removeDownloadingItemForID:task.taskIdentifier];
+                    }
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidFailToFinishNotification object:nil userInfo:[strongSelf notificationUserInfoWithItemID:item.uid]];
+                });
+            }
+        }
+    }];
 }
 
-#pragma mark - External methods
+- (void)configureBackgroundSessionFinished
+{
+    typeof(self) __weak weakSelf = self;
+    
+    [self setDidFinishEventsForBackgroundURLSessionBlock:^(NSURLSession *session) {
+        if (weakSelf.savedCompletionHandler) {
+            weakSelf.savedCompletionHandler();
+            weakSelf.savedCompletionHandler = nil;
+        }
+    }];
+}
+
+#pragma mark -
+#pragma mark External methods
+
+- (NSArray *)downloadingItems {
+    @synchronized(self) {
+        return [self.currentlyDownloadingItems allValues];
+    }
+}
 
 - (NSData *)itemData:(id<AUMediaItem>)item error:(NSError * __autoreleasing *)error {
     NSString *localPath = [self localPathForItem:item];
@@ -44,60 +138,52 @@
         NSData *data = [NSData dataWithContentsOfFile:localPath options:0 error:error];
         return data;
     } else {
-        *error = [NSError au_itemNotFoundInLibrary];
+        if (error != NULL) *error = [NSError au_itemNotFoundInLibrary];
         return nil;
     }
 }
 
-- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes {
+- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes error:(NSError *__autoreleasing*)error {
     NSParameterAssert([item uid]);
     if ([item uid] == nil) {
         return;
     }
     
     NSString *path = [self generateLocalPathForItem:item];
-    [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:attributes];
-    [self saveItemToFileRegister:item];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
+    
+    if ([[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:attributes]) {
+        [self saveItemToFileRegister:item];
+        
+        if (!self.backupToiCloud) {
+            
+            NSError *skipError = nil;
+            [self addSkipBackupAttributeToFileAtPath:path error:&skipError];
+            
+            if (skipError) {
+                NSLog(@"Error while marking file as skipped: %@", skipError);
+            }
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDidFinishLocallyWritingItemToLibrary object:nil userInfo:[self notificationUserInfoWithItemID:item.uid]];
+    } else {
+        if (error != NULL) *error = [NSError au_failedToWriteItemToLibraryError];
+    }
 }
 
-- (NSProgress *)downloadItem:(id<AUMediaItem>)item {
+- (void)downloadItem:(id<AUMediaItem>)item {
     NSParameterAssert([item uid]);
     if ([item uid] == nil) {
-        return nil;
+        return;
     }
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[item remotePath]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[item remotePath]]];
     
-    NSProgress *progress = [[NSProgress alloc] init];
+    NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:request progress:nil destination:nil completionHandler:nil];
     
-    @synchronized(self) {
-        [_currentlyDownloadingItems addObject:item];
-    }
-    
-    __weak __typeof__(self) wSelf = self;
-    
-    NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:request progress:&progress destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        return [NSURL fileURLWithPath:[wSelf generateLocalPathForItem:item]];
-    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        if (!error) {
-            [wSelf saveItemToFileRegister:item];
-            NSLog(@"Completed download of item %@ by %@", [item title], [item author]);
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
-        }
-        @synchronized(wSelf) {
-            [_currentlyDownloadingItems removeObject:item];
-        }
-        [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadedItemsListDidChangeNotification object:nil];
-    }];
-    
-    [downloadTask setTaskDescription:[item uid]];
+    [self addItemToDownloadingItems:item forTaskID:downloadTask.taskIdentifier];
     
     [downloadTask resume];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadingItemsListDidChangeNotification object:nil];
-    
-    return progress;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaDownloadDidStartNotification object:nil userInfo:[self notificationUserInfoWithItemID:item.uid]];
 }
 
 - (NSProgress *)progressObjectForItem:(id<AUMediaItem>)item {
@@ -124,7 +210,7 @@
 
 - (void)removeItemFromLibrary:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
     if (![self itemIsDownloaded:item]) {
-        *error = [NSError au_itemNotFoundInLibrary];
+        if (error != NULL) *error = [NSError au_itemNotFoundInLibrary];
         return;
     }
     
@@ -151,7 +237,7 @@
         }
     }];
     
-    NSString *entireDirectoryPath = [NSString au_filePathWithLastPathComponent:@""];
+    NSString *entireDirectoryPath = [NSString au_filePathWithLastPathComponent:@"" persistent:self.saveItemsPersistently];
     if ([[NSFileManager defaultManager] fileExistsAtPath:entireDirectoryPath]) {
         [[NSFileManager defaultManager] removeItemAtPath:entireDirectoryPath error:error];
     }
@@ -164,7 +250,13 @@
     
     NSDictionary *items = [self allExistingItems];
     if ([items objectForKey:[item uid]]) {
-        return YES;
+        NSString *localPath = [self generateLocalPathForItem:item];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:localPath]) {
+            return YES;
+        }
+        
+        // If no item was found, it must have been deleted by system due to system - is should be also removed from downloaded files register
+        [self removeItemFromFileRegister:item];
     }
     return NO;
 }
@@ -217,10 +309,11 @@
     return [[NSDictionary alloc] init];
 }
 
-#pragma mark - Private methods
+#pragma mark -
+#pragma mark Private methods
 
 - (NSString *)generateLocalPathForItem:(id<AUMediaItem>)item {
-    return [NSString au_filePathWithLastPathComponent:[NSString au_lastPathComponentForItem:item]];
+    return [NSString au_filePathWithLastPathComponent:[NSString au_lastPathComponentForItem:item] persistent:self.saveItemsPersistently];
 }
 
 - (void)saveItemToFileRegister:(id<AUMediaItem>)item {
@@ -236,7 +329,16 @@
     
     [writeDictionary setObject:item forKey:[item uid]];
     
-    __unused BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
+    BOOL writeSuccess = [NSKeyedArchiver archiveRootObject:writeDictionary toFile:writePath];
+    
+    if (writeSuccess && !self.backupToiCloud) {
+        
+        NSError *error = nil;
+        [self addSkipBackupAttributeToFileAtPath:writePath error:&error];
+        if (error) {
+            NSLog(@"Error ocurred: %@", error);
+        }
+    }
     
     NSAssert(writeSuccess, @"There was an error while saving item");
 }
@@ -254,6 +356,69 @@
     
     NSAssert(writeSuccess, @"There was an error while saving item");
 }
+
+#pragma mark -
+#pragma mark Downloading items
+
+- (void)addItemToDownloadingItems:(id<AUMediaItem>)item forTaskID:(NSUInteger)uid {
+    
+    @synchronized(self) {
+        NSMutableDictionary *downloadingItems = self.currentlyDownloadingItems;
+        downloadingItems[@(uid)] = item;
+        [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+    }
+}
+
+- (void)removeDownloadingItemForID:(NSUInteger)uid {
+    
+    @synchronized(self) {
+        NSMutableDictionary *downloadingItems = self.currentlyDownloadingItems;
+        [downloadingItems removeObjectForKey:@(uid)];
+        [NSKeyedArchiver archiveRootObject:downloadingItems toFile:[NSString au_tempDownloadingDirectory]];
+    }
+}
+
+- (id<AUMediaItem>)downloadingItemForTaskIdentifier:(NSUInteger)uid {
+    
+    if ([self.currentlyDownloadingItems objectForKey:@(uid)]) {
+        return [self.currentlyDownloadingItems objectForKey:@(uid)];
+    }
+    
+    return nil;
+}
+
+- (BOOL)isItemInDownloading:(id<AUMediaItem>)item {
+    
+    __block BOOL contains = NO;
+    
+    [self.currentlyDownloadingItems enumerateKeysAndObjectsUsingBlock:^(NSNumber* key, id<AUMediaItem> obj, BOOL *stop) {
+        
+        if ([[obj uid] isEqualToString:[item uid]]) {
+            contains = YES;
+            *stop = YES;
+        }
+    }];
+    
+    return contains;
+}
+
+- (NSMutableDictionary *)currentlyDownloadingItems {
+    
+    if (!_currentlyDownloadingItems) {
+        
+        NSString *path = [NSString au_tempDownloadingDirectory];
+        _currentlyDownloadingItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        if (!_currentlyDownloadingItems) {
+            _currentlyDownloadingItems = [NSMutableDictionary dictionary];
+        }
+    }
+    
+    return _currentlyDownloadingItems;
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 - (NSString *)persistancePathForType:(AUMediaType)type {
     
@@ -280,11 +445,24 @@
 
 - (NSURLSessionDownloadTask *)downloadTaskForItem:(id<AUMediaItem>)item {
     for (NSURLSessionDownloadTask *task in self.downloadTasks) {
-        if ([task.taskDescription isEqualToString:[item uid]]) {
+        
+        id<AUMediaItem> temp = [self downloadingItemForTaskIdentifier:task.taskIdentifier];
+        if ([[temp uid] isEqualToString:[item uid]]) {
             return task;
         }
     }
     return nil;
+}
+
+- (BOOL)addSkipBackupAttributeToFileAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
+    
+    NSURL *url = [NSURL fileURLWithPath:path];
+    
+    return [url setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:error];
+}
+
+- (NSDictionary *)notificationUserInfoWithItemID:(NSString *)uid {
+    return @{kAUMediaItemIdentifierUserInfoKey : uid};
 }
 
 @end

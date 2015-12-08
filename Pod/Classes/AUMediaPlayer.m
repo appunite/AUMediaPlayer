@@ -12,11 +12,14 @@
 #import "AUMediaPlayer.h"
 #import <objc/runtime.h>
 #import "NSError+AUMedia.h"
+#import "NSArray+AUMedia.h"
 
-@interface AUMediaPlayer() {
+@interface AUMediaPlayer() <AUCastDelegate> {
     id _timeObserver;
+    NSTimer *_chromecastObserverTimer;
     BOOL _shouldPlayWhenPlayerIsReady;
-    BOOL _playing;
+    BOOL _playing; // used to continue playback after buffer empties and loads again
+    NSTimeInterval _localPlayerPlaybackTime; // used when pausing local player and resuming playback on chromecast
 }
 @property (nonatomic, readwrite) BOOL playbackTimesAreValid;
 @property (nonatomic, readwrite) NSUInteger currentPlaybackTime;
@@ -51,7 +54,9 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _library = [[AUMediaLibrary alloc] init];
+        _library = [[AUMediaLibrary alloc] initWithNSURLSessionConfiguration:self.downloadURLSessionConfiguration iCloudBackup:self.backupToiCloud saveItemPersistently:self.saveItemsPersistently];
+        _chromecastManager = [[AUCast alloc] init];
+        _chromecastManager.delegate = self;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleInterruption:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
         self.playbackIsResumedAfterInterruptions = YES;
@@ -63,7 +68,35 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Getters/setters
+#pragma mark -
+#pragma mark AUMediaLibrary Config
+
+- (BOOL)backupToiCloud {
+    return NO;
+}
+
+- (BOOL)saveItemsPersistently {
+    return YES;
+}
+
+- (NSURLSessionConfiguration *)downloadURLSessionConfiguration {
+    
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSURLSessionConfiguration *config = nil;
+    NSString *sessionConfigurationIdentifierLastParth = @".AUDownloadBackgroundSession";
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0f) {
+        config = [NSURLSessionConfiguration backgroundSessionConfiguration:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
+    } else {
+        config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[bundleID stringByAppendingString:sessionConfigurationIdentifierLastParth]];
+    }
+    config.sessionSendsLaunchEvents = YES;
+    
+    return config;
+}
+
+#pragma mark -
+#pragma mark Getters/setters
 
 - (void)setQueue:(NSArray *)queue {
     _queue = queue;
@@ -75,23 +108,56 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [self updateNowPlayingInfoCenterData];
 }
 
-#pragma mark - Player actions
+#pragma mark -
+#pragma mark Player actions
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
-    self.queue = @[item];
+    
+    if (!item) {
+        NSAssert(NO, @"You must provide an item to play");
+        return;
+    }
+    
     [self updatePlayerWithItem:item error:error];
+    self.queue = @[item];
+    
+    if (_receiver == AUMediaReceiverChromecast) {
+        [self startItemPlaybackOnChromecast:item];
+    }
+    
     [self play];
 }
 
 - (void)playItemQueue:(id<AUMediaItemCollection>)collection error:(NSError *__autoreleasing *)error {
-    self.queue = collection.mediaItems;
-    id<AUMediaItem>item = _shuffle ? [self.shuffledQueue objectAtIndex:0] : [self.queue objectAtIndex:0];
     
+    if (!collection.mediaItems || collection.mediaItems.count == 0) {
+        NSAssert(NO, @"Media collection must contain at least one item");
+        return;
+    }
+    
+    NSArray *items = collection.mediaItems;
+    NSArray *shuffledItems = [collection.mediaItems shuffle];
+    id<AUMediaItem>item = _shuffle ? [shuffledItems objectAtIndex:0] : [items objectAtIndex:0];
+
     [self updatePlayerWithItem:item error:error];
+    
+    _queue = items;
+    _shuffledQueue = shuffledItems;
+    
+    if (_receiver == AUMediaReceiverChromecast) {
+        [self startItemPlaybackOnChromecast:item];
+    }
+    
     [self play];
 }
 
 - (void)play {
+    
+    if (self.receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager resume];
+        return;
+    }
+    
     if (_player.status == AVPlayerStatusReadyToPlay) {
         [_player play];
     } else {
@@ -101,17 +167,35 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)pause {
+    if (self.receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager pause];
+        return;
+    }
     [_player pause];
     _playing = NO;
     _shouldPlayWhenPlayerIsReady = NO;
 }
 
 - (void)stop {
+    if (self.receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager stop];
+        [self setLocalPlayback];
+    }
+    
     [_player pause];
     _playing = NO;
     _shouldPlayWhenPlayerIsReady = NO;
     [self replaceCurrentItemWithNewPlayerItem:nil];
     self.queue = @[];
+    [self resetPlaybackTimes];
+}
+
+- (void)stopChromecast {
+    
+    if (self.receiver == AUMediaReceiverChromecast) {
+        [self.chromecastManager stop];
+        [self setLocalPlayback];
+    }
 }
 
 - (void)playItemFromCurrentQueueAtIndex:(NSUInteger)index {
@@ -153,6 +237,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 }
 
 - (void)playNext {
+    
+    if (!self.queue || self.queue.count < 1) {
+        return;
+    }
+    
     NSError *error = nil;
     
     NSUInteger nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
@@ -165,13 +254,23 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
     
     if (_repeat == AUMediaRepeatModeOn || nextTrackIndex > 0) {
-        [self play];
+        
+        if (_receiver == AUMediaReceiverNone) {
+            [self play];
+        } else if (_receiver == AUMediaReceiverChromecast) {
+            [self startItemPlaybackOnChromecast:nextItem];
+        }
     } else {
         [self pause];
     }
 }
 
 - (void)playPrevious {
+    
+    if (!self.queue || self.queue.count < 1) {
+        return;
+    }
+    
     if (_currentPlaybackTime > 2) {
         [_player seekToTime:kCMTimeZero];
         return;
@@ -197,11 +296,21 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     if (nextTrackIndex == 0 && currentTrackIndex == 0) {
         [self pause];
     } else {
-        [self play];
+        if (_receiver == AUMediaReceiverNone) {
+            [self play];
+        } else if (_receiver == AUMediaReceiverChromecast) {
+            [self startItemPlaybackOnChromecast:nextItem];
+        }
     }
 }
 
 - (void)seekToMoment:(double)moment {
+    if (_receiver == AUMediaReceiverChromecast) {
+        
+        [self.chromecastManager seekToMoment:moment];
+        return;
+    }
+    
     if (_player.status != AVPlayerStatusReadyToPlay) {
         return;
     }
@@ -243,7 +352,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     // override
 }
 
-#pragma mark - Playback info
+#pragma mark -
+#pragma mark Playback info
 
 - (id<AUMediaItem>)nowPlayingItem {
     return objc_getAssociatedObject(_player.currentItem, AVPlayerItemAssociatedItem);
@@ -252,7 +362,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 - (AUMediaPlaybackStatus)playbackStatus {
     if ([self playerIsPlaying]) {
         return AUMediaPlaybackStatusPlaying;
-    } else if (_player.status == AVPlayerStatusReadyToPlay) {
+    } else if (self.receiver ==  AUMediaReceiverChromecast && (self.chromecastManager.status == AUCastStatusPlaying || self.chromecastManager.status == AUCastStatusBuffering)) {
+        return AUMediaPlaybackStatusPlaying;
+    } else if (self.receiver ==  AUMediaReceiverChromecast && self.chromecastManager.status == AUCastStatusPaused) {
+        return AUMediaPlaybackStatusPaused;
+    } else if (_player.status == AVPlayerStatusReadyToPlay && self.player.currentItem != nil) {
         return AUMediaPlaybackStatusPaused;
     } else {
         return AUMediaPlaybackStatusPlayerInactive;
@@ -271,7 +385,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     return self.queue.count;
 }
 
-#pragma mark - Internal player methods
+#pragma mark -
+#pragma mark Internal player methods
 
 - (void)updatePlayerWithItem:(id<AUMediaItem>)item error:(NSError * __autoreleasing*)error {
     NSParameterAssert([item uid]);
@@ -281,14 +396,21 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     NSURL *url = nil;
     if ([_library itemIsDownloaded:item]) {
         url = [NSURL fileURLWithPath:[_library localPathForItem:item]];
-        NSLog(@"Playback will occur from local file with url: %@", url);
+        if (url)
+            NSLog(@"Playback will occur from local file with url: %@", url);
     }
-    if (!url) {
+    if (!url && [item respondsToSelector:@selector(localPath)] && [item localPath]) {
+        url = [NSURL fileURLWithPath:[item localPath]];
+        if (url)
+            NSLog(@"Playback will occur from external disk file with url: %@", url);
+    }
+    if (!url && [item remotePath]) {
         url = [NSURL URLWithString:[item remotePath]];
-        NSLog(@"Playback will occur from remote stream with url: %@", url);
+        if (url)
+            NSLog(@"Playback will occur from remote stream with url: %@", url);
     }
     if (!url) {
-        *error = [NSError au_itemNotAvailableToPlayError];
+        if (error != NULL) *error = [NSError au_itemNotAvailableToPlayError];
         return;
     }
     
@@ -337,6 +459,9 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     } else {
         [self replaceCurrentItemWithNewPlayerItem:playerItem];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlayedItemDidChangeNotification object:nil];
+    [self updateNowPlayingInfoCenterData];
 }
 
 - (void)initPlaybackTimeObserver {
@@ -367,23 +492,49 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
 }
 
-- (void)observePlaybackTime
-{
-    CMTime playerDuration = [self playerItemDuration];
-    if (CMTIME_IS_INVALID(playerDuration))
-    {
-        [self resetPlaybackTimes];
-        return;
+- (void)observePlaybackTime {
+    
+    // Local player
+    if (_receiver == AUMediaReceiverNone) {
+        
+        CMTime playerDuration = [self playerItemDuration];
+        if (CMTIME_IS_INVALID(playerDuration))
+        {
+            [self resetPlaybackTimes];
+            return;
+        }
+        
+        self.playbackTimesAreValid = YES;
+        
+        double duration = CMTimeGetSeconds(playerDuration);
+        
+        if (isfinite(duration))
+        {
+            double time = CMTimeGetSeconds([self.player currentTime]);
+            if ((NSUInteger)time != _currentPlaybackTime) {
+                self.currentPlaybackTime = (NSUInteger)time;
+            }
+            if ((NSUInteger)duration != _duration) {
+                self.duration = (NSUInteger)duration;
+            }
+        }
     }
     
-    _playbackTimesAreValid = YES;
-    
-    double duration = CMTimeGetSeconds(playerDuration);
-    if (isfinite(duration))
-    {
-        double time = CMTimeGetSeconds([self.player currentTime]);
-        if ((NSUInteger)time != _currentPlaybackTime) {
-            self.currentPlaybackTime = (NSUInteger)time;
+    // Chromecast
+    else if (_receiver == AUMediaReceiverChromecast) {
+        
+        double progressTime = [self.chromecastManager getCurrentPlaybackProgressTime];
+        double duration = [self.chromecastManager getCurrentItemDuration];
+        
+        if (progressTime < 0.0 || duration < 0.0) {
+            [self resetPlaybackTimes];
+            return;
+        }
+        
+        self.playbackTimesAreValid = YES;
+        
+        if ((NSUInteger)progressTime != _currentPlaybackTime) {
+            self.currentPlaybackTime = (NSUInteger)progressTime;
         }
         if ((NSUInteger)duration != _duration) {
             self.duration = (NSUInteger)duration;
@@ -419,10 +570,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
             } else if ([item itemType] == AUMediaTypeVideo) {
                 _recentlyPlayedVideoItem = item;
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlayedItemDidChangeNotification object:nil];
         }
-        
-        [self updateNowPlayingInfoCenterData];
         
     } else if (context == AVPlayerPlaybackCurrentItemOldObservationContext) {
         AVPlayerItem *priorItem = [change objectForKey:NSKeyValueChangeOldKey];
@@ -500,17 +648,11 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     }
 }
 
-#pragma mark - Helper methods
+#pragma mark -
+#pragma mark Helper methods
 
 - (void)shuffleQueue {
-    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.queue];
-    NSMutableArray *shuffledArray = [NSMutableArray array];
-    while ([tempArray count] > 0) {
-        NSUInteger idx = arc4random() % [tempArray count];
-        [shuffledArray addObject:[tempArray objectAtIndex:idx]];
-        [tempArray removeObjectAtIndex:idx];
-    }
-    self.shuffledQueue = shuffledArray;
+    self.shuffledQueue = [self.queue shuffle];
 }
 
 - (BOOL)playerIsPlaying {
@@ -575,7 +717,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         [info setObject:[self.nowPlayingItem title] forKey:MPMediaItemPropertyTitle];
     }
     
-    if ([self.nowPlayingItem author]) {
+    if ([self.nowPlayingCover respondsToSelector:@selector(author)] && [self.nowPlayingItem author]) {
         [info setObject:[self.nowPlayingItem author] forKey:MPMediaItemPropertyArtist];
     }
     
@@ -589,33 +731,8 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:info];
 }
 
-#pragma mark - Lock screen
-
-- (void)handleLockScreenEvent:(UIEvent *)receivedEvent {
-    switch (receivedEvent.subtype) {
-        case UIEventSubtypeRemoteControlPause:
-            [self pause];
-            break;
-            
-        case UIEventSubtypeRemoteControlPlay:
-            [self play];
-            break;
-            
-        case UIEventSubtypeRemoteControlPreviousTrack:
-            [self playPrevious];
-            break;
-            
-        case UIEventSubtypeRemoteControlNextTrack:
-            [self playNext];
-            break;
-            
-        default:
-            break;
-    }
-    
-}
-
-#pragma mark - Interruptions
+#pragma mark -
+#pragma mark Interruptions
 
 - (void)handleInterruption:(NSNotification *)notification {
     if (notification.name == AVAudioSessionInterruptionNotification) {
@@ -631,6 +748,134 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
                 break;
         }
     }
+}
+
+#pragma mark -
+#pragma mark Receiver changes
+
+- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
+                                            currentlyVisibleViewController:(UIViewController *)visibleViewController
+                                                 connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock {
+    
+    [self pause];
+    
+    _localPlayerPlaybackTime = (NSTimeInterval)self.currentPlaybackTime;
+    
+    _receiver = AUMediaReceiverChromecast;
+    
+    [self initChromecastTimeObserver];
+    
+    if ([self.chromecastManager isDeviceConnected]) {
+        completionBlock(self.chromecastManager.connectedDevice, nil);
+        return;
+    }
+    
+    self.chromecastManager.afterConnectBlock = completionBlock;
+    
+    self.chromecastManager.searchDevices = YES;
+    
+    [visibleViewController presentViewController:devicesController animated:YES completion:nil];
+}
+
+- (void)setLocalPlayback {
+    
+    NSTimeInterval playbackTime = [self.chromecastManager getCurrentPlaybackProgressTime];
+    
+    if (_receiver == AUMediaReceiverNone) {
+        return;
+    } else if (_receiver == AUMediaReceiverChromecast) {
+        
+        [_chromecastObserverTimer invalidate];
+        _chromecastObserverTimer = nil;
+        
+        [self.chromecastManager stop];
+    }
+    
+    if (playbackTime < 0.0) {
+        playbackTime = 0.0;
+    }
+    
+    _receiver = AUMediaReceiverNone;
+    
+    if (_player.status == AVPlayerStatusReadyToPlay) {
+        
+        CMTime timeToSeek = CMTimeMakeWithSeconds(playbackTime, NSEC_PER_SEC);
+        
+        __weak __typeof__(self) weakSelf = self;
+        [_player seekToTime:timeToSeek completionHandler:^(BOOL finished) {
+            [weakSelf updateNowPlayingInfoCenterData];
+        }];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackStateDidChangeNotification object:nil];
+}
+
+- (void)switchPlaybackToCurrentReceiver {
+    if (_receiver == AUMediaReceiverChromecast) {
+        
+        NSTimeInterval playbackMoment = _localPlayerPlaybackTime;
+        id<AUMediaItem>item = self.nowPlayingItem;
+        
+        [self.chromecastManager playItem:item fromMoment:playbackMoment];
+    } else if (_receiver == AUMediaReceiverNone) {
+        
+        if (_player.status == AVPlayerStatusReadyToPlay) {
+            
+            [self play];
+            
+        } else if(self.nowPlayingItem) {
+            
+            BOOL success = [self tryPlayingItemFromCurrentQueue:self.nowPlayingItem];
+            
+            if (!success) {
+                [self playItem:self.nowPlayingItem error:nil];
+            }
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Chromecast
+
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item {
+    if (_receiver == AUMediaReceiverChromecast) {
+        return [self.chromecastManager isItemCurrentlyPlayedOnChromecast:item];
+    }
+    return NO;
+}
+
+- (void)startItemPlaybackOnChromecast:(id<AUMediaItem>)item {
+    [self.chromecastManager playItem:item fromMoment:0.0];
+}
+
+- (void)initChromecastTimeObserver {
+    if (_chromecastObserverTimer == nil) {
+        _chromecastObserverTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(observePlaybackTime) userInfo:nil repeats:YES];
+    }
+}
+
+#pragma mark -
+#pragma mark AUCastDelegate
+
+- (void)playbackDidReachEnd {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlaybackDidReachEndNotification object:nil];
+    
+    if (_repeat == AUMediaRepeatModeOneSong) {
+        
+        [self.chromecastManager seekToMoment:0.0];
+        [self play];
+        return;
+    }
+    
+    NSUInteger nextTrackIndex = (self.currentlyPlayedTrackIndex + 1) % self.queue.count;
+    
+    if (_repeat == AUMediaRepeatModeOn || nextTrackIndex > 0) {
+        [self playNext];
+        return;
+    }
+    
+    [self stopChromecast];
 }
 
 @end

@@ -45,14 +45,12 @@ typedef NS_ENUM(NSInteger, AUMediaType){
  */
 - (NSString *)uid;
 - (NSString *)title;
-- (NSString *)author;
 /**
  *  Item must know its type.
  *
  *  @return AUMediaType enum case
  */
 - (AUMediaType)itemType;
-
 /**
  *  Remote path getter, item can be stream or downloaded from.
  *
@@ -62,9 +60,33 @@ typedef NS_ENUM(NSInteger, AUMediaType){
 /**
  *  File type extension, that will be appended to path
  *
- *  @return filet type extension
+ *  @return file type extension
  */
 - (NSString *)fileTypeExtension;
+
+@optional
+
+/**
+ *  Author name
+ *
+ *  @return author name
+ */
+- (NSString *)author;
+
+/**
+ *  Path to artwork cover image
+ *  Used to display media artwork on chromecast
+ *
+ *  @return file type extension
+ */
+- (NSString *)coverImagePath;
+
+/**
+ *  Local path getter. Item can be streamed from disk, even if it's not sotred by AUMediaPlayer itself
+ *
+ *  @return external to AUMediaLibrary local path
+ */
+- (NSString *)localPath;
 
 @end
 

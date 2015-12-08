@@ -6,23 +6,39 @@
 //  Copyright (c) 2015 AppUnite. All rights reserved.
 //
 
-#import "AFURLSessionManager.h"
+#import <AFNetworking/AFURLSessionManager.h>
 #import "AUMediaItem.h"
 
-static NSString *kAUMediaAudioDocuments = @"AUMediaPersisatnceStoreAudio";
-static NSString *kAUMediaVideoDocuments = @"AUMediaPersisatnceStoreVideo";
-static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
+/**
+ *  !!! IMPORTANT !!!
+ *
+ *  In order to enable background downloads file prtection mode in your app entitlements must not be
+ *  set to NSFileProtectionComplete.
+ *  Read Apple Documentetion to find file prtection mode suitable for your app.
+ *
+ *  !!! IMPORTANT !!!
+ */
+
+static NSString *const kAUMediaAudioDocuments = @"AUMediaPersisatnceStoreAudio";
+static NSString *const kAUMediaVideoDocuments = @"AUMediaPersisatnceStoreVideo";
+static NSString *const kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
 
 @interface AUMediaLibrary : AFURLSessionManager
+
+@property (nonatomic, copy) void (^savedCompletionHandler)(void);
+@property (nonatomic, assign, readonly) BOOL backupToiCloud; // defaults to NO
+@property (nonatomic, assign, readonly) BOOL saveItemsPersistently; // defaults to YES. Change to know if you want to use NSCachesDirectory
+
+- (instancetype)initWithNSURLSessionConfiguration:(NSURLSessionConfiguration *)configuration
+                                     iCloudBackup:(BOOL)backupToiCloud
+                             saveItemPersistently:(BOOL)persistently;
 
 /**
  *  Downloads given item.
  *
  *  @param item Item object conforming to AUMediaItem protocol.
- *
- *  @return NSProgress class object indicating download progress state.
  */
-- (NSProgress *)downloadItem:(id<AUMediaItem>)item;
+- (void)downloadItem:(id<AUMediaItem>)item;
 /**
  *  Gets NSProgress class object for item that is already downloading.
  *
@@ -62,7 +78,7 @@ static NSString *kAUMediaOtherDocuments = @"AUMediaPersistanceStoreOthers";
  *  @param data       File data.
  *  @param attributes Write attributes such as modification date.
  */
-- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes;
+- (void)writeItem:(id<AUMediaItem>)item data:(NSData *)data attributes:(NSDictionary *)attributes error:(NSError *__autoreleasing*)error;
 
 - (BOOL)itemIsDownloaded:(id<AUMediaItem>)item;
 - (BOOL)itemCollectionIsDownloaded:(id<AUMediaItemCollection>)collection;

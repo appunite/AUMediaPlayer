@@ -10,20 +10,13 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AUMediaLibrary.h"
 #import "AUMediaConstants.h"
+#import "AUCast.h"
 
 /*********************************************************************
 
 Add this to application:didFinishLaunchingWithOptions: method to enable background playback
 
 [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-
-Add this code to AppDelegate in order to be able to receive remote control events
-
-- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
-    if (receivedEvent.type == UIEventTypeRemoteControl) {
-        [[AUMedia sharedInstance] handleLockScreenEvent:receivedEvent];
-    }
-}
  
  *********************************************************************/
 
@@ -96,6 +89,20 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
     AUMediaRepeatModeOneSong
 };
 
+/**
+ *  Receiver enumartion type
+ */
+typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
+    /**
+     *  Indicates that all media are playing locally
+     */
+    AUMediaReceiverNone,
+    /**
+     *  Indicates that chromecast streaming is active
+     */
+    AUMediaReceiverChromecast
+};
+
 @interface AUMediaPlayer : NSObject
 
 //One can get visual output by setting this player object as a player property of AVPlayerLayer object
@@ -110,6 +117,10 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  *  Enables actions such as download, adding, removing items.
  */
 @property (nonatomic, strong, readonly) AUMediaLibrary *library;
+/**
+ *  This property gives access to chromecast fuctionality
+ */
+@property (nonatomic, strong, readonly) AUCast *chromecastManager;
 
 /**
  *  Item corresponding to AVPlayerItem that is currently loaded to player.
@@ -160,12 +171,42 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
  */
 @property (nonatomic, readonly) AUMediaPlaybackStatus playbackStatus;
 /**
+ *  It informs on which device is playing.
+ */
+@property (nonatomic, readonly) AUMediaReceiverType receiver;
+/**
  *  If thos flag is set to YES, after interruptions like phone calls, the playback will be resumed.
  *  Defaults to YES.
  */
 @property (nonatomic) BOOL playbackIsResumedAfterInterruptions;
 
 + (instancetype)sharedInstance;
+
+/**
+ *  AUMediaLibrary config method
+ *  Override to provide your preferred setting.
+ *  Defaults to NO. If YES, stored files will be backed up to iCloud (use when stored user files can't be easily recreated).
+ *  Requires saveItemsPersistently set to YES.
+ *
+ *  @return Your prefferrd icloud setting
+ */
+- (BOOL)backupToiCloud;
+/**
+ *  AUMediaLibrary config method
+ *  Override to provide your preferred setting.
+ *  Defaults to YES. If no uses NSCaches directory to store files.
+ *
+ *  @return Your preferred persistance seeting.
+ */
+- (BOOL)saveItemsPersistently;
+/**
+ *  AUMediaLibrary config method
+ *  By overriding this method you can provide custom NSURLSessionConfiguration for AUMediaLibrary in your subclass.
+ *  You can i.e. call super to get default session configuration and then add HTTP additional headers
+ *
+ *  @return NSURLSessionConfiguration which will be used for AUMediaLibrary init
+ */
+- (NSURLSessionConfiguration *)downloadURLSessionConfiguration;
 
 /**
  *  Plays given item.
@@ -255,13 +296,51 @@ typedef NS_ENUM(NSUInteger, AUMediaRepeatMode){
 - (void)restorePlayerStateWithItem:(id<AUMediaItem>)item queue:(NSArray *)queue playbackTime:(CMTime)time error:(NSError *__autoreleasing *)error;
 
 /**
- *  Method handling remote control events regarding playback when app is in background.
- *  @warning You DO NOT call it by yourself. Suitable method should be added to AppDelegate.
- *  Just copy-paste it from the top of this file.
+ * Use this method to change receiver type. If change is possible it returns YES.
  *
- *  @param receivedEvent
+ * @param receiver New receiver type
  */
-- (void)handleLockScreenEvent:(UIEvent *)receivedEvent;
+
+#pragma mark -
+#pragma mark Switching receivers
+
+/**
+ *  Call this method in order to change mode from on-device-playback to chromecast. Chromecast device must be selected at this stage.
+ *
+ *  @param devicesController     Controller to be presented in order to choose chromecast device. Its construction is left entirely to library user in order to provide full customization. In order to fetch available devices set block on chromecastManager with method setDevicesChangeBlock:. It will be called each time new device is discovered or one that was available earlier - lost. When device is selected, method connectToDevice: on chromecastManager has to be called.
+ *  @param visibleViewController Controller to present devicesController from.
+ *  @param completionBlock       Connection completion block. Contains connected device and error parameters.
+ */
+- (void)changeReceviverToChromecastTypeWithChromecastDevicesViewController:(UIViewController *)devicesController
+                                            currentlyVisibleViewController:(UIViewController *)visibleViewController
+                                                 connectionCompletionBlock:(AUCastConnectCompletionBlock)completionBlock;
+
+/**
+ *  Call this method if you want to switch playback back to on-device.
+ */
+- (void)setLocalPlayback;
+
+/**
+ *  If this method gets called after switching receivers, playback will smoothly switch to the new one, starting from moment the previous receiver ended.
+ */
+- (void)switchPlaybackToCurrentReceiver;
+
+/**
+ *  Quits chromecast service. Sets reciver back to local.
+ */
+- (void)stopChromecast;
+
+#pragma mark -
+#pragma mark Chromecast section
+
+/**
+ *  Returns YES if chromecast is playing at the moment and given item is played.
+ *
+ *  @param item item to check
+ *
+ *  @return YES if item is played on chromecast at the moment
+ */
+- (BOOL)isItemCurrentlyPlayedOnChromecast:(id<AUMediaItem>)item;
 
 @end
 
