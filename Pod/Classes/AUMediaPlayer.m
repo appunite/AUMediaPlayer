@@ -112,13 +112,16 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark Player actions
 
 - (void)playItem:(id<AUMediaItem>)item error:(NSError *__autoreleasing *)error {
-    
+    [self playItem:item fromMoment:0 error:error];
+}
+
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(double)moment error:(NSError *__autoreleasing *)error {
     if (!item) {
         NSAssert(NO, @"You must provide an item to play");
         return;
     }
     
-    [self updatePlayerWithItem:item error:error];
+    [self updatePlayerWithItem:item time:moment error:error];
     self.queue = @[item];
     
     if (_receiver == AUMediaReceiverChromecast) {
@@ -388,7 +391,7 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
 #pragma mark -
 #pragma mark Internal player methods
 
-- (void)updatePlayerWithItem:(id<AUMediaItem>)item error:(NSError * __autoreleasing*)error {
+- (void)updatePlayerWithItem:(id<AUMediaItem>)item time:(double)time error:(NSError * __autoreleasing*)error {
     NSParameterAssert([item uid]);
     
     [self prepareForCurrentItemReplacementWithItem:item];
@@ -414,7 +417,15 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
         return;
     }
     
+    // create player item
     AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:url];
+    
+    // time to seek
+    CMTime timeToSeek = CMTimeMakeWithSeconds(time, NSEC_PER_SEC);
+    
+    // seek to time
+    [playerItem seekToTime:timeToSeek];
+    
     objc_setAssociatedObject(playerItem, AVPlayerItemAssociatedItem, item, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     if ([item itemType] == AUMediaTypeAudio) {
@@ -462,6 +473,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kAUMediaPlayedItemDidChangeNotification object:nil];
     [self updateNowPlayingInfoCenterData];
+}
+
+- (void)updatePlayerWithItem:(id<AUMediaItem>)item error:(NSError * __autoreleasing*)error {
+    [self updatePlayerWithItem:item time:0.0 error:error];
 }
 
 - (void)initPlaybackTimeObserver {

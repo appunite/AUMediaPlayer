@@ -215,6 +215,16 @@ typedef NS_ENUM(NSUInteger, AUMediaReceiverType){
  *  @param error Error is assigned when playback fails.
  */
 - (void)playItem:(id<AUMediaItem>)item error:(NSError * __autoreleasing *)error;
+
+/**
+ *  Plays given item.
+ *
+ *  @param item  Item to play.
+ *  @param moment Time in seconds, item will be sought to moment before starts playing
+ *  @param error Error is assigned when playback fails.
+ */
+- (void)playItem:(id<AUMediaItem>)item fromMoment:(double)moment error:(NSError * __autoreleasing *)error;
+
 /**
  *  Creates queue from mediaItems array of given collection and starts playing it starting from the first one.
  *
