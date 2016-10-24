@@ -1,27 +1,21 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - AUMediaPlayer (2.0.0):
-    - AFNetworking (~> 2.3)
+  - AUMediaPlayer (3.0.0):
+    - AFNetworking (> 2.3)
   - Expecta (1.0.3)
   - Specta (1.0.3)
 
@@ -32,11 +26,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   AUMediaPlayer:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
-  AUMediaPlayer: 3ad01682cbd838748d94b1528215962817288b9f
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AUMediaPlayer: 6d53664b3b2dec66e60cbbcd22baeff53435d98a
   Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
   Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
 
