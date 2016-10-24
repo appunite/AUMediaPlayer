@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.framework = 'GoogleCast'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/AUMediaPlayer/Frameworks/GoogleCastSDK-2.7.1-Release"' }
 
-  s.dependency 'AFNetworking', '> 2.3'
+  s.dependency 'AFNetworking'
   #s.dependency 'google-cast-sdk', '~>2.7.1'
   
 end
