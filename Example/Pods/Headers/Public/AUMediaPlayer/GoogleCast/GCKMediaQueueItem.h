@@ -1,1 +1,0 @@
-../../../../../../Frameworks/GoogleCastSDK-2.7.1-Release/GoogleCast.framework/Versions/A/Headers/GCKMediaQueueItem.h
