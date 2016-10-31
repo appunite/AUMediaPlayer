@@ -394,7 +394,10 @@ static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBu
     [self prepareForCurrentItemReplacementWithItem:item];
     
     NSURL *url = nil;
-    if ([_library itemIsDownloaded:item]) {
+    if([item isLocalItem]) {
+        url = [NSURL fileURLWithPath: [item localPath]];
+    }
+    if ([_library itemIsDownloaded:item] && !url) {
         url = [NSURL fileURLWithPath:[_library localPathForItem:item]];
         if (url)
             NSLog(@"Playback will occur from local file with url: %@", url);

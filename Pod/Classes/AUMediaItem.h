@@ -30,6 +30,11 @@ typedef NS_ENUM(NSInteger, AUMediaType){
 
 @protocol AUMediaItem <NSObject, NSCoding>
 
+@optional
+
+- (BOOL)isLocalItem;
+- (NSString *)localPath;
+
 @required
 
 /*****************************************************************************
